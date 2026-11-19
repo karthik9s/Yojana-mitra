@@ -20,7 +20,7 @@ need info: Widow pension (marital status?)  →  follow-up questions, ranked by 
 "Why you qualify / What you get / Documents / How to apply" in English, Telugu or Hindi
 ```
 
-**Project page:** https://karthik9s.github.io/Yojana-mitra/ (screenshots, features, results).
+**Project page:** https://yojanamitra.netlify.app/ (screenshots, features, results).
 
 New to the code? Open [docs/explainer.html](docs/explainer.html) in a browser for a step-by-step visual walkthrough with a live matching demo, a pitch and interview practice.
 
