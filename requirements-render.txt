@@ -1,0 +1,12 @@
+# Slim install for small hosts (Render free plan, 512 MB RAM): no PyTorch / embedding model.
+# Run with YM_DENSE=off; retrieval uses TF-IDF, and Telugu/Hindi questions are translated by the LLM.
+fastapi>=0.110
+uvicorn>=0.29
+pydantic>=2.6
+pyyaml>=6.0
+networkx>=3.2
+numpy>=1.26
+scikit-learn>=1.4
+scipy>=1.11
+pypdf>=4.0
+openai>=1.0

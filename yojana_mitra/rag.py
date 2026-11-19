@@ -259,5 +259,5 @@ def get_retriever() -> Retriever:
     if _retriever is None:
         with _lock:
             if _retriever is None:
-                _retriever = Retriever(background=True)
+                _retriever = Retriever(dense=config.DENSE, background=True)
     return _retriever

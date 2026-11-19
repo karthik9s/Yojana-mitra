@@ -208,18 +208,34 @@ def schemes_named_in(question: str) -> list[str]:
     return [sid for sid, a in hits.items() if not any(a != b and a in b for b in hits.values())]
 
 
+def _retrieval_query(question: str, use_llm: bool) -> str:
+    """Without the multilingual embedding model (YM_DENSE=off), keyword search can't match a Telugu or
+    Hindi question to the English guidelines, so translate the question first when an LLM is available."""
+    indic = len(re.findall(r"[ऀ-ॿఀ-౿]", question)) > len(question) * 0.3
+    if not (indic and use_llm and get_retriever().dense_backend == "none"):
+        return question
+    try:
+        out = llm.complete("Translate this question about Indian government welfare schemes into English. "
+                           "Reply with the English question only.", question, max_tokens=400, effort="low")
+        return out.strip() or question
+    except Exception as e:
+        log.warning("query translation failed: %s", e)
+        return question
+
+
 def answer_question(question: str, scheme_ids: Optional[list[str]] = None, lang: str = "en",
                     profile: Optional[dict] = None, use_llm: Optional[bool] = None, k: int = 6) -> dict:
-    named = [] if scheme_ids else schemes_named_in(question)
-    if named:
-        first = get_retriever().search(question, k=4, scheme_ids=named)
-        ids = {c["id"] for c in first}
-        chunks = (first + [c for c in get_retriever().search(question, k=k) if c["id"] not in ids])[:k]
-    else:
-        chunks = get_retriever().search(question, k=k, scheme_ids=scheme_ids)
-    if not chunks and scheme_ids:
-        chunks = get_retriever().search(question, k=k)
     use_llm = llm.available() if use_llm is None else use_llm
+    query = _retrieval_query(question, use_llm)
+    named = [] if scheme_ids else schemes_named_in(query)
+    if named:
+        first = get_retriever().search(query, k=4, scheme_ids=named)
+        ids = {c["id"] for c in first}
+        chunks = (first + [c for c in get_retriever().search(query, k=k) if c["id"] not in ids])[:k]
+    else:
+        chunks = get_retriever().search(query, k=k, scheme_ids=scheme_ids)
+    if not chunks and scheme_ids:
+        chunks = get_retriever().search(query, k=k)
     method, text = "extractive", None
     if use_llm and chunks:
         user = f"Context passages:\n{_context_block(chunks)}\n\n"

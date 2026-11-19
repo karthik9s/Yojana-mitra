@@ -48,6 +48,8 @@ GROQ_BASE_URL = os.getenv("YM_GROQ_BASE_URL", "https://api.groq.com/openai/v1")
 CLAUDE_MODEL = os.getenv("YM_CLAUDE_MODEL", "claude-opus-5-5")
 
 EMBED_MODEL = os.getenv("YM_EMBED_MODEL", "intfloat/multilingual-e5-small")
+# off = keyword (TF-IDF) retrieval only, no PyTorch model: fits small hosts such as Render's free plan.
+DENSE = os.getenv("YM_DENSE", "on").lower() not in ("off", "0", "false", "no")
 
 # If the embedding model is already cached, don't make Hugging Face network calls at startup.
 _hf_cache = Path(os.getenv("HF_HOME", Path.home() / ".cache" / "huggingface")) / "hub"

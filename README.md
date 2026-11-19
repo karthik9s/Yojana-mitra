@@ -49,6 +49,13 @@ python -m uvicorn yojana_mitra.api:app --port 8000
 Open http://localhost:8000. With no key it runs fully offline. For AI extraction and Telugu/Hindi
 answers, copy `.env.example` to `.env` and set `ANTHROPIC_API_KEY`.
 
+**Deploy on Render (free plan):** the repo includes [render.yaml](render.yaml). In Render choose
+New → Blueprint, pick this repository, and paste your `GROQ_API_KEY` when asked. It installs the slim
+[requirements-render.txt](requirements-render.txt) and runs with `YM_DENSE=off` (about 150 MB RAM instead
+of loading PyTorch): retrieval is TF-IDF only, and Telugu/Hindi questions are translated to English by the
+LLM before searching. Free instances sleep after 15 minutes idle, so the first request after that takes
+about a minute.
+
 **Neo4j (optional):**
 
 ```bash
