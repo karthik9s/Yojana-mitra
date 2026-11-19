@@ -1,7 +1,10 @@
-# Netlify: publish the showcase page in docs/ (no build step).
+# Netlify: serve the static showcase page in docs/.
+# base = "docs" keeps Netlify away from the root requirements.txt (the Python app),
+# so it doesn't try to install PyTorch etc. Paths below are relative to base.
 [build]
-  publish = "docs"
-  command = ""
+  base = "docs"
+  publish = "."
+  command = "echo 'static site, no build'"
 
 [[headers]]
   for = "/assets/*"
