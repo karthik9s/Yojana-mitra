@@ -1,0 +1,970 @@
+{
+  "config": {
+    "dataset": "profiles.yaml",
+    "extractor": "llm-groq",
+    "model": "openai/gpt-oss-120b",
+    "methods_used": {
+      "llm": 50
+    },
+    "graph_backend": "in-memory graph (networkx)",
+    "profiles": 50,
+    "schemes": 43,
+    "seconds": 606.0
+  },
+  "micro": {
+    "precision": 0.9904458598726115,
+    "recall": 0.9841772151898734,
+    "f1": 0.9873015873015873,
+    "tp": 311,
+    "fp": 3,
+    "fn": 5
+  },
+  "macro": {
+    "precision": 0.9926282051282052,
+    "recall": 0.9818333333333333
+  },
+  "lenient_micro": {
+    "precision": 0.6541666666666667,
+    "recall": 0.9936708860759493,
+    "f1": 0.7889447236180904
+  },
+  "per_language": {
+    "en": {
+      "precision": 0.9918367346938776,
+      "recall": 0.9918367346938776,
+      "f1": 0.9918367346938776,
+      "n": [
+        243,
+        2,
+        2
+      ]
+    },
+    "te": {
+      "precision": 1.0,
+      "recall": 0.925,
+      "f1": 0.961038961038961,
+      "n": [
+        37,
+        0,
+        3
+      ]
+    },
+    "hi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": [
+        24,
+        0,
+        0
+      ]
+    },
+    "te-en": {
+      "precision": 0.875,
+      "recall": 1.0,
+      "f1": 0.9333333333333333,
+      "n": [
+        7,
+        1,
+        0
+      ]
+    }
+  },
+  "per_scheme": {
+    "ab_pmjay_vay_vandana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "annadata_sukhibhava": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    "ap_fee_reimbursement": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    "atal_pension_yojana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 25,
+      "fp": 0,
+      "fn": 0
+    },
+    "auto_driverla_sevalo": {
+      "precision": 0.6666666666666666,
+      "recall": 1.0,
+      "f1": 0.8,
+      "tp": 2,
+      "fp": 1,
+      "fn": 0
+    },
+    "deepam_2": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "kisan_credit_card": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 10,
+      "fp": 0,
+      "fn": 0
+    },
+    "matsyakara_sevalo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_chronic_illness": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_cobblers": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_bharosa_disabled": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_fishermen": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_old_age": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_single_women": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_toddy_tappers": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_transgender": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_weavers": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_bharosa_widow": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "tp": 2,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_vaidya_seva": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 47,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_internship": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tp": 5,
+      "fp": 0,
+      "fn": 1
+    },
+    "pm_kisan": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 6,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_kisan_maandhan": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_svanidhi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_sym": {
+      "precision": 0.9090909090909091,
+      "recall": 1.0,
+      "f1": 0.9523809523809523,
+      "tp": 10,
+      "fp": 1,
+      "fn": 0
+    },
+    "pm_ujjwala": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_vishwakarma": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmay_gramin": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmay_urban": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmegp": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmfby": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmjjby": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 35,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmmvy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmsby": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 48,
+      "fp": 0,
+      "fn": 0
+    },
+    "stree_shakti": {
+      "precision": 1.0,
+      "recall": 0.9565217391304348,
+      "f1": 0.9777777777777777,
+      "tp": 22,
+      "fp": 0,
+      "fn": 1
+    },
+    "sukanya_samriddhi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "talliki_vandanam": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "vb_g_ram_g": {
+      "precision": 0.9642857142857143,
+      "recall": 1.0,
+      "f1": 0.9818181818181818,
+      "tp": 27,
+      "fp": 1,
+      "fn": 0
+    }
+  },
+  "field_accuracy": {
+    "age": {
+      "accuracy": 1.0,
+      "n": 50
+    },
+    "gender": {
+      "accuracy": 0.9387755102040817,
+      "n": 49
+    },
+    "state": {
+      "accuracy": 1.0,
+      "n": 48
+    },
+    "area": {
+      "accuracy": 1.0,
+      "n": 43
+    },
+    "occupations": {
+      "accuracy": 0.918918918918919,
+      "n": 37
+    },
+    "land_acres": {
+      "accuracy": 1.0,
+      "n": 21
+    },
+    "annual_income": {
+      "accuracy": 1.0,
+      "n": 49
+    },
+    "children_in_school": {
+      "accuracy": 1.0,
+      "n": 8
+    },
+    "marital_status": {
+      "accuracy": 0.875,
+      "n": 8
+    }
+  },
+  "rows": [
+    {
+      "id": "p01",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p02",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 0.667,
+      "false_positives": [],
+      "false_negatives": [
+        "ntr_bharosa_widow",
+        "stree_shakti"
+      ],
+      "field_errors": {
+        "gender": {
+          "gold": "female",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p03",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p04",
+      "lang": "hi",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p05",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p06",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p07",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 0.75,
+      "false_positives": [],
+      "false_negatives": [
+        "ntr_bharosa_weavers"
+      ],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        },
+        "occupations": {
+          "gold": [
+            "weaver"
+          ],
+          "pred": [
+            "agricultural_labourer"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p08",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "marital_status": {
+          "gold": "married",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p09",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p10",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p11",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p12",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p13",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p14",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p15",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p16",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p17",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p18",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p19",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p20",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p21",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p22",
+      "lang": "hi",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p23",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p24",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p25",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p26",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p27",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p28",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p29",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p30",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p31",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p32",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 0.8,
+      "false_positives": [],
+      "false_negatives": [
+        "ntr_bharosa_cobblers"
+      ],
+      "field_errors": {
+        "occupations": {
+          "gold": [
+            "cobbler"
+          ],
+          "pred": [
+            "artisan"
+          ]
+        }
+      }
+    },
+    {
+      "id": "p33",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p34",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p35",
+      "lang": "hi",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p36",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p37",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p38",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p39",
+      "lang": "te-en",
+      "method": "llm",
+      "precision": 0.875,
+      "recall": 1.0,
+      "false_positives": [
+        "vb_g_ram_g"
+      ],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p40",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p41",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 0.875,
+      "false_positives": [],
+      "false_negatives": [
+        "pm_internship"
+      ],
+      "field_errors": {
+        "occupations": {
+          "gold": [
+            "unemployed"
+          ],
+          "pred": []
+        }
+      }
+    },
+    {
+      "id": "p42",
+      "lang": "en",
+      "method": "llm",
+      "precision": 0.923,
+      "recall": 1.0,
+      "false_positives": [
+        "pm_sym"
+      ],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p43",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p44",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p45",
+      "lang": "te",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p46",
+      "lang": "en",
+      "method": "llm",
+      "precision": 0.833,
+      "recall": 1.0,
+      "false_positives": [
+        "auto_driverla_sevalo"
+      ],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p47",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p48",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p49",
+      "lang": "hi",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p50",
+      "lang": "en",
+      "method": "llm",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    }
+  ]
+}

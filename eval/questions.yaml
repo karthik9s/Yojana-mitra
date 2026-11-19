@@ -1,0 +1,14 @@
+# Free-form citizen questions for the faithfulness evaluation.
+questions:
+- question: "What documents do I need for the widow pension?"
+- question: "How much money does Talliki Vandanam give per child?"
+- question: "Can tenant farmers get Annadata Sukhibhava?"
+- question: "Which buses are free for women under Stree Shakti?"
+- question: "How do I apply for PM Vishwakarma?"
+- question: "What is the premium for PM Suraksha Bima Yojana?"
+- question: "How many days of work does the rural employment guarantee give now?"
+- question: "I am a street vendor. How much loan can I get?"
+- question: "తల్లికి వందనం కోసం ఏ పత్రాలు కావాలి?"
+  lang: te
+- question: "मछुआरों को मछली पकड़ने पर रोक के दौरान कितनी मदद मिलती है?"
+  lang: hi

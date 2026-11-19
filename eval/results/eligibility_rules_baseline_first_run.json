@@ -1,0 +1,1001 @@
+{
+  "config": {
+    "extractor": "rules",
+    "methods_used": {
+      "rules": 50
+    },
+    "graph_backend": "in-memory graph (networkx)",
+    "profiles": 50,
+    "schemes": 37,
+    "seconds": 0.2
+  },
+  "micro": {
+    "precision": 0.9966216216216216,
+    "recall": 0.9335443037974683,
+    "f1": 0.9640522875816994,
+    "tp": 295,
+    "fp": 1,
+    "fn": 21
+  },
+  "macro": {
+    "precision": 0.9983333333333333,
+    "recall": 0.9383246753246753
+  },
+  "lenient_micro": {
+    "precision": 0.5285961871750433,
+    "recall": 0.9651898734177216,
+    "f1": 0.683090705487122
+  },
+  "per_language": {
+    "en": {
+      "precision": 0.9957983193277311,
+      "recall": 0.9673469387755103,
+      "f1": 0.9813664596273292,
+      "n": [
+        237,
+        1,
+        8
+      ]
+    },
+    "te": {
+      "precision": 1.0,
+      "recall": 0.775,
+      "f1": 0.8732394366197184,
+      "n": [
+        31,
+        0,
+        9
+      ]
+    },
+    "hi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": [
+        24,
+        0,
+        0
+      ]
+    },
+    "te-en": {
+      "precision": 1.0,
+      "recall": 0.42857142857142855,
+      "f1": 0.6,
+      "n": [
+        3,
+        0,
+        4
+      ]
+    }
+  },
+  "per_scheme": {
+    "ab_pmjay_vay_vandana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "annadata_sukhibhava": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tp": 5,
+      "fp": 0,
+      "fn": 1
+    },
+    "ap_fee_reimbursement": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "tp": 3,
+      "fp": 0,
+      "fn": 1
+    },
+    "atal_pension_yojana": {
+      "precision": 1.0,
+      "recall": 0.96,
+      "f1": 0.9795918367346939,
+      "tp": 24,
+      "fp": 0,
+      "fn": 1
+    },
+    "auto_driverla_sevalo": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "deepam_2": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "kisan_credit_card": {
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1": 0.9473684210526316,
+      "tp": 9,
+      "fp": 0,
+      "fn": 1
+    },
+    "matsyakara_sevalo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_chronic_illness": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_cobblers": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_disabled": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_fishermen": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_old_age": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 7,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_single_women": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_toddy_tappers": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_transgender": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_weavers": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_bharosa_widow": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_vaidya_seva": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 47,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_internship": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tp": 5,
+      "fp": 0,
+      "fn": 1
+    },
+    "pm_kisan": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tp": 5,
+      "fp": 0,
+      "fn": 1
+    },
+    "pm_kisan_maandhan": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_svanidhi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_sym": {
+      "precision": 0.9,
+      "recall": 0.9,
+      "f1": 0.9,
+      "tp": 9,
+      "fp": 1,
+      "fn": 1
+    },
+    "pm_ujjwala": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "tp": 2,
+      "fp": 0,
+      "fn": 1
+    },
+    "pm_vishwakarma": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 4,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmay_gramin": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmay_urban": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmegp": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2
+    },
+    "pmfby": {
+      "precision": 1.0,
+      "recall": 0.8571428571428571,
+      "f1": 0.923076923076923,
+      "tp": 6,
+      "fp": 0,
+      "fn": 1
+    },
+    "pmjjby": {
+      "precision": 1.0,
+      "recall": 0.9714285714285714,
+      "f1": 0.9855072463768115,
+      "tp": 34,
+      "fp": 0,
+      "fn": 1
+    },
+    "pmmvy": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "tp": 3,
+      "fp": 0,
+      "fn": 1
+    },
+    "pmsby": {
+      "precision": 1.0,
+      "recall": 0.9583333333333334,
+      "f1": 0.9787234042553191,
+      "tp": 46,
+      "fp": 0,
+      "fn": 2
+    },
+    "stree_shakti": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 23,
+      "fp": 0,
+      "fn": 0
+    },
+    "sukanya_samriddhi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0
+    },
+    "talliki_vandanam": {
+      "precision": 1.0,
+      "recall": 0.6,
+      "f1": 0.7499999999999999,
+      "tp": 3,
+      "fp": 0,
+      "fn": 2
+    },
+    "vb_g_ram_g": {
+      "precision": 1.0,
+      "recall": 0.9259259259259259,
+      "f1": 0.9615384615384615,
+      "tp": 25,
+      "fp": 0,
+      "fn": 2
+    }
+  },
+  "field_accuracy": {
+    "age": {
+      "accuracy": 0.96,
+      "n": 50
+    },
+    "gender": {
+      "accuracy": 0.9183673469387755,
+      "n": 49
+    },
+    "state": {
+      "accuracy": 1.0,
+      "n": 48
+    },
+    "area": {
+      "accuracy": 1.0,
+      "n": 43
+    },
+    "occupations": {
+      "accuracy": 0.918918918918919,
+      "n": 37
+    },
+    "land_acres": {
+      "accuracy": 1.0,
+      "n": 21
+    },
+    "annual_income": {
+      "accuracy": 1.0,
+      "n": 49
+    },
+    "children_in_school": {
+      "accuracy": 0.75,
+      "n": 8
+    },
+    "marital_status": {
+      "accuracy": 1.0,
+      "n": 8
+    }
+  },
+  "rows": [
+    {
+      "id": "p01",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.909,
+      "false_positives": [],
+      "false_negatives": [
+        "talliki_vandanam"
+      ],
+      "field_errors": {
+        "children_in_school": {
+          "gold": 2,
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p02",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p03",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p04",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p05",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.714,
+      "false_positives": [],
+      "false_negatives": [
+        "auto_driverla_sevalo",
+        "pm_sym"
+      ],
+      "field_errors": {
+        "occupations": {
+          "gold": [
+            "auto_driver"
+          ],
+          "pred": []
+        }
+      }
+    },
+    {
+      "id": "p06",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p07",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.25,
+      "false_positives": [],
+      "false_negatives": [
+        "ntr_bharosa_weavers",
+        "pmsby",
+        "vb_g_ram_g"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 52,
+          "pred": 2
+        },
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p08",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p09",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p10",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p11",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p12",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p13",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p14",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p15",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.9,
+      "false_positives": [],
+      "false_negatives": [
+        "talliki_vandanam"
+      ],
+      "field_errors": {
+        "children_in_school": {
+          "gold": 1,
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p16",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p17",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p18",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p19",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.833,
+      "false_positives": [],
+      "false_negatives": [
+        "pmegp"
+      ],
+      "field_errors": {}
+    },
+    {
+      "id": "p20",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p21",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p22",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p23",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.714,
+      "false_positives": [],
+      "false_negatives": [
+        "ap_fee_reimbursement",
+        "pm_internship"
+      ],
+      "field_errors": {
+        "occupations": {
+          "gold": [
+            "student"
+          ],
+          "pred": []
+        }
+      }
+    },
+    {
+      "id": "p24",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p25",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p26",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p27",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p28",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p29",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p30",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p31",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p32",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p33",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p34",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p35",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p36",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p37",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p38",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p39",
+      "lang": "te-en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.429,
+      "false_positives": [],
+      "false_negatives": [
+        "annadata_sukhibhava",
+        "kisan_credit_card",
+        "pm_kisan",
+        "pmfby"
+      ],
+      "field_errors": {
+        "occupations": {
+          "gold": [
+            "farmer"
+          ],
+          "pred": []
+        }
+      }
+    },
+    {
+      "id": "p40",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p41",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p42",
+      "lang": "en",
+      "method": "rules",
+      "precision": 0.917,
+      "recall": 0.917,
+      "false_positives": [
+        "pm_sym"
+      ],
+      "false_negatives": [
+        "pmegp"
+      ],
+      "field_errors": {}
+    },
+    {
+      "id": "p43",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p44",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p45",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.25,
+      "false_positives": [],
+      "false_negatives": [
+        "atal_pension_yojana",
+        "pm_ujjwala",
+        "pmjjby",
+        "pmmvy",
+        "pmsby",
+        "vb_g_ram_g"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 29,
+          "pred": 9
+        }
+      }
+    },
+    {
+      "id": "p46",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p47",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p48",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "p49",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "p50",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    }
+  ]
+}

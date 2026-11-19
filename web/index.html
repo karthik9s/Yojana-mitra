@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yojana Mitra</title>
+  <meta name="description" content="Find the Andhra Pradesh and central government benefits that are already yours.">
+  <link rel="icon" type="image/svg+xml" href="/static/logo.svg?v=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=6">
+</head>
+<body>
+  <div class="bg-blobs" aria-hidden="true"><span></span><span></span><span></span></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">
+      <img class="logo" src="/static/logo.svg?v=1" alt="" width="36" height="36">
+      <span class="brand-name">yojana<b>mitra</b></span>
+    </a>
+    <div class="top-actions">
+      <span id="status" class="status" title="System status"></span>
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en" class="on">EN</button>
+        <button data-lang="te">తెలుగు</button>
+        <button data-lang="hi">हिंदी</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="pill-tag"><span class="spark">✨</span> <span data-i18n="heroTag">43 schemes · Telugu, Hindi & English · free</span></div>
+      <h1><span data-i18n="heroTitle1">Benefits you deserve,</span><br><span class="grad" data-i18n="heroTitle2">found in seconds.</span></h1>
+      <p class="lead" data-i18n="heroLead">Just tell us about yourself the way you'd tell a friend. We'll match you to scholarships, pensions, farm support and more, and show you exactly how to claim them.</p>
+
+      <form id="ask-form" class="composer">
+        <textarea id="desc" rows="3" required data-i18n-ph="placeholder"
+          placeholder="e.g. I'm 22, studying B.Tech, family income below 1 lakh, from a village near Guntur…"></textarea>
+        <div class="composer-bar">
+          <button type="button" id="mic" class="mic" aria-label="Speak">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a1 1 0 1 1 2 0 7 7 0 0 1-6 6.93V21h3a1 1 0 1 1 0 2H8a1 1 0 1 1 0-2h3v-2.07A7 7 0 0 1 5 12a1 1 0 1 1 2 0 5 5 0 0 0 10 0Z"/></svg>
+          </button>
+          <span id="mic-hint" class="hint" data-i18n="speakHint">Tap the mic to speak</span>
+          <button type="submit" class="cta" id="go"><span data-i18n="find">Find my schemes</span> <span class="arrow">→</span></button>
+        </div>
+      </form>
+
+      <div class="personas">
+        <span class="hint" data-i18n="tryExample">Or try someone like…</span>
+        <div class="persona-row">
+          <button class="persona ex" data-ex="I'm a 45-year-old woman farmer in a village near Guntur with 2 acres. My two children go to school. We have a white ration card and a gas connection."><span class="av" style="--c:#ffe3c2">👩‍🌾</span><span><b>Lakshmi, 45</b><small>Farmer · Guntur</small></span></button>
+          <button class="persona ex" data-ex="I'm 22, male, EWS, family income below 1 lakh, studying B.Tech final year. We live in a village near Nellore. I want scholarships."><span class="av" style="--c:#dcd6ff">🎓</span><span><b>Ravi, 22</b><small>B.Tech student</small></span></button>
+          <button class="persona ex" data-ex="నేను 64 ఏళ్ల వితంతువు, కర్నూలు జిల్లాలోని ఒక గ్రామంలో ఉంటాను. భూమి లేదు, తెల్ల రేషన్ కార్డు ఉంది, నెలకు 5000 ఆదాయం."><span class="av" style="--c:#ffd6e7">👵</span><span><b>సావిత్రమ్మ, 64</b><small>వితంతువు · కర్నూలు</small></span></button>
+          <button class="persona ex" data-ex="मैं 34 साल का मछुआरा हूँ, काकीनाडा के पास एक गाँव में रहता हूँ। आय 8000 रुपये महीना। मेरी 4 साल की बेटी है।"><span class="av" style="--c:#cdeffd">🎣</span><span><b>राजू, 34</b><small>मछुआरा · काकीनाडा</small></span></button>
+          <button class="persona ex" data-ex="I drive my own auto in Visakhapatnam, I'm 31, a man, earn about 12,000 a month and we live in a rented house."><span class="av" style="--c:#d4f5e2">🛺</span><span><b>Suresh, 31</b><small>Auto driver · Vizag</small></span></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results hidden" aria-live="polite">
+      <div class="main-col">
+        <div class="celebrate" id="celebrate"></div>
+        <div id="groups"></div>
+      </div>
+
+      <aside class="side">
+        <div class="card followups hidden" id="followups-card">
+          <div class="card-kicker" data-i18n="quickQ">⚡ Quick questions</div>
+          <h2 data-i18n="moreQuestions">Answer to unlock more</h2>
+          <div id="followups"></div>
+        </div>
+        <div class="card profile-card">
+          <div class="card-head">
+            <h2 data-i18n="yourProfile">What we understood</h2>
+            <button class="link" id="edit-toggle" data-i18n="edit">Edit</button>
+          </div>
+          <div id="method" class="hint"></div>
+          <div id="assumptions"></div>
+          <div id="profile-chips" class="chips"></div>
+          <form id="profile-form" class="profile-form hidden"></form>
+        </div>
+        <div class="card ask-card">
+          <div class="card-kicker" data-i18n="askKicker">💬 Ask anything</div>
+          <h2 data-i18n="askTitle">Got a question?</h2>
+          <p class="hint" data-i18n="askHint">e.g. "What documents do I need for Talliki Vandanam?"</p>
+          <div id="qa-log" class="qa-log"></div>
+          <form id="qa-form" class="qa-form">
+            <input id="qa-input" autocomplete="off" data-i18n-ph="askPh" placeholder="Type your question…">
+            <button class="send" aria-label="Ask">➤</button>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section class="how" id="how">
+      <div class="how-grid">
+        <div class="how-card" style="--c:#efeaff"><span class="how-ic">🗣️</span><b data-i18n="how1t">Talk naturally</b><span data-i18n="how1">Type or speak in Telugu, Hindi or English. No forms to fill.</span></div>
+        <div class="how-card" style="--c:#ffece3"><span class="how-ic">🧩</span><b data-i18n="how2t">Smart matching</b><span data-i18n="how2">We check your details against the real rules of every scheme.</span></div>
+        <div class="how-card" style="--c:#e3f8ee"><span class="how-ic">📋</span><b data-i18n="how3t">Know how to claim</b><span data-i18n="how3">Documents, steps and the official link for each benefit.</span></div>
+      </div>
+      <p class="disclaimer" data-i18n="disclaimer">Yojana Mitra is an independent helper, not a government website. Rules and amounts change, so always confirm at your Village/Ward Secretariat or the official portal before applying.</p>
+    </section>
+  </main>
+
+  <template id="tpl-card">
+    <article class="scheme">
+      <div class="scheme-top">
+        <div class="ic" aria-hidden="true"></div>
+        <div class="scheme-title">
+          <div class="badges"></div>
+          <h3 class="s-name"></h3>
+          <div class="s-alt"></div>
+        </div>
+      </div>
+      <div class="amount"></div>
+      <p class="s-summary"></p>
+      <details class="why">
+        <summary class="why-sum"></summary>
+        <ul class="crit"></ul>
+      </details>
+      <div class="scheme-actions">
+        <button class="ghost explain-btn"></button>
+        <a class="portal" target="_blank" rel="noopener"></a>
+      </div>
+      <div class="explain hidden"></div>
+    </article>
+  </template>
+
+  <script src="/static/app.js?v=7"></script>
+</body>
+</html>

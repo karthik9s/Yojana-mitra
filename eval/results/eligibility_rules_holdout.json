@@ -1,0 +1,570 @@
+{
+  "config": {
+    "dataset": "profiles_holdout.yaml",
+    "extractor": "rules",
+    "model": null,
+    "methods_used": {
+      "rules": 15
+    },
+    "graph_backend": "in-memory graph (networkx)",
+    "profiles": 15,
+    "schemes": 43,
+    "seconds": 0.2
+  },
+  "micro": {
+    "precision": 0.9857142857142858,
+    "recall": 0.7263157894736842,
+    "f1": 0.8363636363636364,
+    "tp": 69,
+    "fp": 1,
+    "fn": 26
+  },
+  "macro": {
+    "precision": 0.9833333333333333,
+    "recall": 0.7477248677248677
+  },
+  "lenient_micro": {
+    "precision": 0.4222222222222222,
+    "recall": 1.0,
+    "f1": 0.59375
+  },
+  "per_language": {
+    "en": {
+      "precision": 0.975,
+      "recall": 0.639344262295082,
+      "f1": 0.7722772277227722,
+      "n": [
+        39,
+        1,
+        22
+      ]
+    },
+    "te": {
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "n": [
+        16,
+        0,
+        4
+      ]
+    },
+    "hi": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "n": [
+        14,
+        0,
+        0
+      ]
+    }
+  },
+  "per_scheme": {
+    "aicte_pragati": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    "annadata_sukhibhava": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ap_fee_reimbursement": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    "atal_pension_yojana": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "tp": 6,
+      "fp": 0,
+      "fn": 3
+    },
+    "deepam_2": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "kisan_credit_card": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "matsyakara_sevalo": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_chronic_illness": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_cobblers": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_old_age": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "ntr_bharosa_single_women": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_bharosa_widow": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "ntr_vaidya_seva": {
+      "precision": 0.9333333333333333,
+      "recall": 1.0,
+      "f1": 0.9655172413793104,
+      "tp": 14,
+      "fp": 1,
+      "fn": 0
+    },
+    "pm_internship": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2
+    },
+    "pm_kisan": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_sym": {
+      "precision": 1.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 2
+    },
+    "pm_ujjwala": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    "pm_vishwakarma": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "pmay_gramin": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmay_urban": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1
+    },
+    "pmfby": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmjjby": {
+      "precision": 1.0,
+      "recall": 0.7272727272727273,
+      "f1": 0.8421052631578948,
+      "tp": 8,
+      "fp": 0,
+      "fn": 3
+    },
+    "pmmvy": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    "pmsby": {
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "tp": 10,
+      "fp": 0,
+      "fn": 5
+    },
+    "stree_shakti": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "tp": 6,
+      "fp": 0,
+      "fn": 2
+    },
+    "talliki_vandanam": {
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "tp": 2,
+      "fp": 0,
+      "fn": 2
+    },
+    "vb_g_ram_g": {
+      "precision": 1.0,
+      "recall": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "tp": 5,
+      "fp": 0,
+      "fn": 1
+    }
+  },
+  "field_accuracy": {
+    "age": {
+      "accuracy": 0.6666666666666666,
+      "n": 15
+    },
+    "gender": {
+      "accuracy": 0.7692307692307693,
+      "n": 13
+    },
+    "state": {
+      "accuracy": 0.9230769230769231,
+      "n": 13
+    },
+    "area": {
+      "accuracy": 0.9166666666666666,
+      "n": 12
+    },
+    "marital_status": {
+      "accuracy": 1.0,
+      "n": 3
+    },
+    "occupations": {
+      "accuracy": 0.875,
+      "n": 8
+    },
+    "annual_income": {
+      "accuracy": 1.0,
+      "n": 15
+    },
+    "children_in_school": {
+      "accuracy": 0.5,
+      "n": 4
+    },
+    "land_acres": {
+      "accuracy": 1.0,
+      "n": 6
+    }
+  },
+  "rows": [
+    {
+      "id": "h01",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.571,
+      "false_positives": [],
+      "false_negatives": [
+        "ntr_bharosa_widow",
+        "pm_vishwakarma",
+        "pmsby"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 58,
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h02",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "h03",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.2,
+      "false_positives": [],
+      "false_negatives": [
+        "atal_pension_yojana",
+        "pm_internship",
+        "pmjjby",
+        "pmsby"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 21,
+          "pred": null
+        },
+        "occupations": {
+          "gold": [
+            "student"
+          ],
+          "pred": []
+        }
+      }
+    },
+    {
+      "id": "h04",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "h05",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.889,
+      "false_positives": [],
+      "false_negatives": [
+        "talliki_vandanam"
+      ],
+      "field_errors": {
+        "children_in_school": {
+          "gold": 1,
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h06",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.5,
+      "false_positives": [],
+      "false_negatives": [
+        "pmsby"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 64,
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h07",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "h08",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.5,
+      "false_positives": [],
+      "false_negatives": [
+        "aicte_pragati",
+        "ap_fee_reimbursement",
+        "pm_internship",
+        "stree_shakti"
+      ],
+      "field_errors": {
+        "gender": {
+          "gold": "female",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h09",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.333,
+      "false_positives": [],
+      "false_negatives": [
+        "atal_pension_yojana",
+        "pm_sym",
+        "pmjjby",
+        "pmsby",
+        "stree_shakti",
+        "vb_g_ram_g"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 31,
+          "pred": null
+        },
+        "gender": {
+          "gold": "female",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h10",
+      "lang": "en",
+      "method": "rules",
+      "precision": 0.75,
+      "recall": 1.0,
+      "false_positives": [
+        "ntr_vaidya_seva"
+      ],
+      "false_negatives": [],
+      "field_errors": {
+        "state": {
+          "gold": "Telangana",
+          "pred": "Andhra Pradesh"
+        }
+      }
+    },
+    {
+      "id": "h11",
+      "lang": "hi",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "gender": {
+          "gold": "male",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h12",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "h13",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {}
+    },
+    {
+      "id": "h14",
+      "lang": "te",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 1.0,
+      "false_positives": [],
+      "false_negatives": [],
+      "field_errors": {
+        "area": {
+          "gold": "urban",
+          "pred": null
+        }
+      }
+    },
+    {
+      "id": "h15",
+      "lang": "en",
+      "method": "rules",
+      "precision": 1.0,
+      "recall": 0.222,
+      "false_positives": [],
+      "false_negatives": [
+        "atal_pension_yojana",
+        "ntr_bharosa_single_women",
+        "pm_sym",
+        "pmay_urban",
+        "pmjjby",
+        "pmsby",
+        "talliki_vandanam"
+      ],
+      "field_errors": {
+        "age": {
+          "gold": 38,
+          "pred": null
+        },
+        "children_in_school": {
+          "gold": 1,
+          "pred": null
+        }
+      }
+    }
+  ]
+}

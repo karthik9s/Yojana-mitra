@@ -1,0 +1,438 @@
+<title>Yojana Mitra Explained</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; each section is one step of the pipeline, with a live demo where the idea is hardest. */
+:root {
+  --bg: #f6f7f4; --surface: #ffffff; --ink: #16211d; --muted: #5a6762; --line: #dbe1dc;
+  --accent: #0d6a5b; --accent-soft: #e2f0ec; --gold: #b97c0c; --gold-soft: #fbf1dc;
+  --good: #1d8549; --good-soft: #e3f3e8; --warn: #a86b10; --warn-soft: #fbefd9; --bad: #bd3b34; --bad-soft: #f9e4e2;
+  --code-bg: #f0f2ee;
+  --f-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1513; --surface: #161f1c; --ink: #e6ede9; --muted: #9aa8a2; --line: #2a3531;
+  --accent: #43b8a0; --accent-soft: #173029; --gold: #e3a83c; --gold-soft: #33280f;
+  --good: #4cc07e; --good-soft: #15301f; --warn: #e2a64a; --warn-soft: #33270f; --bad: #e46b62; --bad-soft: #361a18;
+  --code-bg: #121a17; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1513; --surface: #161f1c; --ink: #e6ede9; --muted: #9aa8a2; --line: #2a3531;
+  --accent: #43b8a0; --accent-soft: #173029; --gold: #e3a83c; --gold-soft: #33280f;
+  --good: #4cc07e; --good-soft: #15301f; --warn: #e2a64a; --warn-soft: #33270f; --bad: #e46b62; --bad-soft: #361a18;
+  --code-bg: #121a17; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.6; }
+.wrap { max-width: 860px; margin: 0 auto; padding-block: 40px 80px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; max-width: 65ch; }
+a { color: var(--accent); }
+code, pre { font-family: var(--f-mono); font-size: 0.86em; }
+:not(pre) > code { background: var(--code-bg); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+pre { background: var(--code-bg); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin: 0;
+  overflow-x: auto; line-height: 1.5; }
+.eyebrow { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.muted { color: var(--muted); }
+section { display: grid; gap: 16px; padding-top: 56px; }
+section > * { min-width: 0; }
+.stack { display: grid; gap: 12px; }
+
+/* hero */
+.hero { display: grid; gap: 18px; }
+.te { font-family: var(--f-display); color: var(--gold); font-weight: 600; font-size: 1.3rem; }
+.thesis { border-left: 4px solid var(--gold); background: var(--gold-soft); padding: 14px 18px; border-radius: 0 8px 8px 0; max-width: 65ch; }
+nav.toc { display: flex; flex-wrap: wrap; gap: 8px; }
+nav.toc a { font-size: 0.85rem; text-decoration: none; border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+  padding: 4px 10px; border-radius: 999px; }
+nav.toc a:hover, nav.toc a:focus-visible { border-color: var(--accent); color: var(--accent); }
+
+/* pipeline */
+.pipe { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; counter-reset: s; }
+.pipe a { display: grid; gap: 4px; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; padding: 12px; position: relative; }
+.pipe a:hover, .pipe a:focus-visible { border-color: var(--accent); }
+.pipe .n { font-family: var(--f-mono); font-size: 0.75rem; color: var(--accent); font-weight: 600; }
+.pipe .t { font-family: var(--f-display); font-weight: 600; }
+.pipe .who { font-size: 0.78rem; color: var(--muted); }
+.pipe .who b { color: var(--gold); font-weight: 600; }
+
+/* io boxes */
+.io { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: stretch; }
+.io .arrow { align-self: center; color: var(--muted); font-size: 1.4rem; }
+.box { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; min-width: 0; }
+.box .lbl { font-size: 0.72rem; font-family: var(--f-mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+@media (max-width: 640px) { .io { grid-template-columns: 1fr; } .io .arrow { transform: rotate(90deg); justify-self: center; } }
+.files { font-size: 0.85rem; color: var(--muted); }
+.files code { color: var(--ink); }
+
+/* tri-state demo */
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; display: grid; gap: 12px; }
+.rule { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; padding: 8px 10px; border-radius: 8px; background: var(--bg); }
+.rule .txt { font-size: 0.92rem; min-width: 0; }
+.rule .txt small { display: block; color: var(--muted); font-family: var(--f-mono); font-size: 0.75rem; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: 600 0.8rem var(--f-mono); border: 0; background: var(--surface); color: var(--muted); padding: 6px 9px; cursor: pointer; min-width: 40px; }
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"][data-v="1"] { background: var(--good-soft); color: var(--good); }
+.seg button[aria-pressed="true"][data-v="0"] { background: var(--warn-soft); color: var(--warn); }
+.seg button[aria-pressed="true"][data-v="-1"] { background: var(--bad-soft); color: var(--bad); }
+.seg button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.orgroup { border: 1.5px dashed var(--gold); border-radius: 10px; padding: 8px; display: grid; gap: 6px; }
+.orgroup .tag { font: 600 0.72rem var(--f-mono); color: var(--gold); }
+.gv { font-family: var(--f-mono); font-size: 0.8rem; font-weight: 600; }
+.result { border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; }
+.result.s1 { background: var(--good-soft); color: var(--good); }
+.result.s0 { background: var(--warn-soft); color: var(--warn); }
+.result.s-1 { background: var(--bad-soft); color: var(--bad); }
+.result .big { font-family: var(--f-display); font-size: 1.3rem; font-weight: 800; }
+.result .sub { color: var(--ink); font-size: 0.9rem; }
+.math { font-family: var(--f-mono); font-size: 0.82rem; color: var(--ink); overflow-x: auto; white-space: nowrap; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.85rem; }
+.chip { display: inline-block; font: 600 0.75rem var(--f-mono); padding: 1px 7px; border-radius: 5px; }
+.c1 { background: var(--good-soft); color: var(--good); } .c0 { background: var(--warn-soft); color: var(--warn); } .cm { background: var(--bad-soft); color: var(--bad); }
+
+/* tables */
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-family: var(--f-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--f-mono); white-space: nowrap; }
+tr.win td { background: var(--accent-soft); font-weight: 600; }
+
+/* prompt compare */
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media (max-width: 640px) { .cmp { grid-template-columns: 1fr; } }
+.cmp .box.bad { border-color: var(--bad); } .cmp .box.good { border-color: var(--good); }
+.cmp .bad .lbl { color: var(--bad); } .cmp .good .lbl { color: var(--good); }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: grid; gap: 2px; }
+.stat .v { font-family: var(--f-display); font-size: 1.9rem; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--accent); }
+.stat .k { font-size: 0.85rem; color: var(--muted); }
+
+/* pitch + QA */
+.pitch { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; display: grid; gap: 10px; }
+.pitch blockquote { margin: 0; font-size: 1.02rem; max-width: 65ch; }
+details { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 0 16px; }
+details + details { margin-top: 8px; }
+summary { cursor: pointer; padding: 12px 0; font-weight: 600; list-style-position: outside; }
+summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+details > div { padding: 0 0 14px; display: grid; gap: 8px; }
+ol.plan { margin: 0; padding-left: 1.3em; display: grid; gap: 8px; max-width: 65ch; }
+footer { margin-top: 56px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .result { transition: background-color .2s, color .2s; } }
+</style>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Project walkthrough · Graph RAG</div>
+  <h1>Yojana Mitra</h1>
+  <div class="te">యోజన మిత్ర · a scheme finder for Andhra Pradesh</div>
+  <p>A citizen describes themselves in English, Telugu or Hindi. The app turns that into a structured profile, uses a knowledge graph to decide exactly which government schemes they qualify for, and then explains each scheme from official text, with citations.</p>
+  <div class="thesis"><strong>The one idea to remember:</strong> the LLM never decides eligibility. Eligibility is a strict rule question, so the <strong>graph</strong> answers it with exact rules. The LLM only does what it is good at: understanding messy language at the start and writing a friendly explanation at the end.</div>
+  <nav class="toc" aria-label="Sections">
+    <a href="#flow">The flow</a><a href="#kb">1 · Knowledge base</a><a href="#extract">2 · Extraction</a><a href="#graph">3 · Graph match</a>
+    <a href="#focus">4 · Focus</a><a href="#rag">5 · RAG</a><a href="#app">6 · App</a><a href="#eval">Evaluation</a>
+    <a href="#pitch">Pitch</a><a href="#qa">Interview Q&amp;A</a><a href="#study">Study plan</a>
+  </nav>
+</header>
+
+<section id="flow">
+  <div class="eyebrow">The flow</div>
+  <h2>Six steps, one request</h2>
+  <p class="muted">Gold marks the two steps that call the LLM. Everything else is plain, deterministic code.</p>
+  <div class="pipe">
+    <a href="#kb"><span class="n">STEP 1</span><span class="t">Knowledge base</span><span class="who">YAML file, loaded once</span></a>
+    <a href="#extract"><span class="n">STEP 2</span><span class="t">Extract profile</span><span class="who"><b>LLM</b> or offline regex</span></a>
+    <a href="#graph"><span class="n">STEP 3</span><span class="t">Graph match</span><span class="who">Rules, no LLM</span></a>
+    <a href="#focus"><span class="n">STEP 4</span><span class="t">Focus</span><span class="who">Keywords, no LLM</span></a>
+    <a href="#rag"><span class="n">STEP 5</span><span class="t">Retrieve + explain</span><span class="who">Search + <b>LLM</b></span></a>
+    <a href="#app"><span class="n">STEP 6</span><span class="t">Show it</span><span class="who">FastAPI + web page</span></a>
+  </div>
+  <div class="box"><div class="lbl">Running example used below (your own test)</div>
+    "I'm 22 years old, family income below 1 lakh, studying BTech final year in Hyderabad, but I'm an Andhra Pradesh citizen."</div>
+</section>
+
+<section id="kb">
+  <div class="eyebrow">Step 1 · data/schemes.yaml</div>
+  <h2>A knowledge base that code can read</h2>
+  <p>One file lists 43 schemes (18 Andhra Pradesh, 25 central). Each scheme carries the text a person reads (amount, benefits, documents, steps, portal, sources) and its eligibility rules written as data. Here is the real rule list for <strong>Jagananna/AP Fee Reimbursement</strong>:</p>
+<pre>criteria:
+  - use: ap_resident                       <span class="muted"># a macro, reused by 18 schemes</span>
+  - {field: is_student,      op: is_true}
+  - {field: education_level, op: in,  values: [intermediate, iti, polytechnic, degree, professional, pg]}
+  - {field: social_category, op: in,  values: [SC, ST, BC, EWS, minority]}
+  - {field: annual_income,   op: lte, value: 250000}
+  - any_of:                                <span class="muted"># OR: either one is enough</span>
+    - {field: studies_outside_ap,      op: is_false}
+    - {field: outside_ap_admission_ok, op: is_true, assume: true}</pre>
+  <p>Seven operators cover every rule: <code>eq</code>, <code>in</code>, <code>gte</code>, <code>lte</code>, <code>is_true</code>, <code>is_false</code>, <code>any_in</code>. <code>assume: true</code> means "if we don't know, assume yes but ask the person to confirm". Adding a scheme means editing this file only; the graph, search index and UI rebuild from it.</p>
+  <p class="files">Loaded by <code>yojana_mitra/schemes.py</code> (expands macros, numbers the OR groups, gives each rule an id like <code>annual_income|lte|250000</code> so identical rules become one shared node).</p>
+</section>
+
+<section id="extract">
+  <div class="eyebrow">Step 2 · extract.py · extract_rules.py · profile.py</div>
+  <h2>From a sentence to a profile</h2>
+  <div class="io">
+    <div class="box"><div class="lbl">Input</div>"I'm 22 years old, family income below 1 lakh, studying BTech final year in Hyderabad, but I'm an AP citizen"</div>
+    <div class="arrow" aria-hidden="true">→</div>
+<pre style="margin:0">{ "age": 22,
+  "is_student": true,
+  "education_level": "professional",
+  "annual_income": 100000,
+  "state": "AP",
+  "studies_outside_ap": true }</pre>
+  </div>
+  <div class="stack">
+    <p><strong>With a Groq key</strong>, <code>extract.py</code> sends the text plus a JSON schema to <code>openai/gpt-oss-120b</code> in JSON mode, then cleans the answer: any field that fails validation is dropped instead of crashing.</p>
+    <p><strong>Without a key</strong>, <code>extract_rules.py</code> does the same with regular expressions in English, Telugu and Hindi: amounts in lakh, thousand or per month; acres, cents and hectares; AP district names; and it cuts out sentences about relatives so "my mother is 65" doesn't make <em>you</em> 65.</p>
+    <p><strong>Derived facts</strong> (<code>profile.py → derive()</code>) are small calculations the rules can use directly: <code>ap_resident</code> from the state, <code>income_within_ap_limit</code> (₹1.2 lakh a year rural, ₹1.44 lakh urban), <code>land_within_ap_limit</code>, and so on.</p>
+  </div>
+</section>
+
+<section id="graph">
+  <div class="eyebrow">Step 3 · graph.py · matcher.py</div>
+  <h2>Graph matching with three answers, not two</h2>
+  <p>The graph is <code>(Scheme)-[:REQUIRES]-&gt;(Criterion)</code>: 43 scheme nodes, 71 criterion nodes, 195 edges. A rule like "Resident of Andhra Pradesh" is a single node shared by 18 schemes, which is why this is a graph and not a flat table.</p>
+  <p>Each rule is scored as one of three values:</p>
+  <div class="legend">
+    <span><span class="chip c1">+1</span> met</span>
+    <span><span class="chip c0">0</span> unknown: the person didn't say</span>
+    <span><span class="chip cm">−1</span> not met</span>
+  </div>
+  <p>Inside an OR group, take the <strong>max</strong> (one yes is enough). Across all groups, take the <strong>min</strong> (every group must pass). The final value puts the scheme in a bucket: +1 eligible, 0 need more info, −1 not eligible.</p>
+
+  <div class="demo" id="demo" aria-live="polite">
+    <div class="eyebrow">Try it · Fee Reimbursement for the running example</div>
+    <p class="muted" style="font-size:.9rem">Values start as the real profile above. Click to change any rule and watch the result.</p>
+    <div id="rules" class="stack"></div>
+    <div class="math" id="math"></div>
+    <div class="result" id="result"></div>
+  </div>
+
+  <p><strong>Why three values matter:</strong> a yes/no filter would reject this student just because they never mentioned their community. Here the missing fact becomes a <strong>follow-up question</strong>. <code>matcher.py</code> ranks questions by how many schemes each answer could unlock (each scheme adds <code>1 ÷ number of facts it is missing</code>, and three times that if the scheme is in the topic the person asked about), and shows the top five.</p>
+
+  <h3>The same logic, twice</h3>
+  <p>The Python function is the in-memory version (networkx, no database needed). The Cypher query does exactly the same in Neo4j. A test checks both give the same answer.</p>
+  <div class="cmp">
+    <div class="box"><div class="lbl">Python · graph.py</div>
+<pre style="border:0;padding:0;background:none">st, assumed = evaluate(rule, facts[field])
+groups[g] = max(groups[g], st)   # OR
+status = min(groups.values())    # AND</pre></div>
+    <div class="box"><div class="lbl">Cypher · MATCH_CYPHER</div>
+<pre style="border:0;padding:0;background:none">MATCH (s:Scheme)-[r:REQUIRES]-&gt;(c:Criterion)
+... CASE ... END AS st
+WITH s, r.group AS g, max(st) AS gst
+WITH s, min(gst) AS status</pre></div>
+  </div>
+</section>
+
+<section id="focus">
+  <div class="eyebrow">Step 4 · intent.py</div>
+  <h2>Show what was asked for first</h2>
+  <p>This fixes the problem you found: asking about education and getting pension and gas schemes. <code>detect_focus()</code> looks for topic words in three languages (scholarship, fees, ఫీజు, छात्रवृत्ति, pension, hospital, house…). If none are present and the person is a student, it assumes education. Schemes in that topic go to the top, their questions are weighted three times higher, and everything else is folded under "You also qualify for".</p>
+  <p>The pension you saw was <strong>Atal Pension Yojana</strong>, a savings scheme you pay into. It is now labelled "retirement savings", not a welfare pension.</p>
+</section>
+
+<section id="rag">
+  <div class="eyebrow">Step 5 · rag.py · explain.py</div>
+  <h2>Retrieve the right passages, then explain only from them</h2>
+  <h3>Hybrid retrieval</h3>
+  <p>Every scheme is split into small passages (eligibility, benefits, documents, how to apply…). Two searches run on each question:</p>
+  <ul style="margin:0;padding-left:1.2em;max-width:65ch">
+    <li><strong>Dense</strong>: <code>multilingual-e5-small</code> turns text into vectors, so it matches meaning and works for Telugu and Hindi questions.</li>
+    <li><strong>Sparse</strong>: TF-IDF on words and character fragments, so exact names like "PM-KISAN" or "Aadhaar" always hit.</li>
+  </ul>
+  <p><strong>Reciprocal Rank Fusion</strong> merges the two lists. Each passage scores <code>1 ÷ (60 + position)</code> in each list (position starts at 0), and the scores are added. A passage both methods like rises to the top. Illustration for "money for my college fees":</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Passage</th><th class="num">Dense position</th><th class="num">TF-IDF position</th><th class="num">RRF score</th></tr></thead>
+    <tbody>
+      <tr class="win"><td>Fee Reimbursement · benefits</td><td class="num">0</td><td class="num">1</td><td class="num">1/60 + 1/61 = 0.03306</td></tr>
+      <tr><td>CSSS scholarship · benefits</td><td class="num">2</td><td class="num">0</td><td class="num">1/62 + 1/60 = 0.03280</td></tr>
+      <tr><td>PM Vidyalaxmi · benefits</td><td class="num">1</td><td class="num">–</td><td class="num">1/61 = 0.01639</td></tr>
+      <tr><td>Talliki Vandanam · benefits</td><td class="num">–</td><td class="num">2</td><td class="num">1/62 = 0.01613</td></tr>
+    </tbody>
+  </table></div>
+  <p class="files">Positions are illustrative; the formula is the real one in <code>rag.py → search()</code>. The constant 60 stops a single first place from dominating.</p>
+
+  <h3>Grounded explanation</h3>
+  <p>The LLM receives three labelled blocks and is told to keep them apart:</p>
+<pre>A. CITIZEN FACTS   - Age: 22 · Student: yes · Income: ₹1,00,000 per year …
+B. RULE CHECK      - met: Resident of AP, Currently a student, Income up to ₹2.5 lakh …
+                     assumed: College outside AP admitted through the convener route
+C. PASSAGES        - [1] Fee Reimbursement – eligibility: …  [2] … benefits: …</pre>
+  <p>Rules, amounts, documents and steps may only come from C, each with its passage number like <code>[2]</code>. This split is the fix that raised faithfulness:</p>
+  <div class="cmp">
+    <div class="box bad"><div class="lbl">Before (one mixed prompt)</div>"You qualify because eligibility requires age 52." The person's age was copied in as if it were the rule.</div>
+    <div class="box good"><div class="lbl">After (A / B / C)</div>"Age 50 years or above – you told us: 52." The rule comes from the passage, the fact from the person.</div>
+  </div>
+  <p class="files">Without a key, the same passages fill a fixed template, so the app still works offline.</p>
+</section>
+
+<section id="app">
+  <div class="eyebrow">Step 6 · api.py · web/</div>
+  <h2>The app around it</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Endpoint</th><th>What it runs</th></tr></thead>
+    <tbody>
+      <tr><td><code>POST /api/match</code></td><td>Steps 2–4: text → profile → graph match → buckets, follow-up questions, focus</td></tr>
+      <tr><td><code>POST /api/explain</code></td><td>Step 5 for one scheme the person opens</td></tr>
+      <tr><td><code>POST /api/ask</code></td><td>Free-form question → retrieval → cited answer</td></tr>
+      <tr><td><code>GET /api/graph</code></td><td>Graph statistics (nodes, edges, shared rules)</td></tr>
+    </tbody>
+  </table></div>
+  <p>The page in <code>web/</code> is plain HTML and JavaScript with no build step: English, Telugu and Hindi switch, voice input through the browser's speech recognition (te-IN, hi-IN, en-IN), an editable profile, one-tap answers to follow-up questions, and dark mode.</p>
+</section>
+
+<section id="eval">
+  <div class="eyebrow">Evaluation · eval/</div>
+  <h2>How you know it works</h2>
+  <div class="stats">
+    <div class="stat"><span class="v">0.978</span><span class="k">Precision, 15 held-out profiles (Groq extractor)</span></div>
+    <div class="stat"><span class="v">0.958</span><span class="k">Recall, 15 held-out profiles (Groq extractor)</span></div>
+    <div class="stat"><span class="v">0.910</span><span class="k">Faithfulness, 40 answers (first prompt)</span></div>
+    <div class="stat"><span class="v">10/10</span><span class="k">Questions where the right scheme was retrieved first</span></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Test</th><th>How it works</th><th>File</th></tr></thead>
+    <tbody>
+      <tr><td>Eligibility</td><td>50 synthetic citizens, each with a hand-written list of the schemes they should get. Compare the app's "eligible" list: precision = how many recommendations were right, recall = how many correct schemes were found.</td><td><code>run_eval.py</code>, <code>profiles.yaml</code></td></tr>
+      <tr><td>Held-out set</td><td>15 more profiles written after all tuning, so the score can't be inflated by fixing bugs on the same data.</td><td><code>profiles_holdout.yaml</code></td></tr>
+      <tr><td>Faithfulness</td><td>The RAGAS method: split each answer into small claims, and a judge LLM checks each claim against the retrieved passages. Score = supported claims ÷ all claims.</td><td><code>faithfulness.py</code>, <code>ragas_score.py</code></td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>The insight worth saying:</strong> precision stays near 0.99 everywhere, so the graph almost never recommends a wrong scheme. Every recall loss is an extraction miss (a fact the extractor didn't pick up), never a matching mistake. That is why the LLM extractor helps so much on the held-out set: recall goes from 0.726 with regex rules to 0.958 with Groq.</p>
+  <p><strong>Faithfulness, in progress:</strong> after the A/B/C prompt fix, the first 7 re-scored answers went from 0.870 to 0.953. The full 40 finish once Groq's daily quota resets.</p>
+</section>
+
+<section id="pitch">
+  <div class="eyebrow">How to say it</div>
+  <h2>Your pitch</h2>
+  <div class="pitch">
+    <div class="eyebrow">30 seconds</div>
+    <blockquote>"I built Yojana Mitra, a Graph RAG app that tells Andhra Pradesh citizens which government schemes they qualify for. You describe yourself in English, Telugu or Hindi; an LLM extracts a structured profile; a Neo4j-style knowledge graph checks the eligibility rules exactly; and RAG explains each scheme from official text with citations. On held-out profiles it reaches 0.98 precision and 0.96 recall, and I measured answer faithfulness with RAGAS."</blockquote>
+  </div>
+  <div class="pitch">
+    <div class="eyebrow">2 minutes: add these three points</div>
+    <ol class="plan">
+      <li><strong>Why the graph decides, not the LLM.</strong> Eligibility needs exact numeric rules and the same answer every time. LLMs can invent eligibility; rules can't.</li>
+      <li><strong>Three-valued logic.</strong> A missing fact means "unknown", not "no", so the app asks a follow-up question instead of wrongly rejecting someone, ranked by how many schemes the answer unlocks.</li>
+      <li><strong>What evaluation taught me.</strong> All recall loss came from extraction, so I switched to an LLM extractor. Most unsupported claims came from the model mixing up the person's facts with the scheme's rules, so I split the prompt into citizen facts, rule check and passages, and faithfulness went up.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="qa">
+  <div class="eyebrow">Practice</div>
+  <h2>Interview questions</h2>
+  <div>
+    <details><summary>Why use a graph instead of asking the LLM which schemes fit?</summary><div>
+      <p>LLMs make mistakes with numeric limits (₹2.5 lakh, age 60+) and can invent eligibility. Graph rules are exact, the same input always gives the same answer, and every decision can be traced to a rule node. The LLM only parses language and explains the result.</p></div></details>
+    <details><summary>Why is it a graph and not just a SQL table of rules?</summary><div>
+      <p>Rules are shared: "Resident of AP" is one node linked to 18 schemes, and OR conditions are groups of edges. That makes questions like "which single fact unlocks the most schemes?" natural to answer, and it maps directly to one Cypher query. A table would work for matching, but the graph shows the structure and reuse.</p></div></details>
+    <details><summary>What happens when the user leaves out information?</summary><div>
+      <p>The rule scores 0 (unknown), so the scheme lands in "need more info" instead of "not eligible", and the app asks for the missing fact. Standard exclusions such as "no government employee in the family" are assumed and shown as "please confirm".</p></div></details>
+    <details><summary>Why hybrid retrieval and why RRF?</summary><div>
+      <p>Embeddings capture meaning and work across languages; TF-IDF catches exact names. RRF combines ranked lists using only positions, so there are no score scales to calibrate and no weights to tune.</p></div></details>
+    <details><summary>What does faithfulness 0.91 mean, and how did you improve it?</summary><div>
+      <p>91% of the small claims in the answers were supported by the retrieved passages, as checked by a judge LLM. Reading the 41 unsupported claims showed about half were the model writing the person's own value as the rule. Separating citizen facts, rule check and passages in the prompt took the re-scored samples from 0.870 to 0.953.</p></div></details>
+    <details><summary>How did you avoid fooling yourself in evaluation?</summary><div>
+      <p>I fixed extractor bugs using the 50-profile set, so its score is optimistic. I then wrote 15 new profiles and scored them once. The held-out number is the one I quote.</p></div></details>
+    <details><summary>What are the limitations?</summary><div>
+      <p>Scheme rules and amounts change, so the data needs updating. It is a pre-check, not an official sanction. Some rules can't be judged from a description (electricity use, property size). The Neo4j path has a parity test but hasn't been run against a live database in this environment.</p></div></details>
+    <details><summary>Why Groq?</summary><div>
+      <p>Free tier and fast inference on open models (gpt-oss) through an OpenAI-compatible API. The code also supports Claude, and runs fully offline with regex extraction and template answers when there is no key.</p></div></details>
+  </div>
+</section>
+
+<section id="study">
+  <div class="eyebrow">Learn the code in about an hour</div>
+  <h2>Study plan</h2>
+  <ol class="plan">
+    <li>Open <code>data/schemes.yaml</code> and read one AP scheme and one central scheme end to end.</li>
+    <li>Read <code>yojana_mitra/graph.py</code>: <code>evaluate()</code> and <code>MemoryGraph.match()</code>, about 50 lines. This is the heart of the project.</li>
+    <li>Read <code>matcher.py → match_profile()</code>: how statuses become buckets and how follow-up questions are ranked.</li>
+    <li>Read the <code>EXPLAIN_SYSTEM</code> prompt in <code>explain.py</code>, then <code>search()</code> in <code>rag.py</code>.</li>
+    <li>Run the app with <code>python -m uvicorn yojana_mitra.api:app --port 8000</code>, type your own profile, and watch <code>/api/match</code> in the browser's Network tab.</li>
+    <li>Change one rule in the YAML (for example the income limit), restart, and see which schemes move.</li>
+  </ol>
+</section>
+
+<footer>Yojana Mitra · project walkthrough. Numbers from <code>eval/results/</code>, November 2026.</footer>
+</div>
+
+<script>
+(function () {
+  // Real rules of ap_fee_reimbursement; start values = the running example's profile.
+  var rules = [
+    { g: 0, label: "Resident of Andhra Pradesh", fact: "state = AP", v: 1 },
+    { g: 1, label: "Currently a student", fact: "is_student = true", v: 1 },
+    { g: 2, label: "Post-matric course (Inter, ITI, degree, professional, PG)", fact: "education_level = professional (BTech)", v: 1 },
+    { g: 3, label: "SC, ST, BC, EWS or minority community", fact: "social_category = not said", v: 0, q: "Which community do you belong to (SC, ST, BC, EWS, minority, OC)?" },
+    { g: 4, label: "Family income up to ₹2.5 lakh", fact: "annual_income = 1,00,000", v: 1 },
+    { g: 5, label: "College is in Andhra Pradesh", fact: "studies_outside_ap = true (Hyderabad)", v: -1 },
+    { g: 5, label: "College outside AP via the convener (entrance-test) route", fact: "not said → assumed yes, ask to confirm", v: 1 }
+  ];
+  var names = { "1": "met", "0": "unknown", "-1": "not met" };
+  var box = document.getElementById("rules");
+
+  function seg(i) {
+    var s = document.createElement("div"); s.className = "seg"; s.setAttribute("role", "group");
+    s.setAttribute("aria-label", "Value for: " + rules[i].label);
+    [["1", "+1"], ["0", "0"], ["-1", "−1"]].forEach(function (o) {
+      var b = document.createElement("button"); b.type = "button"; b.dataset.v = o[0]; b.textContent = o[1];
+      b.title = names[o[0]]; b.id = "r" + i + "_" + o[0].replace("-", "m");
+      b.addEventListener("click", function () { rules[i].v = Number(o[0]); render(); });
+      s.appendChild(b);
+    });
+    return s;
+  }
+  function row(i) {
+    var r = document.createElement("div"); r.className = "rule";
+    var t = document.createElement("div"); t.className = "txt";
+    t.innerHTML = rules[i].label + "<small>" + rules[i].fact + "</small>";
+    r.appendChild(t); r.appendChild(seg(i)); r.dataset.i = i; return r;
+  }
+  rules.forEach(function (r, i) {
+    if (r.g === 5) return;
+    box.appendChild(row(i));
+  });
+  var or = document.createElement("div"); or.className = "orgroup";
+  or.innerHTML = '<div class="tag">ANY ONE OF (OR group) → max = <span class="gv" id="orv"></span></div>';
+  or.appendChild(row(5)); or.appendChild(row(6)); box.appendChild(or);
+
+  function fmt(n) { return n === -1 ? "−1" : (n === 1 ? "+1" : "0"); }
+  function render() {
+    document.querySelectorAll(".seg").forEach(function (s, idx) {
+      var i = Number(s.parentNode.dataset.i);
+      s.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", String(Number(b.dataset.v) === rules[i].v)); });
+    });
+    var groups = {};
+    rules.forEach(function (r) { groups[r.g] = groups[r.g] === undefined ? r.v : Math.max(groups[r.g], r.v); });
+    var vals = Object.keys(groups).map(function (k) { return groups[k]; });
+    var status = Math.min.apply(null, vals);
+    document.getElementById("orv").textContent = fmt(groups[5]);
+    document.getElementById("math").textContent = "status = min(" + vals.map(fmt).join(", ") + ") = " + fmt(status);
+    var res = document.getElementById("result");
+    res.className = "result s" + status;
+    var missing = rules.filter(function (r) { return r.v === 0 && r.q; });
+    var unknownOther = rules.filter(function (r) { return r.v === 0 && !r.q; }).length;
+    var html;
+    if (status === 1) html = '<span class="big">Eligible</span><span class="sub">Every group passes. Shown with a cited explanation and "please confirm" for the assumed convener-route rule.</span>';
+    else if (status === 0) html = '<span class="big">Need more info</span><span class="sub">No rule fails, but at least one is unknown. Follow-up question: ' +
+      (missing.length ? "<strong>" + missing[0].q + "</strong>" : "<strong>asks for the unknown fact" + (unknownOther > 1 ? "s" : "") + "</strong>") + "</span>";
+    else html = '<span class="big">Not eligible</span><span class="sub">At least one group is −1, and min() lets a single failed group decide.</span>';
+    res.innerHTML = html;
+  }
+  render();
+})();
+</script>

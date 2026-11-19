@@ -1,0 +1,312 @@
+# 50 synthetic citizen profiles with hand-labelled eligible schemes.
+#
+# Labelling convention (applied by hand, scheme by scheme, from data/schemes.yaml rules):
+#  * A scheme is labelled eligible only if the facts STATED in the text satisfy all its rules.
+#  * Standard exclusions the person doesn't mention (govt employee, income-tax payer, car owner,
+#    own vehicle for auto drivers) are taken as not applying - the app shows them as "please
+#    confirm" conditions.
+#  * Facts not stated are not assumed (no LPG mentioned -> not Deepam; no house info -> not PMAY).
+#  * Gender is never inferred from a name; texts state it where it matters.
+#  * Situational schemes count only when the situation is stated (pregnancy, disability...).
+#  * "profile" holds the gold values of key fields, used to score extraction field accuracy.
+
+profiles:
+- id: p01
+  lang: en
+  text: "I'm a 45-year-old woman farmer in a village near Guntur. I own 2 acres of dry land. Our household income is about 90,000 a year. Two of my children study in school. We have a white ration card and an LPG gas connection. We live in our own pucca house."
+  profile: {age: 45, gender: female, state: Andhra Pradesh, area: rural, occupations: [farmer], land_acres: 2, annual_income: 90000, children_in_school: 2}
+  eligible: [talliki_vandanam, annadata_sukhibhava, stree_shakti, deepam_2, ntr_vaidya_seva, pm_kisan, pmfby, kisan_credit_card, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p02
+  lang: te
+  text: "నేను 64 ఏళ్ల వితంతువును. కర్నూలు జిల్లాలోని ఒక గ్రామంలో ఉంటాను. నాకు భూమి లేదు. నెలకు 5000 ఆదాయం. తెల్ల రేషన్ కార్డు ఉంది."
+  profile: {age: 64, gender: female, state: Andhra Pradesh, area: rural, marital_status: widowed, land_acres: 0, annual_income: 60000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_widow, stree_shakti, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p03
+  lang: en
+  text: "I am 20 years old and studying B.Tech (engineering) in a college in Vijayawada city. I belong to the SC community. My family's income is 1.8 lakh per year. I am male."
+  profile: {age: 20, gender: male, state: Andhra Pradesh, area: urban, occupations: [student], annual_income: 180000}
+  eligible: [ap_fee_reimbursement, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, pm_internship]
+
+- id: p04
+  lang: hi
+  text: "मैं 34 साल का मछुआरा हूँ, काकीनाडा के पास एक गाँव में रहता हूँ। मेरी आय 8000 रुपये महीना है। मेरी 4 साल की बेटी है।"
+  profile: {age: 34, gender: male, state: Andhra Pradesh, area: rural, occupations: [fisherman], annual_income: 96000}
+  eligible: [matsyakara_sevalo, ntr_vaidya_seva, kisan_credit_card, pm_sym, atal_pension_yojana, pmjjby, pmsby, sukanya_samriddhi, vb_g_ram_g]
+
+- id: p05
+  lang: en
+  text: "I drive my own auto in Visakhapatnam city. I'm 31, a man, and earn about 12,000 a month. We live in a rented house. We have a gas connection."
+  profile: {age: 31, gender: male, state: Andhra Pradesh, area: urban, occupations: [auto_driver], annual_income: 144000}
+  eligible: [auto_driverla_sevalo, ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby, pmay_urban]
+
+- id: p06
+  lang: en
+  text: "I'm a 70-year-old man living in a village in Srikakulam district. I am a retired government school teacher and get a pension of 35,000 a month. My wife and I own our house."
+  profile: {age: 70, gender: male, state: Andhra Pradesh, area: rural, annual_income: 420000}
+  eligible: [ab_pmjay_vay_vandana, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p07
+  lang: te
+  text: "నా వయస్సు 52 సంవత్సరాలు. నేను చేనేత కార్మికుడిని, ధర్మవరం దగ్గర ఒక గ్రామంలో ఉంటాను. సంవత్సరానికి 80,000 ఆదాయం. భూమి లేదు."
+  profile: {age: 52, gender: male, area: rural, occupations: [weaver], land_acres: 0, annual_income: 80000}
+  eligible: [ntr_bharosa_weavers, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p08
+  lang: en
+  text: "I am a 28-year-old pregnant woman from a village in West Godavari. My husband is an agricultural labourer. Our family income is 1 lakh per year. We have no gas connection and cook with firewood. We live in a kutcha house."
+  profile: {age: 28, gender: female, state: Andhra Pradesh, area: rural, marital_status: married, annual_income: 100000}
+  eligible: [stree_shakti, ntr_vaidya_seva, pmmvy, pm_ujjwala, pmay_gramin, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p09
+  lang: en
+  text: "I'm 38, a tenant farmer cultivating 4 acres on lease in a village in Krishna district. I don't own any land. Income around 1.5 lakh a year. I'm a man. Two kids in school."
+  profile: {age: 38, gender: male, state: Andhra Pradesh, area: rural, occupations: [tenant_farmer], land_acres: 0, annual_income: 150000, children_in_school: 2}
+  eligible: [annadata_sukhibhava, pmfby, kisan_credit_card, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g, pm_sym]
+
+- id: p10
+  lang: en
+  text: "I'm a 26-year-old woman, unmarried, working as a software engineer in a private company in Visakhapatnam. I earn 9 lakh per year and pay income tax."
+  profile: {age: 26, gender: female, state: Andhra Pradesh, occupations: [salaried_private], annual_income: 900000}
+  eligible: [stree_shakti, ntr_vaidya_seva, pmjjby, pmsby]
+
+- id: p11
+  lang: en
+  text: "I am a 67-year-old woman from a village in Anantapur district. My husband passed away last year. We have 1.5 acres of dry land and our household income is 50,000 a year. I have a rice card. I cook on LPG gas."
+  profile: {age: 67, gender: female, state: Andhra Pradesh, area: rural, marital_status: widowed, land_acres: 1.5, annual_income: 50000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_widow, stree_shakti, deepam_2, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p12
+  lang: en
+  text: "I am a transgender person, 29 years old, living in Guntur town. I do small tailoring work and earn 7,000 a month."
+  profile: {age: 29, gender: transgender, state: Andhra Pradesh, area: urban, occupations: [artisan], annual_income: 84000}
+  eligible: [ntr_bharosa_transgender, stree_shakti, ntr_vaidya_seva, pm_vishwakarma, pm_sym, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p13
+  lang: en
+  text: "I am 42 and I have 60% disability due to polio. I live in a village in Chittoor district with my parents. Our family income is 70,000 a year and we have no land. I am male."
+  profile: {age: 42, gender: male, state: Andhra Pradesh, area: rural, land_acres: 0, annual_income: 70000}
+  eligible: [ntr_bharosa_disabled, ntr_vaidya_seva, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p14
+  lang: en
+  text: "I am a 55-year-old toddy tapper (Goud community, BC) from a village in East Godavari. Income about 6,000 per month. No land."
+  profile: {age: 55, state: Andhra Pradesh, area: rural, occupations: [toddy_tapper], land_acres: 0, annual_income: 72000}
+  eligible: [ntr_bharosa_toddy_tappers, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p15
+  lang: en
+  text: "I'm a 33-year-old woman. I sell vegetables on a push cart in Nellore city and earn around 9,000 a month. I have a 6-year-old daughter and she goes to school. We live in a rented room."
+  profile: {age: 33, gender: female, state: Andhra Pradesh, area: urban, occupations: [street_vendor], annual_income: 108000, children_in_school: 1}
+  eligible: [stree_shakti, ntr_vaidya_seva, pm_svanidhi, pm_sym, atal_pension_yojana, pmjjby, pmsby, sukanya_samriddhi, talliki_vandanam, pmay_urban]
+
+- id: p16
+  lang: te
+  text: "నేను 35 ఏళ్ల రైతును, ప్రకాశం జిల్లాలోని గ్రామంలో 3 ఎకరాల సొంత భూమి ఉంది. సంవత్సరానికి 1.2 లక్షల ఆదాయం. నేను పురుషుడిని."
+  profile: {age: 35, gender: male, state: Andhra Pradesh, area: rural, occupations: [farmer], land_acres: 3, annual_income: 120000}
+  eligible: [annadata_sukhibhava, pm_kisan, pmfby, kisan_credit_card, pm_kisan_maandhan, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p17
+  lang: en
+  text: "I'm a 23-year-old woman who completed a B.Com degree. I'm currently unemployed and looking for a job. I live in Tirupati with my parents; family income is 3 lakh a year. We are BC."
+  profile: {age: 23, gender: female, state: Andhra Pradesh, occupations: [unemployed], annual_income: 300000}
+  eligible: [stree_shakti, ntr_vaidya_seva, pm_internship, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p18
+  lang: en
+  text: "I'm a 47-year-old construction worker from Telangana, living in Hyderabad. I earn 15,000 a month. I'm a man."
+  profile: {age: 47, gender: male, state: Telangana, occupations: [construction_worker], annual_income: 180000}
+  eligible: [pmjjby, pmsby]
+
+- id: p19
+  lang: en
+  text: "I am 39, a man, and I want to start my own small food processing unit. I live in Kurnool town. I completed 10th class. Our family doesn't own a house; we rent. Income 2.5 lakh per year."
+  profile: {age: 39, gender: male, state: Andhra Pradesh, area: urban, annual_income: 250000}
+  eligible: [pmegp, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, pmay_urban]
+
+- id: p20
+  lang: en
+  text: "I'm a 61-year-old man, a fisherman from a coastal village in Bapatla district. I earn 5,000 a month and have no land. I hold a rice card."
+  profile: {age: 61, gender: male, state: Andhra Pradesh, area: rural, occupations: [fisherman], land_acres: 0, annual_income: 60000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_fishermen, kisan_credit_card, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p21
+  lang: en
+  text: "I'm a 36-year-old woman. My husband left me five years ago and we are separated. I work as a domestic worker in Vijayawada city and earn 8,000 a month. I have two children studying in a government school."
+  profile: {age: 36, gender: female, state: Andhra Pradesh, area: urban, marital_status: separated, occupations: [domestic_worker], annual_income: 96000, children_in_school: 2}
+  eligible: [ntr_bharosa_single_women, stree_shakti, talliki_vandanam, ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p22
+  lang: hi
+  text: "मैं 72 साल का हूँ, विशाखापत्तनम शहर में रहता हूँ। मेरे बेटे की आय 40,000 रुपये महीना है और हम पक्के मकान में रहते हैं।"
+  profile: {age: 72, gender: male, state: Andhra Pradesh, area: urban, annual_income: 480000}
+  eligible: [ab_pmjay_vay_vandana, ntr_vaidya_seva]
+
+- id: p23
+  lang: en
+  text: "I am a 24-year-old man doing my M.Tech in Guntur. I'm from the ST community (Koya). Family income is 1 lakh per year, we live in a village near Rampachodavaram."
+  profile: {age: 24, gender: male, state: Andhra Pradesh, area: rural, occupations: [student], annual_income: 100000}
+  eligible: [ap_fee_reimbursement, ntr_vaidya_seva, pm_internship, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p24
+  lang: en
+  text: "I'm a 58-year-old man working as a potter in a village in Vizianagaram district. My income is 6,500 a month. No land."
+  profile: {age: 58, gender: male, state: Andhra Pradesh, area: rural, occupations: [artisan], land_acres: 0, annual_income: 78000}
+  eligible: [pm_vishwakarma, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p25
+  lang: te
+  text: "నేను 42 ఏళ్ల మహిళను, ఆటో నడుపుతాను, నాకు సొంత ఆటో ఉంది. విజయవాడలో ఉంటాను. నెలకు 15 వేలు సంపాదిస్తాను."
+  profile: {age: 42, gender: female, state: Andhra Pradesh, area: urban, occupations: [auto_driver], annual_income: 180000}
+  eligible: [auto_driverla_sevalo, stree_shakti, ntr_vaidya_seva, pmjjby, pmsby]
+
+- id: p26
+  lang: en
+  text: "I am a 30-year-old woman, a homemaker, in a village in Palnadu district. I recently delivered my first baby, a girl, two months ago. My husband is a farmer with 4 acres of wet land. Household income 1.1 lakh per year. We have a white ration card and a gas connection."
+  profile: {age: 30, gender: female, state: Andhra Pradesh, area: rural, marital_status: married, occupations: [homemaker], land_acres: 4, annual_income: 110000}
+  eligible: [stree_shakti, deepam_2, ntr_vaidya_seva, pmmvy, sukanya_samriddhi, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p27
+  lang: en
+  text: "I am a 19-year-old girl studying intermediate (12th) in a junior college in Ongole. I am from the BC community; my father is a daily wage labourer earning 7,000 a month."
+  profile: {age: 19, gender: female, state: Andhra Pradesh, occupations: [student], annual_income: 84000}
+  eligible: [ap_fee_reimbursement, stree_shakti, ntr_vaidya_seva, pm_internship, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p28
+  lang: en
+  text: "I'm a 45-year-old man from Bengaluru, Karnataka, working as a bank manager. I earn 15 lakh a year."
+  profile: {age: 45, gender: male, state: Karnataka, annual_income: 1500000}
+  eligible: [pmjjby, pmsby]
+
+- id: p29
+  lang: en
+  text: "I am 50 years old, a man, on dialysis for kidney failure for the last two years. I live in Eluru town. My family income is 90,000 a year. We have no land."
+  profile: {age: 50, gender: male, state: Andhra Pradesh, area: urban, land_acres: 0, annual_income: 90000}
+  eligible: [ntr_bharosa_chronic_illness, ntr_vaidya_seva, pmjjby, pmsby]
+
+- id: p30
+  lang: en
+  text: "I'm a 37-year-old dairy farmer with 5 buffaloes in a village in Krishna district. I don't own farmland. Income about 1.4 lakh a year. I'm a woman. We have our own pucca house."
+  profile: {age: 37, gender: female, state: Andhra Pradesh, area: rural, occupations: [dairy_farmer], land_acres: 0, annual_income: 140000}
+  eligible: [kisan_credit_card, stree_shakti, ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p31
+  lang: en
+  text: "I'm a 66-year-old woman, never married, living alone in a village in Kadapa district. I get by on 3,000 a month. No land. I have a rice card."
+  profile: {age: 66, gender: female, state: Andhra Pradesh, area: rural, marital_status: unmarried, land_acres: 0, annual_income: 36000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_single_women, stree_shakti, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p32
+  lang: en
+  text: "I'm a 41-year-old cobbler working on the roadside in Nandyal town. I earn 6,000 a month. I'm a man. SC community."
+  profile: {age: 41, gender: male, state: Andhra Pradesh, area: urban, occupations: [cobbler], annual_income: 72000}
+  eligible: [ntr_bharosa_cobblers, pm_vishwakarma, ntr_vaidya_seva, pmjjby, pmsby]
+
+- id: p33
+  lang: te
+  text: "నేను 27 ఏళ్ల వ్యవసాయ కూలీని, శ్రీకాకుళం జిల్లా గ్రామంలో ఉంటాను. మా ఇల్లు గుడిసె. నెలకు 6000 ఆదాయం. నేను పురుషుడిని."
+  profile: {age: 27, gender: male, state: Andhra Pradesh, area: rural, occupations: [agricultural_labourer], annual_income: 72000}
+  eligible: [ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g, pmay_gramin]
+
+- id: p34
+  lang: en
+  text: "I am a 44-year-old woman farmer in a village near Kurnool with 12 acres of dry land. Annual income 3 lakh. My son studies in 9th class."
+  profile: {age: 44, gender: female, state: Andhra Pradesh, area: rural, occupations: [farmer], land_acres: 12, annual_income: 300000, children_in_school: 1}
+  eligible: [annadata_sukhibhava, pm_kisan, pmfby, kisan_credit_card, stree_shakti, ntr_vaidya_seva, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p35
+  lang: hi
+  text: "मैं 32 साल की महिला हूँ, तिरुपति शहर में सब्ज़ी का ठेला लगाती हूँ। महीने की आय 10,000 रुपये है। मेरे दो बच्चे स्कूल जाते हैं।"
+  profile: {age: 32, gender: female, state: Andhra Pradesh, area: urban, occupations: [street_vendor], annual_income: 120000, children_in_school: 2}
+  eligible: [pm_svanidhi, stree_shakti, talliki_vandanam, ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p36
+  lang: en
+  text: "I am a 22-year-old man, studying ITI (electrician) in Kakinada. Our family is EWS with income of 2 lakh a year. We live in town in our own house."
+  profile: {age: 22, gender: male, state: Andhra Pradesh, area: urban, occupations: [student], annual_income: 200000}
+  eligible: [ap_fee_reimbursement, ntr_vaidya_seva, pm_internship, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p37
+  lang: en
+  text: "I'm a 52-year-old woman, a government employee (Anganwadi supervisor) in Guntur city. My salary is 45,000 a month."
+  profile: {age: 52, gender: female, state: Andhra Pradesh, area: urban, occupations: [govt_employee], annual_income: 540000}
+  eligible: [stree_shakti, ntr_vaidya_seva, pmsby]
+
+- id: p38
+  lang: en
+  text: "I am 35, a woman, married, living in a village in Alluri Sitharama Raju district. We are from the ST community. We have 1 acre of land that my husband farms. We don't have a gas connection; we cook with firewood. Income 60,000 a year. Three children go to school."
+  profile: {age: 35, gender: female, state: Andhra Pradesh, area: rural, marital_status: married, land_acres: 1, annual_income: 60000, children_in_school: 3}
+  eligible: [talliki_vandanam, stree_shakti, pm_ujjwala, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p39
+  lang: te-en
+  text: "Nenu 48 years, raitu ni, Guntur district lo 5 acres sontha bhoomi undi, wet land. Income 2 lakhs per year. Male."
+  profile: {age: 48, gender: male, state: Andhra Pradesh, occupations: [farmer], land_acres: 5, annual_income: 200000}
+  eligible: [annadata_sukhibhava, pm_kisan, pmfby, kisan_credit_card, ntr_vaidya_seva, pmjjby, pmsby]
+
+- id: p40
+  lang: en
+  text: "I'm a 68-year-old man in a village near Nellore. I work as a carpenter but my eyesight is weak now. I earn 4,000 a month. I have a rice card and live in my own pucca house."
+  profile: {age: 68, gender: male, state: Andhra Pradesh, area: rural, occupations: [artisan], annual_income: 48000}
+  eligible: [ntr_bharosa_old_age, pm_vishwakarma, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: p41
+  lang: en
+  text: "I'm a 25-year-old woman who just finished a polytechnic diploma, not working right now. I live in a village in Konaseema district. Family income 1.5 lakh. I am pregnant with my first child."
+  profile: {age: 25, gender: female, state: Andhra Pradesh, area: rural, occupations: [unemployed], annual_income: 150000}
+  eligible: [stree_shakti, ntr_vaidya_seva, pmmvy, pm_internship, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p42
+  lang: en
+  text: "I'm a 39-year-old man from a village in Kurnool. I have 2 acres and do farming. I want to start a small dairy business too. Income 1 lakh per year. I hold a white ration card and we cook on LPG."
+  profile: {age: 39, gender: male, state: Andhra Pradesh, area: rural, occupations: [farmer], land_acres: 2, annual_income: 100000}
+  eligible: [annadata_sukhibhava, pm_kisan, pmfby, kisan_credit_card, pm_kisan_maandhan, pmegp, deepam_2, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p43
+  lang: en
+  text: "I'm 16 years old, a girl studying 10th class in a government school in Srikakulam town. My mother is a widow and works as a daily labourer."
+  profile: {age: 16, gender: female, state: Andhra Pradesh, area: urban, occupations: [student]}
+  eligible: [stree_shakti, ntr_vaidya_seva]
+
+- id: p44
+  lang: en
+  text: "I am a 60-year-old weaver woman from Mangalagiri. Handloom is our family occupation. Income 70,000 per year. No land. We have a rice card and a gas connection."
+  profile: {age: 60, gender: female, occupations: [weaver], land_acres: 0, annual_income: 70000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_weavers, stree_shakti, deepam_2, ntr_vaidya_seva, pmsby]
+
+- id: p45
+  lang: te
+  text: "నా వయస్సు 29, నేను గర్భిణీ స్త్రీని. ఏలూరు దగ్గర గ్రామంలో ఉంటాను. మాకు గ్యాస్ కనెక్షన్ లేదు. సంవత్సరానికి 90 వేల ఆదాయం."
+  profile: {age: 29, gender: female, state: Andhra Pradesh, area: rural, annual_income: 90000}
+  eligible: [pmmvy, pm_ujjwala, stree_shakti, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p46
+  lang: en
+  text: "I'm 33, male, an Uber taxi driver in Vijayawada, but the car belongs to my owner; I just drive it on salary of 14,000 a month."
+  profile: {age: 33, gender: male, state: Andhra Pradesh, area: urban, occupations: [auto_driver], annual_income: 168000}
+  eligible: [ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby]
+
+- id: p47
+  lang: en
+  text: "I am a 55-year-old widow living in Visakhapatnam city. I work as a house maid and earn 6,000 per month. My two grandchildren live with me but I have no children in school. We have a white ration card and own a small pucca house."
+  profile: {age: 55, gender: female, state: Andhra Pradesh, area: urban, marital_status: widowed, occupations: [domestic_worker], annual_income: 72000, children_in_school: 0}
+  eligible: [ntr_bharosa_widow, stree_shakti, ntr_vaidya_seva, pmsby]
+
+- id: p48
+  lang: en
+  text: "I'm a 40-year-old woman farmer in a village in Telangana's Nalgonda district with 3 acres. Income 1 lakh."
+  profile: {age: 40, gender: female, state: Telangana, area: rural, occupations: [farmer], land_acres: 3, annual_income: 100000}
+  eligible: [pm_kisan, pmfby, kisan_credit_card, pm_kisan_maandhan, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p49
+  lang: hi
+  text: "मैं 26 साल का युवक हूँ, गुंटूर के एक गाँव में रहता हूँ। मैं बेरोजगार हूँ, मैंने बी.ए. किया है। परिवार की आय 1.2 लाख सालाना है।"
+  profile: {age: 26, gender: male, state: Andhra Pradesh, area: rural, occupations: [unemployed], annual_income: 120000}
+  eligible: [ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: p50
+  lang: en
+  text: "I'm a 62-year-old man with 40% disability (lost a leg in an accident). I live in a village near Ongole with my wife; we have 2 acres of dry land which I can no longer farm. Income 50,000 a year. Rice card holder."
+  profile: {age: 62, gender: male, state: Andhra Pradesh, area: rural, land_acres: 2, annual_income: 50000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_disabled, ntr_vaidya_seva, pmsby, vb_g_ram_g]

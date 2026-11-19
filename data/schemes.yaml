@@ -1,0 +1,1428 @@
+# Yojana Mitra - curated scheme knowledge base for Andhra Pradesh residents.
+#
+# Every scheme becomes a (:Scheme) node. Every criterion becomes a shared (:Criterion)
+# node, linked by [:REQUIRES {group}] edges. Criteria in the same `any_of` block share a
+# group and are OR-ed; different groups are AND-ed (conjunctive normal form).
+#
+# Criterion keys:
+#   field   profile field (see yojana_mitra/profile.py; derived fields are computed there)
+#   op      eq | in | gte | lte | is_true | is_false | any_in
+#   value / values
+#   assume  true -> if the citizen did not mention it, assume the usual case and show it
+#           as a "please confirm" condition instead of blocking the match
+#   label   human-readable condition shown to the user
+#
+# `use: <macro>` expands a reusable bundle of criteria (see `macros`).
+#
+# Facts were compiled from official portals and news coverage up to Nov 2026. Amounts and
+# rules change; every scheme lists its sources and the UI tells users to verify there.
+
+version: "2026-11"
+last_reviewed: "2026-11-18"
+
+macros:
+  ap_resident:
+    - {field: ap_resident, op: is_true, label: "Resident of Andhra Pradesh"}
+  ap_welfare_standard:
+    # The common "six-step validation" used by AP welfare schemes (rice-card style limits).
+    - {field: income_within_ap_limit, op: is_true, label: "Household income within ₹10,000/month (rural) or ₹12,000/month (urban)"}
+    - {field: land_within_ap_limit, op: is_true, label: "Land below 3 acres wet / 10 acres dry"}
+    - {field: govt_employee, op: is_false, assume: true, label: "No government employee or pensioner in the family"}
+    - {field: income_tax_payer, op: is_false, assume: true, label: "Not an income-tax payer"}
+    - {field: owns_four_wheeler, op: is_false, assume: true, label: "No private four-wheeler (taxi/tractor/auto exempt)"}
+  central_basic_exclusions:
+    - {field: govt_employee, op: is_false, assume: true, label: "Not a government employee"}
+    - {field: income_tax_payer, op: is_false, assume: true, label: "Not an income-tax payer"}
+
+schemes:
+
+# ----------------------------------------------------------------------------------
+# ANDHRA PRADESH - NTR Bharosa social security pensions (one node per category)
+# ----------------------------------------------------------------------------------
+- id: ntr_bharosa_old_age
+  name: "NTR Bharosa Pension – Old Age"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య"
+  name_hi: "एनटीआर भरोसा पेंशन – वृद्धावस्था"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly social security pension for poor elderly citizens of Andhra Pradesh."
+  benefits:
+    - "₹4,000 per month, delivered to the doorstep by village/ward secretariat staff on the 1st of every month."
+    - "Raised from ₹3,000 to ₹4,000 by G.O.Ms.No.43 (13 June 2024), effective 1 July 2024."
+  documents:
+    - "Aadhaar card"
+    - "Rice card / household listed in the GSWS household database"
+    - "Age proof (Aadhaar, birth certificate or school record)"
+    - "Bank account or Aadhaar-linked payment details"
+    - "Passport-size photograph"
+  how_to_apply:
+    - "Visit your Village / Ward Secretariat (Swarna Gramam / Swarna Ward centre) when the application window is open."
+    - "The Welfare & Education Assistant or Ward Welfare Secretary registers the application with e-KYC."
+    - "Eligibility is checked against the six-step validation; sanctioned pensions are released in phases."
+    - "Track status on sspensions.ap.gov.in."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/SSP/Documents/GO%20MS%2043%2013.06.2024.pdf"
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  status_note: "Fresh applications are accepted only during notified windows (e.g. 7–16 Sept 2026)."
+  details: >
+    NTR Bharosa replaced YSR Pension Kanuka in June 2024. The old-age category covers men and
+    women aged 60 and above from poor households. Households must clear the six-step validation:
+    monthly household income up to ₹10,000 in rural areas and ₹12,000 in urban areas, land below
+    3 acres wet or 10 acres dry (or 10 acres combined), monthly electricity use below 300 units,
+    no government employee or government pensioner in the family, no four-wheeler (taxis,
+    tractors and autos are exempt), no income-tax payer, and urban property below 1,000 sq ft.
+    Only one pension is allowed per person.
+  criteria:
+    - use: ap_resident
+    - {field: age, op: gte, value: 60, label: "Age 60 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_widow
+  name: "NTR Bharosa Pension – Widows"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – వితంతు"
+  name_hi: "एनटीआर भरोसा पेंशन – विधवा"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for widows from poor households in Andhra Pradesh."
+  benefits:
+    - "₹4,000 per month, paid at the doorstep on the 1st of every month."
+    - "When a pensioner husband dies, the wife can be shifted to the widow pension from the next month (spouse category)."
+  documents:
+    - "Aadhaar card"
+    - "Husband's death certificate"
+    - "Rice card / GSWS household database entry"
+    - "Bank account details"
+  how_to_apply:
+    - "Apply at your Village / Ward Secretariat with the husband's death certificate."
+    - "The secretariat verifies through e-KYC and the six-step validation."
+    - "Track status on sspensions.ap.gov.in."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/SSP/Documents/GO%20MS%2043%2013.06.2024.pdf"
+    - "https://www.outlookmoney.com/retirement/pension/ntr-bharosa-pension-scheme-what-is-it-eligibility-and-documents-required"
+  status_note: "Applications are taken in notified windows; spouse-category transfers are processed monthly."
+  details: >
+    Widows aged 18 and above are eligible for the NTR Bharosa widow pension if the household
+    clears the six-step validation (income, land, electricity, vehicle, government employment
+    and income-tax checks). A death certificate of the husband is mandatory.
+  criteria:
+    - use: ap_resident
+    - {field: gender, op: eq, value: female, label: "Woman"}
+    - {field: marital_status, op: eq, value: widowed, label: "Widow"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_disabled
+  name: "NTR Bharosa Pension – Persons with Disabilities"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – దివ్యాంగులు"
+  name_hi: "एनटीआर भरोसा पेंशन – दिव्यांग"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹6,000 per month (₹15,000 for fully disabled / bed-ridden)"
+  summary: "Monthly pension for persons with 40% or more disability."
+  benefits:
+    - "₹6,000 per month for persons with 40% or more disability."
+    - "₹15,000 per month for persons who are fully disabled, bed-ridden, or have severe paralysis."
+  documents:
+    - "Aadhaar card"
+    - "SADAREM disability certificate showing 40% or more disability"
+    - "Rice card / GSWS household database entry"
+    - "Bank account details"
+  how_to_apply:
+    - "Obtain a SADAREM certificate from the designated government hospital camp."
+    - "Apply at the Village / Ward Secretariat with the certificate."
+    - "Track status on sspensions.ap.gov.in."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/SSP/Documents/GO%20MS%2043%2013.06.2024.pdf"
+  status_note: "Disability percentage is verified through SADAREM; re-verification drives happen periodically."
+  details: >
+    Persons with disabilities of any age with 40% or more disability certified by SADAREM are
+    eligible. Fully disabled, bed-ridden and severe chronic paralysis cases receive ₹15,000 per
+    month. Household six-step validation applies.
+  criteria:
+    - use: ap_resident
+    - {field: disability_percent, op: gte, value: 40, label: "Disability of 40% or more (SADAREM certificate)"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_single_women
+  name: "NTR Bharosa Pension – Single Women"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – ఒంటరి మహిళలు"
+  name_hi: "एनटीआर भरोसा पेंशन – एकल महिला"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for unmarried, divorced, separated or deserted women from poor households."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Proof of separation / divorce decree or certificate from the village/ward secretariat (as applicable)"
+    - "Rice card / GSWS household database entry"
+    - "Bank account details"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat during the notified application window."
+    - "Track status on sspensions.ap.gov.in."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  status_note: "Age thresholds differ for unmarried women (30+ rural, 35+ urban) vs separated/divorced women (35+)."
+  details: >
+    Single women who are unmarried, divorced, separated or deserted are covered. Separated or
+    divorced women should be 35 years or older; unmarried women 30 or older in rural areas and 35
+    or older in urban areas. Yojana Mitra uses age 35 as the safe threshold and flags 30–34 for
+    rural unmarried women as a case to confirm with the secretariat. Six-step validation applies.
+  criteria:
+    - use: ap_resident
+    - {field: gender, op: eq, value: female, label: "Woman"}
+    - {field: marital_status, op: in, values: [unmarried, divorced, separated], label: "Unmarried, divorced, separated or deserted"}
+    - {field: age, op: gte, value: 35, label: "Age 35 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_weavers
+  name: "NTR Bharosa Pension – Handloom Weavers"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – చేనేత కార్మికులు"
+  name_hi: "एनटीआर भरोसा पेंशन – हथकरघा बुनकर"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for handloom weavers aged 50 and above."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Weaver identity / certificate from the Handlooms & Textiles department"
+    - "Rice card / GSWS household database entry"
+    - "Bank account details"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat; weaver status is verified with the Handlooms department."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  details: >
+    Handloom weavers aged 50 years and above whose household clears the six-step validation are
+    eligible for ₹4,000 per month.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [weaver], label: "Handloom weaver"}
+    - {field: age, op: gte, value: 50, label: "Age 50 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_toddy_tappers
+  name: "NTR Bharosa Pension – Toddy Tappers"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – కల్లు గీత కార్మికులు"
+  name_hi: "एनटीआर भरोसा पेंशन – ताड़ी निकालने वाले"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for toddy tappers aged 50 and above."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Membership of a Toddy Tappers Co-operative Society / TFT licence"
+    - "Rice card / GSWS household database entry"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat; status is verified with the Excise department records."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  details: >
+    Toddy tappers aged 50 and above who are members of a toddy co-operative society or hold a
+    Tree-For-Tapper licence are eligible, subject to the six-step validation.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [toddy_tapper], label: "Toddy tapper"}
+    - {field: age, op: gte, value: 50, label: "Age 50 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_fishermen
+  name: "NTR Bharosa Pension – Fishermen"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – మత్స్యకారులు"
+  name_hi: "एनटीआर भरोसा पेंशन – मछुआरे"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for fishermen aged 50 and above."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Fisherman identity card / Fisheries department certificate"
+    - "Rice card / GSWS household database entry"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat; fisherman status is verified with the Fisheries department."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  details: >
+    Fishermen aged 50 years and above from households that clear the six-step validation receive
+    ₹4,000 per month.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [fisherman], label: "Fisherman"}
+    - {field: age, op: gte, value: 50, label: "Age 50 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_cobblers
+  name: "NTR Bharosa Pension – Traditional Cobblers"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – చర్మకారులు"
+  name_hi: "एनटीआर भरोसा पेंशन – मोची"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for traditional cobblers aged 40 and above."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Certificate of occupation from the Social Welfare department / secretariat"
+    - "Rice card / GSWS household database entry"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  details: >
+    Traditional cobblers aged 40 years and above are eligible, subject to the six-step validation.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [cobbler], label: "Traditional cobbler"}
+    - {field: age, op: gte, value: 40, label: "Age 40 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_transgender
+  name: "NTR Bharosa Pension – Transgender Persons"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – ట్రాన్స్‌జెండర్లు"
+  name_hi: "एनटीआर भरोसा पेंशन – ट्रांसजेंडर"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP), Govt. of Andhra Pradesh"
+  amount: "₹4,000 per month"
+  summary: "Monthly pension for transgender persons aged 18 and above."
+  benefits:
+    - "₹4,000 per month at the doorstep."
+  documents:
+    - "Aadhaar card"
+    - "Transgender certificate / identity card (National Portal for Transgender Persons) or medical certificate"
+    - "GSWS household database entry"
+  how_to_apply:
+    - "Apply at the Village / Ward Secretariat."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/ssp/home/about"
+  details: >
+    Transgender persons aged 18 and above are eligible for ₹4,000 per month, subject to the
+    six-step validation.
+  criteria:
+    - use: ap_resident
+    - {field: gender, op: eq, value: transgender, label: "Transgender person"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - use: ap_welfare_standard
+
+- id: ntr_bharosa_chronic_illness
+  name: "NTR Bharosa Pension – Chronic Illness (Dialysis, Thalassemia, etc.)"
+  name_te: "ఎన్టీఆర్ భరోసా పింఛను – దీర్ఘకాలిక వ్యాధిగ్రస్తులు"
+  name_hi: "एनटीआर भरोसा पेंशन – दीर्घकालिक रोग"
+  level: state
+  category: pension
+  department: "Department of Rural Development (SERP) / Health Dept., Govt. of Andhra Pradesh"
+  amount: "₹10,000 per month"
+  summary: "Health pension for patients on dialysis (CKD/CKDU), thalassemia, sickle-cell, severe haemophilia and similar conditions."
+  benefits:
+    - "₹10,000 per month for patients with chronic kidney disease on dialysis, CKDU, thalassemia, sickle-cell anaemia, severe haemophilia and similar listed conditions."
+    - "₹15,000 per month for bed-ridden / fully paralysed patients."
+  documents:
+    - "Aadhaar card"
+    - "Medical certificate from a government or network hospital (dialysis record, diagnosis)"
+    - "GSWS household database entry"
+  how_to_apply:
+    - "Get the diagnosis certified at the treating government / Dr. NTR Vaidya Seva network hospital."
+    - "Apply at the Village / Ward Secretariat with the medical records."
+  portal: "https://sspensions.ap.gov.in"
+  sources:
+    - "https://sspensions.ap.gov.in/SSP/Documents/GO%20MS%2043%2013.06.2024.pdf"
+  status_note: "Medical eligibility is verified with hospital records; the household six-step validation still applies."
+  details: >
+    Health pensions cover people with serious chronic conditions: chronic kidney disease on
+    dialysis, CKDU (stages 3–5), thalassemia, sickle-cell disease, severe haemophilia and similar
+    listed conditions receive ₹10,000 per month; bed-ridden and fully paralysed patients receive
+    ₹15,000 per month.
+  criteria:
+    - use: ap_resident
+    - {field: health_conditions, op: any_in, values: [kidney_dialysis, thalassemia, sickle_cell, haemophilia, bedridden], label: "Listed chronic illness (dialysis, thalassemia, sickle-cell, haemophilia, bed-ridden)"}
+    - use: ap_welfare_standard
+
+# ----------------------------------------------------------------------------------
+# ANDHRA PRADESH - Super Six & other flagship schemes
+# ----------------------------------------------------------------------------------
+- id: talliki_vandanam
+  name: "Talliki Vandanam"
+  name_te: "తల్లికి వందనం"
+  name_hi: "तल्लिकी वंदनम"
+  level: state
+  category: education
+  department: "School Education Department, Govt. of Andhra Pradesh"
+  amount: "₹15,000 per school-going child per year (₹13,000 to the mother's account + ₹2,000 to the school maintenance fund)"
+  summary: "Annual financial support to mothers/guardians for every child studying in Class 1–12."
+  benefits:
+    - "₹15,000 per year for each child studying in Class 1 to Intermediate (Class 12), with no limit on the number of children."
+    - "₹13,000 is credited to the mother's account and ₹2,000 goes to the school maintenance fund."
+  documents:
+    - "Mother's / guardian's Aadhaar card and bank account linked to Aadhaar (NPCI)"
+    - "Child's Aadhaar and school enrolment (UDISE / Child Info)"
+    - "Rice card / GSWS household database entry"
+  how_to_apply:
+    - "No separate application is usually required: eligible mothers are identified from the GSWS household database and school enrolment data."
+    - "Check eligibility lists at the Village / Ward Secretariat or on the GSWS NBM portal (gsws-nbm.ap.gov.in)."
+    - "Raise a grievance at the secretariat if your name is missing; complete e-KYC and NPCI bank mapping."
+  portal: "https://gsws-nbm.ap.gov.in"
+  sources:
+    - "https://deccanchronicle.com/southern-states/andhra-pradesh/thalliki-vandanam-scheme-eligibility-criteria-announced-for-202526-1884797"
+    - "https://telanganatoday.com/andhra-pradesh-government-launches-talliki-vandanam-scheme-rs-15000-to-be-given-for-school-going-child"
+  status_note: "Children in Class 1 and Class 11 are added after enrolment each academic year; 75% attendance may be checked."
+  details: >
+    Talliki Vandanam replaced Amma Vodi and covers every school-going child (Class 1–12) in
+    government, aided and recognised private schools and junior colleges. Households must meet the
+    standard limits: monthly income up to ₹10,000 (rural) or ₹12,000 (urban), land below 3 acres
+    wet or 10 acres dry, electricity below 300 units a month, no government employee or pensioner,
+    no income-tax payer, and no private four-wheeler (taxi, tractor and auto exempt).
+  criteria:
+    - use: ap_resident
+    - {field: children_in_school, op: gte, value: 1, label: "At least one child studying in Class 1–12"}
+    - use: ap_welfare_standard
+
+- id: annadata_sukhibhava
+  name: "Annadata Sukhibhava (with PM-KISAN)"
+  name_te: "అన్నదాత సుఖీభవ"
+  name_hi: "अन्नदाता सुखीभव"
+  level: state
+  category: agriculture
+  department: "Department of Agriculture, Govt. of Andhra Pradesh"
+  amount: "₹20,000 per farmer family per year (₹14,000 State + ₹6,000 PM-KISAN)"
+  summary: "Annual investment support for farmer families in Andhra Pradesh, combined with PM-KISAN."
+  benefits:
+    - "₹20,000 per year: ₹14,000 from the State plus ₹6,000 from PM-KISAN."
+    - "Paid in three instalments (first instalment of ₹7,000 was released in August 2025)."
+  documents:
+    - "Aadhaar card linked to the bank account"
+    - "Pattadar passbook / land records in Webland (owners)"
+    - "CCRC (Crop Cultivator Rights Card) for tenant farmers"
+    - "e-KYC at the Rythu Seva Kendram"
+  how_to_apply:
+    - "Land-owning farmers listed in Webland/PM-KISAN are identified automatically; complete e-KYC at your Rythu Seva Kendram (RSK)."
+    - "Tenant farmers should obtain a CCRC card and register at the RSK."
+    - "Check status at annadathasukhibhava.ap.gov.in."
+  portal: "https://annadathasukhibhava.ap.gov.in"
+  sources:
+    - "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/annadata-sukhibhava-scheme"
+    - "https://telanganatoday.com/naidu-launches-rs-3174-cr-annadatha-scheme-deposits-rs-7000-each-to-47-lakh-farmers"
+    - "https://www.thehansindia.com/amp/andhra-pradesh/tenant-farmers-assn-flays-denial-of-annadata-sukhibhava-sops-1024768"
+  status_note: "Tenant-farmer coverage has been disputed (a Nov 2025 report says they were left out of the 2nd instalment); confirm at your RSK."
+  details: >
+    Annadata Sukhibhava supports landowning farmer families and, as announced, tenant farmers who
+    hold a CCRC card. PM-KISAN exclusions apply: income-tax payers, serving or retired government
+    employees, constitutional post holders and professionals such as doctors, engineers and
+    lawyers are not eligible.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [farmer, tenant_farmer], label: "Farmer (land owner or tenant with CCRC card)"}
+    - use: central_basic_exclusions
+
+- id: stree_shakti
+  name: "Stree Shakti – Free Bus Travel"
+  name_te: "స్త్రీ శక్తి – ఉచిత బస్సు ప్రయాణం"
+  name_hi: "स्त्री शक्ति – मुफ्त बस यात्रा"
+  level: state
+  category: women
+  department: "Transport Department / APSRTC, Govt. of Andhra Pradesh"
+  amount: "Free travel in APSRTC Palle Velugu, Ultra Palle Velugu, City Ordinary, Metro Express and Express buses"
+  summary: "Free bus travel inside Andhra Pradesh for all women, girls and transgender persons domiciled in AP."
+  benefits:
+    - "Zero-fare tickets in Palle Velugu, Ultra Palle Velugu, City Ordinary, Metro Express and Express services within the state."
+    - "No application or income limit; launched 15 August 2025."
+  documents:
+    - "Any original valid photo ID showing AP address (Aadhaar, voter ID, ration card) to show the conductor"
+  how_to_apply:
+    - "No application needed. Board an eligible APSRTC bus and show a valid AP photo ID to get a zero-fare ticket."
+    - "Non-stop, AC and premium services and inter-state travel are excluded."
+  portal: "https://www.apsrtconline.in"
+  sources:
+    - "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/stree-shakti-scheme"
+    - "https://www.theweek.in/wire-updates/national/2025/08/11/mes2-ap-free-bus-scheme.html"
+  details: >
+    All women and girls residing in Andhra Pradesh, and transgender persons with AP domicile, can
+    travel free within the state on Palle Velugu, Ultra Palle Velugu, City Ordinary, Metro Express
+    and Express buses. About three-quarters of the APSRTC fleet is covered.
+  criteria:
+    - use: ap_resident
+    - {field: gender, op: in, values: [female, transgender], label: "Woman, girl or transgender person"}
+
+- id: deepam_2
+  name: "Deepam 2.0 – Free LPG Cylinders"
+  name_te: "దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు"
+  name_hi: "दीपम 2.0 – मुफ्त एलपीजी सिलेंडर"
+  level: state
+  category: household
+  department: "Civil Supplies Department, Govt. of Andhra Pradesh"
+  amount: "3 free LPG cylinders per year (one every four months)"
+  summary: "Three free domestic LPG refills a year for rice-card households with a gas connection."
+  benefits:
+    - "Cost of one 14.2 kg refill reimbursed to the bank account in each block: April–July, August–November, December–March."
+    - "Unused blocks lapse; there is no carry-forward."
+  documents:
+    - "Rice card (white ration card)"
+    - "Domestic LPG connection in a household member's name"
+    - "Aadhaar linked to the LPG connection and bank account"
+  how_to_apply:
+    - "Book the cylinder with your gas agency as usual; the subsidy is credited within 48 hours."
+    - "Make sure Aadhaar, rice card and bank account are linked to the LPG connection (check at the gas agency or secretariat)."
+  portal: "https://epds2.ap.gov.in"
+  sources:
+    - "https://www.newsonair.gov.in/ap-cm-chandrababu-naidu-launches-deepam-2-0-scheme-provides-free-gas-cylinders-for-eligible-families"
+    - "https://www.gktoday.in/what-is-deepam-2-0-scheme/"
+  details: >
+    Deepam 2.0 was launched on 1 November 2024 as part of the Super Six promises. Households that
+    hold a rice card and have an active domestic LPG connection get three free refills a year.
+  criteria:
+    - use: ap_resident
+    - {field: has_lpg_connection, op: is_true, label: "Household has a domestic LPG connection"}
+    - {field: has_rice_card, op: is_true, label: "Household holds a rice card (white ration card)"}
+
+- id: matsyakara_sevalo
+  name: "Matsyakarula Sevalo – Fishing Ban Relief"
+  name_te: "మత్స్యకారుల సేవలో"
+  name_hi: "मत्स्यकारुला सेवालो"
+  level: state
+  category: livelihood
+  department: "Department of Fisheries, Govt. of Andhra Pradesh"
+  amount: "₹20,000 per fisherman family during the 61-day marine fishing ban"
+  summary: "Subsistence allowance to marine fisherman families during the annual fishing ban (April–June)."
+  benefits:
+    - "₹20,000 per eligible family (raised from ₹10,000) during the marine fishing ban."
+    - "Ex-gratia for accidental death while fishing raised to ₹10 lakh for fishermen aged 18–60."
+  documents:
+    - "Aadhaar card"
+    - "Fisherman identity card / boat registration or crew details"
+    - "Bank account linked to Aadhaar"
+  how_to_apply:
+    - "Fisheries Assistants and the Village / Ward Secretariat enumerate eligible families before the ban."
+    - "Check status on the GSWS beneficiary management portal under 'Fishing Ban Relief'."
+  portal: "https://fisheries.ap.gov.in"
+  sources:
+    - "https://www.angelone.in/news/government-schemes/andhra-pradesh-government-transfers-261-59-crore-to-fishermen-families-under-matsyakarula-sevalo-scheme"
+    - "https://www.deccanchronicle.com/amp/southern-states/andhra-pradesh/andhra-government-imposes-seasonal-marine-fishing-ban-for-resource-conservation-1950199"
+  details: >
+    Families dependent on mechanised, motorised or traditional boat-based marine fishing receive
+    ₹20,000 during the 61-day ban period. Beneficiaries are typically aged 18–60.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [fisherman], label: "Fisherman (marine / boat-based fishing)"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 60, label: "Age 60 years or below"}
+
+- id: auto_driverla_sevalo
+  name: "Auto Driverla Sevalo"
+  name_te: "ఆటో డ్రైవర్ల సేవలో"
+  name_hi: "ऑटो ड्राइवरला सेवालो"
+  level: state
+  category: livelihood
+  department: "Transport Department, Govt. of Andhra Pradesh"
+  amount: "₹15,000 per year"
+  summary: "Annual assistance to self-owned auto, taxi and maxi-cab drivers (launched 4 Oct 2025)."
+  benefits:
+    - "₹15,000 per year credited directly to the bank account."
+  documents:
+    - "Aadhaar card"
+    - "Valid driving licence"
+    - "Vehicle RC (registered in AP, in the applicant's name), insurance and fitness"
+    - "Bank account details"
+  how_to_apply:
+    - "Apply online on the GSWS beneficiary management portal with Aadhaar-based login, or at the Village / Ward Secretariat."
+    - "Only one member per household who owns and drives the vehicle can apply."
+  portal: "https://gsws-nbm.ap.gov.in"
+  sources:
+    - "https://en.vikaspedia.in/viewcontent/schemesall/state-specific-schemes/welfare-schemes-of-andhra-pradesh/auto-driver-sevalo-scheme"
+    - "https://www.deccanherald.com/india/andhra-pradesh/andhra-pradesh-cm-naidu-launches-auto-driverla-sevalo-scheme-3752507"
+  details: >
+    Permanent residents of Andhra Pradesh who drive their own auto-rickshaw, taxi, motor cab or
+    maxi cab registered in AP, hold a valid driving licence and are 18 or older are eligible. One
+    member per household.
+  criteria:
+    - use: ap_resident
+    - {field: occupations, op: any_in, values: [auto_driver], label: "Auto / taxi / maxi-cab driver"}
+    - {field: owns_commercial_vehicle, op: is_true, assume: true, label: "Vehicle is self-owned and registered in AP"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+
+- id: ntr_vaidya_seva
+  name: "Dr. NTR Vaidya Seva – Universal Health Policy"
+  name_te: "డా. ఎన్టీఆర్ వైద్య సేవ"
+  name_hi: "डॉ. एनटीआर वैद्य सेवा"
+  level: state
+  category: health
+  department: "Dr. NTR Vaidya Seva Trust, Health Dept., Govt. of Andhra Pradesh"
+  amount: "Cashless treatment: ₹2.5 lakh per family via insurance; BPL families up to ₹25 lakh"
+  summary: "Cashless hospital treatment for AP families under the hybrid Ayushman Bharat–NTR Vaidya Seva model."
+  benefits:
+    - "Universal Health Policy (approved Sept 2025): health cover of ₹2.5 lakh per family through insurance for every family."
+    - "Families below the poverty line get further cover from the NTR Vaidya Seva Trust, up to ₹25 lakh per family per year."
+    - "3,000+ procedures in empanelled government and private network hospitals."
+  documents:
+    - "Aadhaar card"
+    - "Rice card / Dr. NTR Vaidya Seva health card"
+    - "Referral and medical records (for planned procedures)"
+  how_to_apply:
+    - "Visit any empanelled network hospital and go to the Vaidya Mitra (Arogya Mitra) desk with Aadhaar and rice card."
+    - "Pre-authorisation is done by the hospital; treatment is cashless."
+    - "Helpline 104."
+  portal: "https://drntrvaidyaseva.ap.gov.in"
+  sources:
+    - "https://www.deccanchronicle.com/southern-states/andhra-pradesh/ap-cabinet-approves-universal-health-policy-1901624"
+    - "https://thesouthfirst.com/news/ap-cabinet-approves-universal-health-policy-5-crore-people-to-benefit/"
+  status_note: "The hybrid insurance model is being rolled out in phases; confirm current cover limits at the Vaidya Mitra desk."
+  details: >
+    Under the Universal Health Policy, every family in Andhra Pradesh is meant to get ₹2.5 lakh of
+    cashless cover through insurance companies, while BPL (rice-card) families get further cover up
+    to ₹25 lakh through the Dr. NTR Vaidya Seva Trust. Treatment is available in empanelled
+    government and private network hospitals.
+  criteria:
+    - use: ap_resident
+
+- id: ap_fee_reimbursement
+  name: "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi)"
+  name_te: "పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్"
+  name_hi: "पोस्ट-मैट्रिक छात्रवृत्ति और फीस प्रतिपूर्ति"
+  level: state
+  category: education
+  department: "Social Welfare / BC Welfare / Tribal Welfare / Minority Welfare Depts., Govt. of AP"
+  amount: "Full tuition-fee reimbursement plus maintenance (hostel/mess) allowance"
+  summary: "Fee reimbursement and maintenance scholarship for SC, ST, BC, EWS and minority students in post-matric courses."
+  benefits:
+    - "Reimbursement of tuition, special and exam fees for convener-quota seats in ITI, polytechnic, degree, engineering, medical and PG courses."
+    - "Maintenance Fee (MTF) towards hostel and mess charges."
+  documents:
+    - "Aadhaar card"
+    - "Caste certificate and income certificate (MeeSeva)"
+    - "Previous class marks memo / study certificate"
+    - "Admission and fee details from the college"
+    - "Bank account (student and mother)"
+  how_to_apply:
+    - "Register on the Jnanabhumi portal (jnanabhumi.ap.gov.in) through your college."
+    - "Complete biometric / e-KYC authentication at the college or secretariat."
+  portal: "https://jnanabhumi.ap.gov.in"
+  sources:
+    - "https://jnanabhumi.ap.gov.in/downloads/guidelines.pdf"
+    - "https://www.indiascholarships.in/scholarships/jnanabhumi-ap-scholarship"
+    - "https://www.indiascholarships.in/scholarships/andhra-pradesh-postmatric-sc"
+  status_note: "Income ceilings differ by category: ₹2.5 lakh for SC/ST/EWS/minority, about ₹2 lakh for BC in some notifications. AP students in Telangana/other-state colleges are covered only under separate conditions; confirm with the Jnanabhumi helpline (08645-274025)."
+  details: >
+    Students from SC, ST, BC, EWS (including Kapu) and minority communities studying in
+    post-matric courses (Intermediate, ITI, polytechnic, degree, engineering, medical, PG) in
+    recognised institutions are eligible if annual family income is up to ₹2.5 lakh. Seats must be
+    convener quota, and minimum attendance applies. The Jnanabhumi guidelines have a separate
+    section for AP students studying in Telangana and other states: students admitted through the
+    entrance test (convener quota) are covered, students in private or deemed universities and
+    correspondence/distance courses are not, premier institutes notified by the Government of India
+    are reimbursed at their own fee, and other institutes are reimbursed at the AP fee for the
+    equivalent course or the actual fee, whichever is lower.
+  criteria:
+    - use: ap_resident
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: in, values: [intermediate, iti, polytechnic, degree, professional, pg], label: "Studying a post-matric course (Inter, ITI, polytechnic, degree, professional, PG)"}
+    - {field: social_category, op: in, values: [SC, ST, BC, EWS, minority], label: "SC, ST, BC, EWS or minority community"}
+    - {field: annual_income, op: lte, value: 250000, label: "Annual family income up to ₹2.5 lakh"}
+    - any_of:
+      - {field: studies_outside_ap, op: is_false, label: "College is in Andhra Pradesh"}
+      - {field: outside_ap_admission_ok, op: is_true, assume: true, label: "College outside AP: admitted through the entrance-test (convener) route, not a private/deemed university; fee capped at the AP rate for the course"}
+
+# ----------------------------------------------------------------------------------
+# CENTRAL SCHEMES available to Andhra Pradesh residents
+# ----------------------------------------------------------------------------------
+- id: pm_kisan
+  name: "PM-KISAN Samman Nidhi"
+  name_te: "పీఎం-కిసాన్ సమ్మాన్ నిధి"
+  name_hi: "पीएम-किसान सम्मान निधि"
+  level: central
+  category: agriculture
+  department: "Ministry of Agriculture & Farmers Welfare, Govt. of India"
+  amount: "₹6,000 per year in three instalments"
+  summary: "Income support of ₹6,000 a year to land-holding farmer families."
+  benefits:
+    - "₹2,000 every four months, paid by DBT. In AP this is part of the ₹20,000 Annadata Sukhibhava payout."
+  documents:
+    - "Aadhaar card (e-KYC mandatory)"
+    - "Land records in the farmer's name"
+    - "Aadhaar-seeded bank account"
+  how_to_apply:
+    - "Self-register on pmkisan.gov.in ('New Farmer Registration') or at a CSC / Rythu Seva Kendram."
+    - "Complete e-KYC (OTP, biometric or face authentication) and land seeding."
+  portal: "https://pmkisan.gov.in"
+  sources:
+    - "https://pmkisan.gov.in"
+  details: >
+    Land-holding farmer families with cultivable land in their name are eligible. Excluded are
+    institutional landholders, current or former constitutional post holders, serving or retired
+    government employees (except MTS/Group D), pensioners drawing ₹10,000 or more a month,
+    income-tax payers and professionals such as doctors, engineers, lawyers and CAs. Tenant
+    farmers without land in their name are not covered.
+  criteria:
+    - {field: occupations, op: any_in, values: [farmer], label: "Land-owning farmer"}
+    - {field: land_acres, op: gte, value: 0.01, label: "Owns cultivable land in own name"}
+    - use: central_basic_exclusions
+
+- id: pmfby
+  name: "Pradhan Mantri Fasal Bima Yojana (Crop Insurance)"
+  name_te: "ప్రధానమంత్రి ఫసల్ బీమా యోజన"
+  name_hi: "प्रधानमंत्री फसल बीमा योजना"
+  level: central
+  category: agriculture
+  department: "Ministry of Agriculture & Farmers Welfare / AP Agriculture Dept."
+  amount: "Crop insurance at 2% (kharif), 1.5% (rabi), 5% (commercial/horticulture) farmer premium"
+  summary: "Low-premium insurance against crop loss from natural calamities, pests and diseases."
+  benefits:
+    - "Farmer pays only 2% of sum insured for kharif, 1.5% for rabi, 5% for commercial/horticulture crops; the rest is paid by government."
+    - "Covers prevented sowing, mid-season adversity, post-harvest losses and localised calamities."
+  documents:
+    - "Aadhaar card"
+    - "Land records or CCRC / tenancy agreement for tenant farmers"
+    - "Sowing certificate / e-Crop booking"
+    - "Bank account details"
+  how_to_apply:
+    - "Enrol through your bank, PACS, CSC, Rythu Seva Kendram or pmfby.gov.in before the season cut-off date."
+  portal: "https://pmfby.gov.in"
+  sources:
+    - "https://pmfby.gov.in"
+  details: >
+    All farmers, including sharecroppers and tenant farmers growing notified crops in notified
+    areas, can enrol. Enrolment is voluntary.
+  criteria:
+    - {field: occupations, op: any_in, values: [farmer, tenant_farmer], label: "Farmer, tenant farmer or sharecropper"}
+
+- id: kisan_credit_card
+  name: "Kisan Credit Card (KCC)"
+  name_te: "కిసాన్ క్రెడిట్ కార్డ్"
+  name_hi: "किसान क्रेडिट कार्ड"
+  level: central
+  category: agriculture
+  department: "Ministry of Agriculture / RBI / NABARD via banks"
+  amount: "Short-term crop loans at 7% interest (effective 4% with prompt repayment); limit raised to ₹5 lakh"
+  summary: "Cheap revolving credit for farmers, tenant farmers, fishers and animal-husbandry farmers."
+  benefits:
+    - "Crop loans at 7% with 3% prompt-repayment incentive (effective 4%). Interest-subvention limit raised from ₹3 lakh to ₹5 lakh (Union Budget 2025-26)."
+    - "Collateral-free up to ₹2 lakh; includes RuPay debit card."
+  documents:
+    - "Aadhaar and PAN / ID proof"
+    - "Land records or CCRC / tenancy proof; fisher / livestock proof for those categories"
+    - "Passport-size photo"
+  how_to_apply:
+    - "Apply at any commercial, co-operative or regional rural bank, or via the PM-KISAN / bank portal."
+  portal: "https://pmkisan.gov.in"
+  sources:
+    - "https://www.myscheme.gov.in/schemes/kcc"
+  details: >
+    Owner cultivators, tenant farmers, oral lessees, sharecroppers, self-help groups, and farmers
+    in fisheries and animal husbandry are eligible.
+  criteria:
+    - {field: occupations, op: any_in, values: [farmer, tenant_farmer, fisherman, dairy_farmer], label: "Farmer, tenant farmer, fisher or animal-husbandry farmer"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+
+- id: pm_kisan_maandhan
+  name: "PM Kisan Maan-Dhan Yojana (Farmer Pension)"
+  name_te: "పీఎం కిసాన్ మాన్‌ధన్ యోజన"
+  name_hi: "पीएम किसान मानधन योजना"
+  level: central
+  category: retirement_savings
+  department: "Ministry of Agriculture & Farmers Welfare, Govt. of India"
+  amount: "₹3,000 per month pension after age 60 (contribution ₹55–₹200/month, matched by Centre)"
+  summary: "Retirement savings, not a welfare pension: a small farmer pays ₹55–₹200 a month (the Centre adds the same) and gets ₹3,000 a month after age 60."
+  benefits:
+    - "Assured pension of ₹3,000 per month from age 60."
+    - "Government matches the farmer's monthly contribution (₹55–₹200 depending on entry age)."
+  documents:
+    - "Aadhaar card"
+    - "Savings bank account / PM-KISAN account"
+    - "Land records"
+  how_to_apply:
+    - "Enrol at a Common Service Centre (CSC) or on maandhan.in."
+  portal: "https://maandhan.in"
+  sources:
+    - "https://maandhan.in"
+  details: >
+    Small and marginal farmers aged 18–40 with cultivable land up to 2 hectares (about 4.94 acres)
+    are eligible. Those covered by NPS, ESIC or EPFO schemes, and income-tax payers, are excluded.
+  criteria:
+    - {field: occupations, op: any_in, values: [farmer], label: "Land-owning small/marginal farmer"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 40, label: "Age 40 years or below"}
+    - {field: land_acres, op: lte, value: 4.94, label: "Land up to 2 hectares (4.94 acres)"}
+    - {field: land_acres, op: gte, value: 0.01, label: "Owns cultivable land"}
+    - use: central_basic_exclusions
+
+- id: pm_sym
+  name: "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension)"
+  name_te: "పీఎం శ్రమ యోగి మాన్‌ధన్"
+  name_hi: "पीएम श्रम योगी मानधन"
+  level: central
+  category: retirement_savings
+  department: "Ministry of Labour & Employment, Govt. of India"
+  amount: "₹3,000 per month pension after age 60 (contribution ₹55–₹200/month, matched by Centre)"
+  summary: "Retirement savings, not a welfare pension: an unorganised worker pays ₹55–₹200 a month (the Centre adds the same) and gets ₹3,000 a month after age 60."
+  benefits:
+    - "Assured pension of ₹3,000 per month from age 60; 50% family pension to spouse."
+  documents:
+    - "Aadhaar card"
+    - "Savings bank account / Jan Dhan account with IFSC"
+  how_to_apply:
+    - "Enrol at a Common Service Centre (CSC) or on maandhan.in with Aadhaar and bank details."
+  portal: "https://maandhan.in"
+  sources:
+    - "https://maandhan.in"
+  details: >
+    Unorganised workers such as agricultural labourers, construction workers, street vendors,
+    domestic workers, rickshaw and auto drivers, weavers, cobblers and artisans aged 18–40 with
+    monthly income up to ₹15,000 are eligible. Members of EPF, ESIC or NPS and income-tax payers
+    are excluded.
+  criteria:
+    - {field: is_unorganised_worker, op: is_true, label: "Unorganised-sector worker"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 40, label: "Age 40 years or below"}
+    - {field: annual_income, op: lte, value: 180000, label: "Income up to ₹15,000 per month"}
+    - {field: income_tax_payer, op: is_false, assume: true, label: "Not an income-tax payer"}
+
+- id: atal_pension_yojana
+  name: "Atal Pension Yojana"
+  name_te: "అటల్ పెన్షన్ యోజన"
+  name_hi: "अटल पेंशन योजना"
+  level: central
+  category: retirement_savings
+  department: "PFRDA / Ministry of Finance, Govt. of India"
+  amount: "You save monthly now → guaranteed ₹1,000–₹5,000 per month after age 60"
+  summary: "Retirement savings, not a welfare pension: anyone aged 18–40 with a bank account pays a small monthly amount (e.g. ~₹42–₹210 at age 18) and gets a guaranteed pension after 60."
+  benefits:
+    - "Guaranteed monthly pension of ₹1,000 to ₹5,000 from age 60, depending on contribution."
+    - "Same pension to spouse after death; corpus returned to nominee."
+  documents:
+    - "Aadhaar card"
+    - "Savings bank account / post office account"
+    - "Mobile number"
+  how_to_apply:
+    - "Fill the APY form at your bank or post office branch, or enrol through net banking."
+  portal: "https://www.npscra.nsdl.co.in/scheme-details.php"
+  sources:
+    - "https://www.myscheme.gov.in/schemes/apy"
+  details: >
+    Any Indian citizen aged 18–40 with a savings account can join. Since 1 October 2022,
+    income-tax payers are not allowed to join.
+  criteria:
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 40, label: "Age 40 years or below"}
+    - {field: income_tax_payer, op: is_false, assume: true, label: "Not an income-tax payer"}
+
+- id: pmjjby
+  name: "Pradhan Mantri Jeevan Jyoti Bima Yojana"
+  name_te: "ప్రధానమంత్రి జీవన్ జ్యోతి బీమా యోజన"
+  name_hi: "प्रधानमंत्री जीवन ज्योति बीमा योजना"
+  level: central
+  category: insurance
+  department: "Department of Financial Services, Govt. of India"
+  amount: "₹2 lakh life cover for ₹436 per year"
+  summary: "Low-cost one-year renewable life insurance through your bank account."
+  benefits:
+    - "₹2 lakh paid to the nominee on death due to any cause."
+    - "Premium ₹436 per year, auto-debited from the bank account."
+  documents:
+    - "Aadhaar card"
+    - "Savings bank / post office account"
+  how_to_apply:
+    - "Enrol at your bank or post office branch, via net banking, or on jansuraksha.gov.in."
+  portal: "https://www.jansuraksha.gov.in"
+  sources:
+    - "https://www.jansuraksha.gov.in"
+  details: >
+    Account holders aged 18–50 can enrol; cover continues up to age 55 if premiums are paid.
+  criteria:
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 50, label: "Age 50 years or below"}
+
+- id: pmsby
+  name: "Pradhan Mantri Suraksha Bima Yojana"
+  name_te: "ప్రధానమంత్రి సురక్ష బీమా యోజన"
+  name_hi: "प्रधानमंत्री सुरक्षा बीमा योजना"
+  level: central
+  category: insurance
+  department: "Department of Financial Services, Govt. of India"
+  amount: "₹2 lakh accident cover for ₹20 per year"
+  summary: "Accidental death and disability insurance for bank account holders aged 18–70."
+  benefits:
+    - "₹2 lakh for accidental death or total permanent disability; ₹1 lakh for partial permanent disability."
+    - "Premium ₹20 per year, auto-debited."
+  documents:
+    - "Aadhaar card"
+    - "Savings bank / post office account"
+  how_to_apply:
+    - "Enrol at your bank or post office, via net banking, or on jansuraksha.gov.in."
+  portal: "https://www.jansuraksha.gov.in"
+  sources:
+    - "https://www.jansuraksha.gov.in"
+  details: >
+    Savings account holders aged 18–70 can enrol.
+  criteria:
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 70, label: "Age 70 years or below"}
+
+- id: pmay_gramin
+  name: "Pradhan Mantri Awas Yojana – Gramin"
+  name_te: "ప్రధానమంత్రి ఆవాస్ యోజన – గ్రామీణ"
+  name_hi: "प्रधानमंत्री आवास योजना – ग्रामीण"
+  level: central
+  category: housing
+  department: "Ministry of Rural Development / AP Housing Corporation"
+  amount: "₹1.20 lakh (plains) for a pucca house + MGNREGA/VB-G RAM G wage days + ₹12,000 for toilet"
+  summary: "Assistance to rural households without a pucca house to build one."
+  benefits:
+    - "₹1.20 lakh in plain areas (₹1.30 lakh in hilly/difficult areas) in instalments linked to construction stages."
+    - "90–95 person-days of unskilled wages under the rural employment guarantee and ₹12,000 for a toilet (SBM-G)."
+  documents:
+    - "Aadhaar card"
+    - "Job card under the rural employment guarantee"
+    - "Bank account"
+    - "Land/site documents or house-site patta"
+  how_to_apply:
+    - "Get your household surveyed in the Awaas+ survey through the Gram Panchayat / Village Secretariat."
+    - "Selected beneficiaries are approved by the Gram Sabha and the AP Housing Corporation."
+  portal: "https://pmayg.nic.in"
+  sources:
+    - "https://pmayg.nic.in"
+  details: >
+    Rural households that are homeless or live in kutcha or dilapidated houses are eligible.
+    Exclusions under Awaas+ 2024 include households with a motorised four-wheeler, a member in
+    government service, an income-tax payer, monthly income above ₹15,000, or substantial
+    irrigated land (2.5 acres or more).
+  criteria:
+    - {field: area, op: eq, value: rural, label: "Lives in a rural area"}
+    - {field: owns_pucca_house, op: is_false, label: "Does not own a pucca house"}
+    - {field: annual_income, op: lte, value: 180000, label: "Household income up to ₹15,000 per month"}
+    - {field: owns_four_wheeler, op: is_false, assume: true, label: "No motorised four-wheeler"}
+    - {field: govt_employee, op: is_false, assume: true, label: "No government employee in the household"}
+
+- id: pmay_urban
+  name: "Pradhan Mantri Awas Yojana – Urban 2.0"
+  name_te: "ప్రధానమంత్రి ఆవాస్ యోజన – అర్బన్ 2.0"
+  name_hi: "प्रधानमंत्री आवास योजना – शहरी 2.0"
+  level: central
+  category: housing
+  department: "Ministry of Housing & Urban Affairs / APTIDCO"
+  amount: "Up to ₹2.5 lakh assistance per house, or interest subsidy on a home loan"
+  summary: "Housing support for urban EWS, LIG and MIG families who do not own a pucca house anywhere in India."
+  benefits:
+    - "Beneficiary-Led Construction / Affordable Housing in Partnership: up to ₹2.5 lakh assistance per unit."
+    - "Interest Subsidy Scheme: subsidy on home loans for EWS/LIG/MIG families."
+  documents:
+    - "Aadhaar card of all family members"
+    - "Income certificate"
+    - "Affidavit that the family does not own a pucca house"
+    - "Bank account"
+  how_to_apply:
+    - "Apply on pmay-urban.gov.in (Unified Web Portal) or through your urban local body / ward secretariat."
+  portal: "https://pmay-urban.gov.in"
+  sources:
+    - "https://pmay-urban.gov.in"
+  details: >
+    Urban families in EWS (income up to ₹3 lakh), LIG (₹3–6 lakh) or MIG (₹6–9 lakh) categories
+    that do not own a pucca house anywhere in India are eligible.
+  criteria:
+    - {field: area, op: eq, value: urban, label: "Lives in an urban area"}
+    - {field: owns_pucca_house, op: is_false, label: "Does not own a pucca house anywhere in India"}
+    - {field: annual_income, op: lte, value: 900000, label: "Annual household income up to ₹9 lakh"}
+
+- id: pm_ujjwala
+  name: "Pradhan Mantri Ujjwala Yojana"
+  name_te: "ప్రధానమంత్రి ఉజ్వల యోజన"
+  name_hi: "प्रधानमंत्री उज्ज्वला योजना"
+  level: central
+  category: household
+  department: "Ministry of Petroleum & Natural Gas, Govt. of India"
+  amount: "Free LPG connection, first refill and stove; ₹300 subsidy per refill (up to 9 a year)"
+  summary: "Free deposit-free LPG connection for adult women from poor households without LPG."
+  benefits:
+    - "Deposit-free LPG connection with first refill and stove free (Ujjwala 2.0)."
+    - "Targeted subsidy of ₹300 per 14.2 kg refill for up to 9 refills a year."
+  documents:
+    - "Aadhaar of the applicant and adult family members"
+    - "Ration card / family composition declaration"
+    - "Bank account"
+  how_to_apply:
+    - "Apply at any LPG distributor or online at pmuy.gov.in."
+  portal: "https://pmuy.gov.in"
+  sources:
+    - "https://pmuy.gov.in"
+  details: >
+    Adult women (18+) from poor households with no existing LPG connection in the household are
+    eligible, including SC/ST, PMAY-G, AAY, forest dwellers and other poor households under the
+    14-point deprivation declaration.
+  criteria:
+    - {field: gender, op: eq, value: female, label: "Woman"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: has_lpg_connection, op: is_false, label: "No LPG connection in the household"}
+    - {field: income_within_ap_limit, op: is_true, label: "Poor household (BPL)"}
+
+- id: pmmvy
+  name: "Pradhan Mantri Matru Vandana Yojana"
+  name_te: "ప్రధానమంత్రి మాతృ వందన యోజన"
+  name_hi: "प्रधानमंत्री मातृ वंदना योजना"
+  level: central
+  category: women
+  department: "Ministry of Women & Child Development / AP WCD Dept. (Anganwadi)"
+  amount: "₹5,000 for the first child; ₹6,000 for a second child if it is a girl"
+  summary: "Maternity cash benefit for pregnant women and lactating mothers."
+  benefits:
+    - "₹5,000 in two instalments for the first child (registration with ANC, and child's birth registration + first vaccination cycle)."
+    - "₹6,000 in one instalment after birth if the second child is a girl."
+  documents:
+    - "Aadhaar of the woman (and husband, if applicable)"
+    - "MCP card (Mother and Child Protection card)"
+    - "Bank / post office account linked to Aadhaar"
+    - "Proof of eligibility category (rice card, e-Shram, job card, income certificate below ₹8 lakh, etc.)"
+  how_to_apply:
+    - "Register at your Anganwadi centre or ANM, or online at pmmvy.wcd.gov.in."
+  portal: "https://pmmvy.wcd.gov.in"
+  sources:
+    - "https://pmmvy.wcd.gov.in"
+  details: >
+    Pregnant women aged 19 and above are eligible if they belong to a listed category: SC/ST,
+    women with 40%+ disability, BPL ration card holders, PM-JAY beneficiaries, e-Shram card
+    holders, MGNREGA job card holders, Kisan Samman Nidhi farmers, Anganwadi workers, or
+    families with net income below ₹8 lakh a year. Government employees are excluded.
+  criteria:
+    - {field: gender, op: eq, value: female, label: "Woman"}
+    - {field: is_pregnant, op: is_true, label: "Pregnant or recently delivered"}
+    - {field: age, op: gte, value: 19, label: "Age 19 years or above"}
+    - {field: annual_income, op: lte, value: 800000, label: "Family income below ₹8 lakh a year (or other listed category)"}
+    - {field: govt_employee, op: is_false, assume: true, label: "Not a government employee"}
+
+- id: sukanya_samriddhi
+  name: "Sukanya Samriddhi Yojana"
+  name_te: "సుకన్య సమృద్ధి యోజన"
+  name_hi: "सुकन्या समृद्धि योजना"
+  level: central
+  category: savings
+  department: "Ministry of Finance (National Savings Institute)"
+  amount: "High-interest tax-free savings for a girl child (8.2% p.a. in recent quarters)"
+  summary: "Small-savings account for a daughter below 10 years, maturing at 21."
+  benefits:
+    - "Government-notified interest rate (8.2% p.a. in recent quarters), compounded yearly, fully tax-free (EEE)."
+    - "Deposit ₹250 to ₹1.5 lakh a year for 15 years; deductible under Section 80C (old regime)."
+    - "50% withdrawal allowed after the girl turns 18 for higher education."
+  documents:
+    - "Girl child's birth certificate"
+    - "Parent / guardian's Aadhaar and PAN"
+    - "Address proof"
+  how_to_apply:
+    - "Open the account at any post office or authorised bank branch."
+  portal: "https://www.nsiindia.gov.in"
+  sources:
+    - "https://www.nsiindia.gov.in"
+  details: >
+    A parent or guardian can open one account per girl child below 10 years, up to two girls per
+    family (three in case of twins or triplets).
+  criteria:
+    - {field: has_daughter_under_10, op: is_true, label: "Has a daughter below 10 years of age"}
+
+- id: ab_pmjay_vay_vandana
+  name: "Ayushman Bharat PM-JAY – Vay Vandana (70+)"
+  name_te: "ఆయుష్మాన్ భారత్ వయ వందన (70+)"
+  name_hi: "आयुष्मान भारत वय वंदना (70+)"
+  level: central
+  category: health
+  department: "National Health Authority, Govt. of India"
+  amount: "₹5 lakh per year health cover for senior citizens aged 70+, regardless of income"
+  summary: "Free health cover for every senior citizen aged 70 and above, irrespective of income."
+  benefits:
+    - "₹5 lakh per family per year cashless cover for hospitalisation; a separate top-up if the family is already covered under PM-JAY."
+  documents:
+    - "Aadhaar card (age proof)"
+  how_to_apply:
+    - "Enrol for the Ayushman Vay Vandana card on the Ayushman app or beneficiary.nha.gov.in using Aadhaar e-KYC, or at an empanelled hospital."
+  portal: "https://beneficiary.nha.gov.in"
+  sources:
+    - "https://beneficiary.nha.gov.in"
+  details: >
+    All citizens aged 70 years and above are eligible irrespective of socio-economic status. Those
+    covered under CGHS, ECHS or CAPF can choose between their existing scheme and this one.
+  criteria:
+    - {field: age, op: gte, value: 70, label: "Age 70 years or above"}
+
+- id: pm_vishwakarma
+  name: "PM Vishwakarma"
+  name_te: "పీఎం విశ్వకర్మ"
+  name_hi: "पीएम विश्वकर्मा"
+  level: central
+  category: livelihood
+  department: "Ministry of MSME, Govt. of India"
+  amount: "₹15,000 toolkit + collateral-free loans of ₹1 lakh and ₹2 lakh at 5% + training stipend"
+  summary: "Support for traditional artisans and craftspeople in 18 trades."
+  benefits:
+    - "PM Vishwakarma certificate and ID card."
+    - "Skill training with ₹500/day stipend; ₹15,000 toolkit e-voucher."
+    - "Collateral-free loans of ₹1 lakh and then ₹2 lakh at a concessional 5% interest; digital transaction incentives."
+  documents:
+    - "Aadhaar card and mobile number"
+    - "Bank account"
+    - "Ration card (for family details)"
+  how_to_apply:
+    - "Register at a Common Service Centre (CSC) on pmvishwakarma.gov.in with biometric Aadhaar authentication."
+    - "Verification is done by the Gram Panchayat / urban local body, then district and state committees."
+  portal: "https://pmvishwakarma.gov.in"
+  sources:
+    - "https://pmvishwakarma.gov.in"
+  details: >
+    Artisans aged 18 and above working with hands and tools in one of 18 trades are eligible:
+    carpenter, boat maker, armourer, blacksmith, hammer and tool-kit maker, locksmith, goldsmith,
+    potter, sculptor/stone carver, cobbler, mason, basket/mat/broom maker and coir weaver, doll and
+    toy maker, barber, garland maker, washerman, tailor and fishing-net maker. One member per
+    family; government employees and their families are excluded.
+  criteria:
+    - {field: occupations, op: any_in, values: [artisan, cobbler], label: "Traditional artisan in one of 18 trades"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: govt_employee, op: is_false, assume: true, label: "No government employee in the family"}
+
+- id: pm_svanidhi
+  name: "PM SVANidhi (Street Vendor Loans)"
+  name_te: "పీఎం స్వనిధి"
+  name_hi: "पीएम स्वनिधि"
+  level: central
+  category: livelihood
+  department: "Ministry of Housing & Urban Affairs / MEPMA (AP)"
+  amount: "Working-capital loans of ₹15,000, ₹25,000 and ₹50,000 with 7% interest subsidy"
+  summary: "Collateral-free working-capital loans for street vendors (extended to March 2030)."
+  benefits:
+    - "Loans in tranches of ₹15,000, ₹25,000 and ₹50,000 with 7% interest subsidy."
+    - "Cashback up to ₹1,600 for digital payments; UPI-linked RuPay credit card after repaying the second loan."
+  documents:
+    - "Aadhaar card linked to mobile"
+    - "Vending certificate / ID or Letter of Recommendation from the urban local body"
+    - "Bank account"
+  how_to_apply:
+    - "Apply on pmsvanidhi.mohua.gov.in, through a CSC, or with help from the MEPMA resource person in your ward."
+  portal: "https://pmsvanidhi.mohua.gov.in"
+  sources:
+    - "https://www.businesstoday.in/latest/economy/story/cabinet-extends-pm-svanidhi-scheme-till-2030-approves-rs-7332-crore-outlay-491294-2025-08-27"
+  details: >
+    Street vendors in urban areas, and increasingly census towns and peri-urban areas, who hold a
+    vending certificate or a letter of recommendation are eligible. The scheme was restructured in
+    August 2025 and extended to 31 March 2030.
+  criteria:
+    - {field: occupations, op: any_in, values: [street_vendor], label: "Street vendor"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+
+- id: pmegp
+  name: "Prime Minister's Employment Generation Programme (PMEGP)"
+  name_te: "ప్రధానమంత్రి ఉపాధి కల్పన కార్యక్రమం"
+  name_hi: "प्रधानमंत्री रोजगार सृजन कार्यक्रम"
+  level: central
+  category: livelihood
+  department: "KVIC / Ministry of MSME, Govt. of India"
+  amount: "15–35% capital subsidy on new micro-enterprise projects (up to ₹50 lakh manufacturing / ₹20 lakh service)"
+  summary: "Credit-linked subsidy to start a new micro enterprise."
+  benefits:
+    - "Margin-money subsidy of 15% (urban) / 25% (rural) for general category; 25% / 35% for SC, ST, OBC, minorities, women, ex-servicemen, PwD and NER."
+    - "Project cost up to ₹50 lakh (manufacturing) or ₹20 lakh (service)."
+  documents:
+    - "Aadhaar and PAN"
+    - "Project report"
+    - "Educational certificate (8th pass for projects above ₹10 lakh manufacturing / ₹5 lakh service)"
+    - "Caste / special category certificate if applicable"
+  how_to_apply:
+    - "Apply online on the PMEGP e-portal (kviconline.gov.in/pmegpeportal); applications go to KVIC/KVIB/DIC and then to banks."
+  portal: "https://www.kviconline.gov.in/pmegpeportal"
+  sources:
+    - "https://www.kviconline.gov.in/pmegpeportal"
+  details: >
+    Any individual aged 18 or above can apply for a new project; there is no income ceiling. Only
+    new units qualify, and one person per family.
+  criteria:
+    - {field: wants_to_start_business, op: is_true, label: "Wants to start a new business / micro enterprise"}
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+
+- id: vb_g_ram_g
+  name: "VB-G RAM G Rural Employment Guarantee (formerly MGNREGA)"
+  name_te: "వీబీ-జీ రామ్ జీ గ్రామీణ ఉపాధి హామీ (పూర్వ MGNREGA)"
+  name_hi: "वीबी-जी राम जी ग्रामीण रोजगार गारंटी (पूर्व मनरेगा)"
+  level: central
+  category: livelihood
+  department: "Ministry of Rural Development / AP Panchayat Raj & Rural Development"
+  amount: "Up to 125 days of guaranteed wage employment per household per year"
+  summary: "Guaranteed unskilled wage work for rural households (replaced MGNREGA from 1 July 2026)."
+  benefits:
+    - "Up to 125 days of guaranteed unskilled manual work per rural household per year (up from 100 under MGNREGA)."
+    - "Notified state wage rate paid by DBT; unemployment allowance if work is not provided within 15 days."
+  documents:
+    - "Job card (existing e-KYC-verified MGNREGA job cards stay valid until new cards are issued)"
+    - "Aadhaar card"
+    - "Bank / post office account"
+  how_to_apply:
+    - "Apply for a job card at the Gram Panchayat / Village Secretariat, then submit a written or oral request for work."
+  portal: "https://nrega.dord.gov.in"
+  sources:
+    - "https://eng.ruralvoice.in/government-notifies-vb-g-ram-g-act-to-be-implemented-from-1-july-2026"
+    - "https://www.onmanorama.com/upsc/current-affairs/2026/07/01/vb-g-ram-g-act-comes-into-force-on-july-1.amp.html"
+  status_note: "MGNREGA was repealed and replaced by the VB-G RAM G Act on 1 July 2026."
+  details: >
+    Every rural household whose adult members are willing to do unskilled manual work is entitled
+    to up to 125 days of work a year. Ongoing MGNREGA works and e-KYC-verified job cards were
+    migrated to the new Act.
+  criteria:
+    - {field: area, op: eq, value: rural, label: "Lives in a rural area"}
+    - {field: age, op: gte, value: 18, label: "Adult (18+) willing to do unskilled manual work"}
+
+- id: pm_internship
+  name: "PM Internship Scheme"
+  name_te: "పీఎం ఇంటర్న్‌షిప్ పథకం"
+  name_hi: "पीएम इंटर्नशिप योजना"
+  level: central
+  category: education
+  department: "Ministry of Corporate Affairs, Govt. of India"
+  amount: "12-month internship in a top company with a monthly stipend and one-time grant"
+  summary: "Paid 12-month internships in India's top companies for youth aged 18–25."
+  benefits:
+    - "12 months of real work experience in a top-500 company."
+    - "Monthly stipend (₹5,000 under the pilot; check the portal for revised amounts) plus a one-time grant of ₹6,000 and insurance cover."
+  documents:
+    - "Aadhaar card"
+    - "Educational certificates (10th / 12th / ITI / diploma / degree)"
+    - "Bank account"
+  how_to_apply:
+    - "Register on pminternship.mca.gov.in, complete the profile and apply to up to 5 internships per round."
+  portal: "https://pminternship.mca.gov.in"
+  sources:
+    - "https://www.newsonair.gov.in/government-expands-eligibility-of-pm-internship-scheme-to-include-final-year-students/"
+    - "https://news.careers360.com/prime-minister-internship-scheme-guidelines-pmis-eligibility-stipend-selection-process"
+  status_note: "Eligibility was widened in April 2026 to final-year students aged 18–25."
+  details: >
+    Indian youth aged 18–25 who have passed 10th or higher (including ITI, diploma and degree),
+    are not in full-time employment, and whose family income is below ₹8 lakh a year are eligible.
+    Final-year students became eligible in April 2026. Graduates of premier institutes such as
+    IITs and IIMs, CA/CMA holders, and those who completed NATS/NAPS apprenticeships are excluded.
+  criteria:
+    - {field: age, op: gte, value: 18, label: "Age 18 years or above"}
+    - {field: age, op: lte, value: 25, label: "Age 25 years or below"}
+    - {field: education_level, op: in, values: [secondary, intermediate, iti, polytechnic, degree, professional, pg], label: "Passed 10th or higher"}
+    - {field: annual_income, op: lte, value: 800000, label: "Family income below ₹8 lakh a year"}
+    - {field: employed_full_time, op: is_false, label: "Not in full-time employment"}
+
+# ----------------------------------------------------------------------------------
+# CENTRAL - scholarships and education loans for college students
+# ----------------------------------------------------------------------------------
+- id: csss_pm_usp
+  name: "Central Sector Scheme of Scholarship for College & University Students (PM-USP CSSS)"
+  name_te: "కేంద్ర సెక్టార్ స్కాలర్‌షిప్ (కళాశాల & విశ్వవిద్యాలయ విద్యార్థులు)"
+  name_hi: "केंद्रीय क्षेत्र छात्रवृत्ति योजना (कॉलेज और विश्वविद्यालय छात्र)"
+  level: central
+  category: education
+  department: "Department of Higher Education, Ministry of Education, Govt. of India"
+  amount: "₹12,000 a year (UG years 1–3); ₹20,000 a year for PG and years 4–5 of professional courses"
+  summary: "Merit scholarship for college students who were in the top 20 percentile of their Class 12 board, from families with income up to ₹4.5 lakh."
+  benefits:
+    - "₹12,000 per year for the first three years of graduation, paid by DBT."
+    - "₹20,000 per year at post-graduation, and in the 4th/5th year of 5-year integrated or professional courses such as B.Tech."
+    - "Renewed each year with at least 60% marks and 75% attendance."
+  documents:
+    - "Class 12 marks memo (board's top-20-percentile cut-off)"
+    - "Family income certificate"
+    - "Aadhaar and Aadhaar-seeded bank account"
+    - "Bonafide / admission certificate from the college"
+  how_to_apply:
+    - "Apply on the National Scholarship Portal (scholarships.gov.in) under 'Central Sector Scheme of Scholarship for College and University Students' when the window opens (usually July–October)."
+    - "Your college (institute nodal officer) verifies the application, then the state/board verifies it."
+    - "Renew every year on NSP; you need 60% marks and 75% attendance."
+  portal: "https://scholarships.gov.in"
+  sources:
+    - "https://news.careers360.com/cbse-central-sector-scheme-of-scholarship-2025-applications-open-scholarships-gov-in-csss-application"
+    - "https://www.freepressjournal.in/education/central-sector-scholarship-2025-26-application-process-starts-check-details-here"
+  status_note: "Sources differ on the income ceiling (₹4.5 lakh in most guidelines; a 2025 notice mentions ₹6 lakh). Confirm on NSP. The 2025-26 window closed on 31 Oct 2025."
+  details: >
+    Students who scored above the 80th percentile (top 20%) of successful candidates in their Class 12
+    board, are pursuing a regular degree, PG or professional course at a recognised college, and come
+    from families with income up to ₹4.5 lakh a year are eligible. Students already receiving another
+    scholarship are generally not eligible. Correspondence and distance courses are excluded.
+  criteria:
+    - {field: is_student, op: is_true, label: "Currently a college student (regular course)"}
+    - {field: education_level, op: in, values: [degree, professional, pg], label: "Studying a degree, professional (e.g. B.Tech) or PG course"}
+    - {field: class12_top20, op: is_true, label: "Top 20 percentile of your Class 12 board"}
+    - {field: annual_income, op: lte, value: 450000, label: "Family income up to ₹4.5 lakh a year"}
+    - {field: other_scholarship, op: is_false, assume: true, label: "Not receiving another scholarship"}
+
+- id: pm_vidyalaxmi
+  name: "PM Vidyalaxmi – Education Loan Support"
+  name_te: "పీఎం విద్యాలక్ష్మి – విద్యా రుణం"
+  name_hi: "पीएम विद्यालक्ष्मी – शिक्षा ऋण"
+  level: central
+  category: education
+  department: "Department of Higher Education, Ministry of Education, Govt. of India"
+  amount: "Collateral-free, guarantor-free education loan; 3% interest subvention on loans up to ₹10 lakh for family income up to ₹8 lakh"
+  summary: "Easy education loans for students admitted to quality higher-education institutions (NIRF-ranked and government institutes), with interest support for families earning up to ₹8 lakh."
+  benefits:
+    - "Collateral-free and guarantor-free education loan covering tuition and other course expenses."
+    - "75% credit guarantee for loans up to ₹7.5 lakh, so banks lend more easily."
+    - "3% interest subvention during the moratorium (course period + 1 year) on loans up to ₹10 lakh, for family income up to ₹8 lakh (if not covered by another government scholarship or subvention scheme)."
+  documents:
+    - "Admission letter from the institution"
+    - "Fee structure"
+    - "Aadhaar, PAN (student and parent)"
+    - "Family income certificate"
+    - "Previous marks memos"
+  how_to_apply:
+    - "Apply on the PM-Vidyalaxmi portal (pmvidyalaxmi.gov.in): one common application to several banks."
+    - "Choose the 3% interest subvention option on the portal if your family income is up to ₹8 lakh."
+    - "Track the loan status on the same portal."
+  portal: "https://pmvidyalaxmi.gov.in"
+  sources:
+    - "https://education.gov.in/sites/upload_files/mhrd/files/document-reports/PM_Vidyalaxmi_Scheme_Guidelines.pdf"
+    - "https://www.drishtiias.com/daily-updates/daily-news-analysis/pm-vidyalaxmi-scheme-1"
+  status_note: "Only students admitted to listed Quality Higher Education Institutions (QHEIs: NIRF top-ranked and central/state government institutes) are covered; check your college on the portal."
+  details: >
+    Students admitted to Quality Higher Education Institutions (NIRF top 100 overall/category-wise,
+    state government HEIs ranked 101–200, and all central government institutions) can get
+    collateral-free, guarantor-free education loans. Students whose family income is up to ₹8 lakh
+    a year also get 3% interest subvention on loans up to ₹10 lakh during the moratorium period.
+  criteria:
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: in, values: [degree, professional, pg], label: "Studying a degree, professional or PG course"}
+    - {field: in_quality_institution, op: is_true, label: "College is a listed quality institution (NIRF-ranked / government institute)"}
+    - {field: wants_education_loan, op: is_true, label: "Needs an education loan"}
+
+- id: csis_interest_subsidy
+  name: "Central Sector Interest Subsidy (CSIS) on Education Loans"
+  name_te: "విద్యా రుణాలపై కేంద్ర వడ్డీ రాయితీ (CSIS)"
+  name_hi: "शिक्षा ऋण पर केंद्रीय ब्याज सब्सिडी (CSIS)"
+  level: central
+  category: education
+  department: "Department of Higher Education, Ministry of Education (via Canara Bank, nodal bank)"
+  amount: "100% interest subsidy during the moratorium on education loans up to ₹10 lakh"
+  summary: "Government pays the full interest on your education loan during the course + 1 year, for technical/professional courses and family income up to ₹4.5 lakh."
+  benefits:
+    - "Full interest on education loans up to ₹10 lakh is paid by the government during the moratorium (course period + 1 year)."
+    - "Available once, for one UG, PG or integrated course."
+  documents:
+    - "Family income certificate (up to ₹4.5 lakh) from the state-authorised authority"
+    - "Education loan sanction from a scheduled bank under the IBA Model Education Loan Scheme"
+    - "Admission proof for a technical/professional course"
+  how_to_apply:
+    - "Take an education loan from a scheduled bank under the IBA Model Education Loan Scheme."
+    - "Submit the income certificate to the bank; the bank claims the interest subsidy for you (also via the PM-Vidyalaxmi portal)."
+  portal: "https://pmvidyalaxmi.gov.in"
+  sources:
+    - "https://bankofmaharashtra.bank.in/pm-vidya-laxmi"
+    - "https://anantamias.com/pm-vidyalaxmi/?pdf=1"
+  details: >
+    Students from families with annual income up to ₹4.5 lakh who take an education loan for a
+    technical or professional course from an institution in India approved by the relevant statutory
+    body get full interest subsidy during the moratorium on loans up to ₹10 lakh.
+  criteria:
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: in, values: [professional, polytechnic, pg], label: "Technical / professional course (e.g. B.Tech, diploma, M.Tech)"}
+    - {field: annual_income, op: lte, value: 450000, label: "Family income up to ₹4.5 lakh a year"}
+    - {field: wants_education_loan, op: is_true, label: "Has / will take an education loan from a scheduled bank"}
+
+- id: aicte_pragati
+  name: "AICTE Pragati Scholarship for Girls (Technical Education)"
+  name_te: "ఏఐసీటీఈ ప్రగతి స్కాలర్‌షిప్ (బాలికలు)"
+  name_hi: "एआईसीटीई प्रगति छात्रवृत्ति (छात्राएँ)"
+  level: central
+  category: education
+  department: "AICTE, Ministry of Education"
+  amount: "₹50,000 a year for the duration of the course"
+  summary: "Scholarship for girl students admitted to AICTE-approved degree or diploma technical courses."
+  benefits:
+    - "₹50,000 per year (towards fees, books, equipment), for up to 4 years (degree) or 3 years (diploma)."
+  documents:
+    - "Admission letter / bonafide certificate (1st year, or 2nd year lateral entry)"
+    - "Class 10/12 marks memos"
+    - "Family income certificate"
+    - "Aadhaar-linked bank account"
+  how_to_apply:
+    - "Apply on the National Scholarship Portal (scholarships.gov.in) under AICTE Pragati when the window opens."
+  portal: "https://scholarships.gov.in"
+  sources:
+    - "https://www.aimsr.edu.in/wp-content/uploads/2025/08/AICTE-Pragati-Scholarship-for-Girls-2025-26.pdf"
+    - "https://www.thapar.edu/upload/files/NOTICE-AICTE PRAGATI, SAKSHAM & SWANATH  2026-27.pdf"
+  status_note: "Fresh applications only in the 1st year (or 2nd year for lateral entry); up to two girls per family. Confirm the income limit in the current NSP notice."
+  details: >
+    Girl students admitted to the first year of a degree or diploma course (or second year through
+    lateral entry) in an AICTE-approved institution, with family income up to ₹8 lakh a year, are
+    eligible. Up to two girl children per family.
+  criteria:
+    - {field: gender, op: eq, value: female, label: "Girl student"}
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: in, values: [professional, polytechnic], label: "AICTE technical degree or diploma course"}
+    - {field: annual_income, op: lte, value: 800000, label: "Family income up to ₹8 lakh a year"}
+    - {field: first_year_of_course, op: is_true, assume: true, label: "Applying in the 1st year (or 2nd-year lateral entry)"}
+
+- id: aicte_saksham
+  name: "AICTE Saksham Scholarship (Students with Disabilities)"
+  name_te: "ఏఐసీటీఈ సక్షం స్కాలర్‌షిప్ (దివ్యాంగ విద్యార్థులు)"
+  name_hi: "एआईसीटीई सक्षम छात्रवृत्ति (दिव्यांग छात्र)"
+  level: central
+  category: education
+  department: "AICTE, Ministry of Education"
+  amount: "₹50,000 a year for the duration of the course"
+  summary: "Scholarship for students with 40%+ disability in AICTE-approved degree or diploma courses."
+  benefits:
+    - "₹50,000 per year for up to 4 years (degree) or 3 years (diploma)."
+  documents:
+    - "Disability certificate (40% or more)"
+    - "Admission letter / bonafide certificate"
+    - "Family income certificate"
+    - "Aadhaar-linked bank account"
+  how_to_apply:
+    - "Apply on the National Scholarship Portal (scholarships.gov.in) under AICTE Saksham."
+  portal: "https://scholarships.gov.in"
+  sources:
+    - "https://www.buddy4study.com/article/saksham-scholarship-scheme"
+  details: >
+    Students with a disability of not less than 40% admitted to an AICTE-approved degree or diploma
+    course, with family income up to ₹8 lakh a year, are eligible.
+  criteria:
+    - {field: disability_percent, op: gte, value: 40, label: "Disability of 40% or more"}
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: in, values: [professional, polytechnic], label: "AICTE technical degree or diploma course"}
+    - {field: annual_income, op: lte, value: 800000, label: "Family income up to ₹8 lakh a year"}
+
+- id: aicte_pg_gate
+  name: "AICTE PG Scholarship (GATE/CEED-qualified M.Tech/M.E.)"
+  name_te: "ఏఐసీటీఈ పీజీ స్కాలర్‌షిప్ (GATE అర్హులు)"
+  name_hi: "एआईसीटीई पीजी छात्रवृत्ति (GATE योग्य)"
+  level: central
+  category: education
+  department: "AICTE, Ministry of Education"
+  amount: "₹12,400 per month during M.E./M.Tech/M.Des"
+  summary: "Monthly scholarship for GATE/CEED-qualified students in AICTE-approved PG engineering courses."
+  benefits:
+    - "₹12,400 per month for up to 24 months, subject to attendance."
+  documents:
+    - "GATE / CEED scorecard"
+    - "Admission letter for M.E./M.Tech/M.Des"
+    - "Aadhaar-linked bank account"
+  how_to_apply:
+    - "Apply on the AICTE PG scholarship portal (pgscholarship.aicte.gov.in) through your institute."
+  portal: "https://pgscholarship.aicte.gov.in"
+  sources:
+    - "https://news.careers360.com/aicte-pg-scholarship-2025-26-for-gate-ceed-qualified-candidates-me-mtech-mdes-apply-on-pgscholarship-aicte-gov-in-from-september-1/amp"
+  details: >
+    GATE or CEED-qualified students admitted to AICTE-approved M.E., M.Tech or M.Des programmes
+    are eligible for a monthly scholarship.
+  criteria:
+    - {field: is_student, op: is_true, label: "Currently a student"}
+    - {field: education_level, op: eq, value: pg, label: "Studying M.E./M.Tech/M.Des"}
+    - {field: gate_qualified, op: is_true, label: "GATE / CEED qualified"}

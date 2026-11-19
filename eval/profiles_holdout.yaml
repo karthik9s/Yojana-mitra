@@ -1,0 +1,95 @@
+# 15 held-out profiles, written AFTER the rule extractor was tuned on profiles.yaml and scored
+# once without further changes. Same labelling convention as profiles.yaml. Phrasing is
+# deliberately different (terse notes, third person, "k" amounts, code-mixing, residency traps).
+profiles:
+- id: h01
+  lang: en
+  text: "Widow, 58, Rajahmundry. Do tailoring at home, ~5k monthly. Rented house. Two daughters in class 6 and class 8."
+  profile: {age: 58, gender: female, state: Andhra Pradesh, area: urban, marital_status: widowed, occupations: [artisan], annual_income: 60000, children_in_school: 2}
+  eligible: [ntr_bharosa_widow, stree_shakti, talliki_vandanam, ntr_vaidya_seva, pm_vishwakarma, pmsby, pmay_urban]
+
+- id: h02
+  lang: te
+  text: "మా ఊరు చీరాల దగ్గర. నేను 45 ఏళ్ల మత్స్యకారుడిని. సముద్రంలో చేపలు పడతాను. నెలకు 9000 వస్తుంది."
+  profile: {age: 45, gender: male, state: Andhra Pradesh, area: rural, occupations: [fisherman], annual_income: 108000}
+  eligible: [matsyakara_sevalo, kisan_credit_card, ntr_vaidya_seva, pmjjby, pmsby, vb_g_ram_g]
+
+- id: h03
+  lang: en
+  text: "Hi, I'm Ravi, 21, final year B.Sc at a college in Anantapur. We are OC (general category). Dad earns about 25,000 a month."
+  profile: {age: 21, state: Andhra Pradesh, occupations: [student], annual_income: 300000}
+  eligible: [pm_internship, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby]
+
+- id: h04
+  lang: hi
+  text: "मैं 63 साल की विधवा हूँ, गुंटूर के पास गाँव में रहती हूँ। कोई ज़मीन नहीं है। आमदनी 4000 रुपये महीना। राशन कार्ड है।"
+  profile: {age: 63, gender: female, state: Andhra Pradesh, area: rural, marital_status: widowed, land_acres: 0, annual_income: 48000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_widow, stree_shakti, ntr_vaidya_seva, pmsby, vb_g_ram_g]
+
+- id: h05
+  lang: en
+  text: "We are a family of 5 living in a hut in a tribal village in Paderu. I'm 40, female, ST, I collect forest produce. No land of our own. No gas, cooking with wood. Income less than 4,000 a month. One child goes to school."
+  profile: {age: 40, gender: female, state: Andhra Pradesh, area: rural, land_acres: 0, annual_income: 48000, children_in_school: 1}
+  eligible: [talliki_vandanam, stree_shakti, pm_ujjwala, pmay_gramin, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: h06
+  lang: en
+  text: "Retired army havildar, 64, living in Vizag city with pension 30k/month and own flat."
+  profile: {age: 64, state: Andhra Pradesh, area: urban, annual_income: 360000}
+  eligible: [ntr_vaidya_seva, pmsby]
+
+- id: h07
+  lang: en
+  text: "I own a kirana shop in a village near Tenali, 35 yrs old man, earn 20,000 per month, want to expand. I have a pucca house and a car."
+  profile: {age: 35, gender: male, state: Andhra Pradesh, area: rural, occupations: [self_employed], annual_income: 240000}
+  eligible: [ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: h08
+  lang: te
+  text: "నేను 19 ఏళ్ల అమ్మాయిని, పాలిటెక్నిక్ చదువుతున్నాను, బీసీ కులం, నంద్యాల. మా నాన్న ఆదాయం సంవత్సరానికి 1.5 లక్షలు."
+  profile: {age: 19, gender: female, occupations: [student], annual_income: 150000}
+  # aicte_pragati added 2026-11-19: the scheme was added to the KB after these labels were written
+  # (girl, polytechnic student, income 1.5L; 1st-year condition is an "assume/confirm" rule).
+  eligible: [ap_fee_reimbursement, stree_shakti, ntr_vaidya_seva, pm_internship, atal_pension_yojana, pmjjby, pmsby, aicte_pragati]
+
+- id: h09
+  lang: en
+  text: "Landless agricultural labourer couple from a village in Prakasam. I'm the wife, 31. We earn 9,000 a month together. We have a rice card and LPG. Our son is in 3rd class."
+  profile: {age: 31, gender: female, state: Andhra Pradesh, area: rural, occupations: [agricultural_labourer], land_acres: 0, annual_income: 108000, children_in_school: 1}
+  eligible: [stree_shakti, deepam_2, talliki_vandanam, ntr_vaidya_seva, pm_sym, atal_pension_yojana, pmjjby, pmsby, vb_g_ram_g]
+
+- id: h10
+  lang: en
+  text: "I am a 29 year old man in Hyderabad, originally from Guntur, working in a call centre for 25,000 per month."
+  profile: {age: 29, gender: male, state: Telangana, annual_income: 300000}
+  eligible: [atal_pension_yojana, pmjjby, pmsby]
+
+- id: h11
+  lang: hi
+  text: "मैं 45 साल का किसान हूँ, कर्नूल ज़िले के गाँव में 6 एकड़ सूखी ज़मीन है। सालाना आय 1.5 लाख।"
+  profile: {age: 45, gender: male, area: rural, occupations: [farmer], land_acres: 6, annual_income: 150000}
+  eligible: [annadata_sukhibhava, pm_kisan, pmfby, kisan_credit_card, ntr_vaidya_seva, pmjjby, pmsby, vb_g_ram_g]
+
+- id: h12
+  lang: en
+  text: "I'm a 34 year old woman with thalassemia, living in Kadapa town; my husband earns 10k a month as a mason. We have no land and no gas connection."
+  profile: {age: 34, gender: female, state: Andhra Pradesh, area: urban, land_acres: 0, annual_income: 120000}
+  eligible: [ntr_bharosa_chronic_illness, stree_shakti, pm_ujjwala, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby]
+
+- id: h13
+  lang: en
+  text: "65 yr old man, Ongole, cobbler for 40 years, no land, earns 3000 monthly, has white ration card."
+  profile: {age: 65, gender: male, state: Andhra Pradesh, area: urban, occupations: [cobbler], land_acres: 0, annual_income: 36000}
+  eligible: [ntr_bharosa_old_age, ntr_bharosa_cobblers, pm_vishwakarma, ntr_vaidya_seva, pmsby]
+
+- id: h14
+  lang: te
+  text: "నేను 33 ఏళ్ల గృహిణిని, ఒంగోలులో ఉంటాను. ఇప్పుడు గర్భవతిని. మా ఆదాయం నెలకు 20 వేలు."
+  profile: {age: 33, gender: female, state: Andhra Pradesh, area: urban, annual_income: 240000}
+  eligible: [pmmvy, stree_shakti, ntr_vaidya_seva, atal_pension_yojana, pmjjby, pmsby]
+
+- id: h15
+  lang: en
+  text: "Single mother, 38, divorced, working as a sweeper with the municipality on contract in Kurnool, 11,000 per month, 1 kid in school, renting, no land."
+  profile: {age: 38, gender: female, state: Andhra Pradesh, area: urban, marital_status: divorced, annual_income: 132000, children_in_school: 1}
+  eligible: [ntr_bharosa_single_women, stree_shakti, talliki_vandanam, ntr_vaidya_seva, pm_sym, pmay_urban, atal_pension_yojana, pmjjby, pmsby]

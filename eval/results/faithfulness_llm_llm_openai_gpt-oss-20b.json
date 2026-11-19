@@ -1,0 +1,548 @@
+[
+  {
+    "kind": "explain",
+    "id": "p01:talliki_vandanam",
+    "question": "Explain Talliki Vandanam to me and how to apply.",
+    "answer": "**Why you qualify**  \n- Resident of Andhra Pradesh – you told us you live in Guntur.  \n- At least one child studying in Class 1–12 – you have 2 children in school.  \n- Household income within ₹10,000/month (rural) – your income is ₹7,500/month.  \n- Land below 3 acres wet / 10 acres dry – you own 2.0 acres of dry land.  \n\n**Please confirm**  \n- No government employee or pensioner in the family – is this true?  \n- Not an income‑tax payer – can you confirm?  \n- No private four‑wheeler (taxi, tractor, auto exempt) – is this correct?  \n\n**What you get**  \n- ₹15,000 per year for each child studying in Class 1–12 – ₹30,000 total for your two children.  \n- ₹13,000 is credited to your bank account and ₹2,000 goes to the school maintenance fund. [3]  \n\n**Documents to keep ready**  \n- Mother’s Aadhaar card and bank account linked to Aadhaar (NPCI).  \n- Child’s Aadhaar and school enrolment (UDISE / Child Info).  \n- Rice card / GSWS household database entry. [4]  \n\n**How to apply**  \n1. No separate application is usually required; eligible mothers are identified from the GSWS household database and school enrolment data.  \n2. Check eligibility lists at the Village / Ward Secretariat or on the GSWS NBM portal (gsws‑nbm.ap.gov.in).  \n3. If your name is missing, raise a grievance at the secretariat, complete e‑KYC and NPCI bank mapping. Official portal: https://gsws-nbm.ap.gov.in. [5]  \n\nIf any of the above points are unclear, it is best to confirm at your local Village/Ward Secretariat.",
+    "contexts": [
+      "Talliki Vandanam (తల్లికి వందనం). Annual financial support to mothers/guardians for every child studying in Class 1–12. Offered by School Education Department, Govt. of Andhra Pradesh. Benefit: ₹15,000 per school-going child per year. Talliki Vandanam replaced Amma Vodi and covers every school-going child (Class 1–12) in government, aided and recognised private schools and junior colleges. Households must meet the standard limits: monthly income up to ₹10,000 (rural) or ₹12,000 (urban), land below 3 acres wet or 10 acres dry, electricity below 300 units a month, no government employee or pensioner, no income-tax payer, and no private four-wheeler (taxi, tractor and auto exempt).\n Status note: Children in Class 1 and Class 11 are added after enrolment each academic year; 75% attendance may be checked.",
+      "Talliki Vandanam (తల్లికి వందనం) - who is eligible: Resident of Andhra Pradesh; At least one child studying in Class 1–12; Household income within ₹10,000/month (rural) or ₹12,000/month (urban); Land below 3 acres wet / 10 acres dry; No government employee or pensioner in the family; Not an income-tax payer; No private four-wheeler (taxi/tractor/auto exempt). Talliki Vandanam replaced Amma Vodi and covers every school-going child (Class 1–12) in government, aided and recognised private schools and junior colleges. Households must meet the standard limits: monthly income up to ₹10,000 (rural) or ₹12,000 (urban), land below 3 acres wet or 10 acres dry, electricity below 300 units a month, no government employee or pensioner, no income-tax payer, and no private four-wheeler (taxi, tractor and auto exempt).",
+      "Talliki Vandanam (తల్లికి వందనం) - benefits: ₹15,000 per year for each child studying in Class 1 to Intermediate (Class 12), with no limit on the number of children. ₹13,000 is credited to the mother's account and ₹2,000 goes to the school maintenance fund.",
+      "Talliki Vandanam (తల్లికి వందనం) - documents required: Mother's / guardian's Aadhaar card and bank account linked to Aadhaar (NPCI); Child's Aadhaar and school enrolment (UDISE / Child Info); Rice card / GSWS household database entry.",
+      "Talliki Vandanam (తల్లికి వందనం) - how to apply: Step 1: No separate application is usually required: eligible mothers are identified from the GSWS household database and school enrolment data. Step 2: Check eligibility lists at the Village / Ward Secretariat or on the GSWS NBM portal (gsws-nbm.ap.gov.in). Step 3: Raise a grievance at the secretariat if your name is missing; complete e-KYC and NPCI bank mapping. Official portal: https://gsws-nbm.ap.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 45\n- Gender: female\n- State: Andhra Pradesh\n- District: Guntur\n- Area: rural\n- Occupation: farmer\n- Land (acres): 2.0\n- Land type: dry\n- Household income (₹/year): ₹90,000 per year (₹7,500 per month)\n- Children in school (Class 1–12): 2\n- LPG gas connection: yes\n- Rice card (white ration card): yes\n- Owns a pucca house: yes",
+    "faithfulness": 0.9,
+    "verdicts": [
+      {
+        "claim": "Talliki Vandanam is a welfare scheme for mothers in Andhra Pradesh.",
+        "supported": true,
+        "reason": "Official passages [1] and [2] state it is offered by the School Education Department, Govt. of Andhra Pradesh and provides financial support to mothers/guardians."
+      },
+      {
+        "claim": "It provides ₹15,000 per year for each child studying in classes 1–12.",
+        "supported": true,
+        "reason": "Passages [1] and [3] specify a benefit of ₹15,000 per school‑going child per year."
+      },
+      {
+        "claim": "The scheme is targeted at households with income below ₹10,000 per month in rural areas.",
+        "supported": true,
+        "reason": "Passage [1] lists the standard limit of monthly income up to ₹10,000 for rural households."
+      },
+      {
+        "claim": "Eligibility requires the mother to be a resident of Andhra Pradesh and not be a government employee or pensioner.",
+        "supported": true,
+        "reason": "Passage [2] states the mother must be a resident of Andhra Pradesh; passage [1] requires no government employee or pensioner in the family."
+      },
+      {
+        "claim": "The household must have at least one child enrolled in school.",
+        "supported": true,
+        "reason": "Passage [2] explicitly requires at least one child studying in Class 1–12; passage [1] also implies support for each child studying."
+      },
+      {
+        "claim": "The scheme does not require a separate application; eligible mothers are identified from the GSWS household database and school enrolment data.",
+        "supported": true,
+        "reason": "Passage [5] states no separate application is usually required and mothers are identified from GSWS database and school enrolment."
+      },
+      {
+        "claim": "Eligibility lists can be checked at the village or ward secretariat or on the GSWS NBM portal at gsws-nbm.ap.gov.in.",
+        "supported": true,
+        "reason": "Passage [5] Step 2 lists checking eligibility lists at Village/Ward Secretariat or on the GSWS NBM portal."
+      },
+      {
+        "claim": "If a mother’s name is missing from the list, she can raise a grievance at the secretariat and complete e‑KYC and NPCI bank mapping.",
+        "supported": true,
+        "reason": "Passage [5] Step 3 describes raising a grievance at the secretariat and completing e‑KYC and NPCI bank mapping."
+      },
+      {
+        "claim": "The ₹15,000 is credited to the mother’s bank account and ₹2,000 is allocated to the school maintenance fund.",
+        "supported": false,
+        "reason": "Passage [3] states ₹13,000 is credited to the mother’s account and ₹2,000 goes to the school maintenance fund, not ₹15,000."
+      },
+      {
+        "claim": "Required documents include the mother’s Aadhaar card, bank account linked to Aadhaar, child’s Aadhaar, school enrolment details, and the rice card or GSWS household database entry.",
+        "supported": true,
+        "reason": "Passage [4] lists exactly these documents as required."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p01:deepam_2",
+    "question": "Explain Deepam 2.0 – Free LPG Cylinders to me and how to apply.",
+    "answer": "**Why you qualify**  \n- Resident of Andhra Pradesh – you told us you live in Guntur.  \n- Household has a domestic LPG connection – you have an LPG gas connection.  \n- Household holds a rice card (white ration card) – you have a rice card.  \n\n**What you get**  \n- Three free LPG cylinders a year (one every four months) – the benefit is 3 free refills per year. [1]  \n- The cost of one 14.2 kg refill is reimbursed to your bank account in each block: April–July, August–November, December–March. Unused blocks lapse; there is no carry‑forward. [3]  \n\n**Documents to keep ready**  \n- Rice card (white ration card).  \n- Domestic LPG connection in a household member’s name.  \n- Aadhaar linked to the LPG connection and to your bank account. [4]  \n\n**How to apply**  \n1. Book the cylinder with your gas agency as usual.  \n2. Make sure Aadhaar, rice card and bank account are linked to the LPG connection (check at the gas agency or secretariat).  \n3. The subsidy will be credited to your bank account within 48 hours.  \n4. You can also use the official portal: https://epds2.ap.gov.in. [5]  \n\nIf you need any clarification, visit your local Village/Ward Secretariat.",
+    "contexts": [
+      "Deepam 2.0 – Free LPG Cylinders (దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు). Three free domestic LPG refills a year for rice-card households with a gas connection. Offered by Civil Supplies Department, Govt. of Andhra Pradesh. Benefit: 3 free LPG cylinders per year (one every four months). Deepam 2.0 was launched on 1 November 2024 as part of the Super Six promises. Households that hold a rice card and have an active domestic LPG connection get three free refills a year.",
+      "Deepam 2.0 – Free LPG Cylinders (దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు) - who is eligible: Resident of Andhra Pradesh; Household has a domestic LPG connection; Household holds a rice card (white ration card). Deepam 2.0 was launched on 1 November 2024 as part of the Super Six promises. Households that hold a rice card and have an active domestic LPG connection get three free refills a year.",
+      "Deepam 2.0 – Free LPG Cylinders (దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు) - benefits: Cost of one 14.2 kg refill reimbursed to the bank account in each block: April–July, August–November, December–March. Unused blocks lapse; there is no carry-forward.",
+      "Deepam 2.0 – Free LPG Cylinders (దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు) - documents required: Rice card (white ration card); Domestic LPG connection in a household member's name; Aadhaar linked to the LPG connection and bank account.",
+      "Deepam 2.0 – Free LPG Cylinders (దీపం 2.0 – ఉచిత గ్యాస్ సిలిండర్లు) - how to apply: Step 1: Book the cylinder with your gas agency as usual; the subsidy is credited within 48 hours. Step 2: Make sure Aadhaar, rice card and bank account are linked to the LPG connection (check at the gas agency or secretariat). Official portal: https://epds2.ap.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 45\n- Gender: female\n- State: Andhra Pradesh\n- District: Guntur\n- Area: rural\n- Occupation: farmer\n- Land (acres): 2.0\n- Land type: dry\n- Household income (₹/year): ₹90,000 per year (₹7,500 per month)\n- Children in school (Class 1–12): 2\n- LPG gas connection: yes\n- Rice card (white ration card): yes\n- Owns a pucca house: yes",
+    "faithfulness": 1.0,
+    "verdicts": [
+      {
+        "claim": "Deepam 2.0 is a scheme that provides three free LPG cylinders per year to eligible households in Andhra Pradesh.",
+        "supported": true,
+        "reason": "Supported by passage [1] which states three free domestic LPG refills a year for rice-card households with a gas connection."
+      },
+      {
+        "claim": "Eligibility requires the household to be a resident of Andhra Pradesh, have a domestic LPG connection, and hold a white ration card.",
+        "supported": true,
+        "reason": "Supported by passage [2] which lists these three eligibility criteria."
+      },
+      {
+        "claim": "The scheme reimburses the cost of a 14.2 kg LPG refill to the beneficiary’s bank account in three blocks: April–July, August–November, and December–March.",
+        "supported": true,
+        "reason": "Supported by passage [3] which specifies reimbursement in those three blocks."
+      },
+      {
+        "claim": "Unused refill blocks do not carry forward and lapse if not used within the block.",
+        "supported": true,
+        "reason": "Supported by passage [3] which states unused blocks lapse and there is no carry-forward."
+      },
+      {
+        "claim": "Beneficiaries must have their Aadhaar linked to both the LPG connection and their bank account.",
+        "supported": true,
+        "reason": "Supported by passage [4] which requires Aadhaar linked to the LPG connection and bank account."
+      },
+      {
+        "claim": "To apply, the household books a cylinder with its gas agency and ensures Aadhaar, rice card, and bank account are linked to the LPG connection.",
+        "supported": true,
+        "reason": "Supported by passage [5] which outlines these steps."
+      },
+      {
+        "claim": "Once the conditions are met, the subsidy is credited to the bank account within 48 hours.",
+        "supported": true,
+        "reason": "Supported by passage [5] which states the subsidy is credited within 48 hours."
+      },
+      {
+        "claim": "The official portal for the scheme is https://epds2.ap.gov.in.",
+        "supported": true,
+        "reason": "Supported by passage [5] which lists the official portal."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p02:ntr_bharosa_widow",
+    "question": "Explain NTR Bharosa Pension – Widows to me and how to apply.",
+    "answer": "## Why you qualify  \n- Resident of Andhra Pradesh – you told us you live in Kurnool.  \n- Woman – you told us you are female.  \n- Widow – you told us you are widowed.  \n- Age 18 years or above – you told us you are 64.  \n- Household income within ₹10,000/month (rural) – you told us ₹5,000/month.  \n- Land below 3 acres wet / 10 acres dry – you told us you have 0.0 acres.  \n\n## Please confirm  \n- No government employee or pensioner in the family – please confirm.  \n- Not an income‑tax payer – please confirm.  \n- No private four‑wheeler (taxi/tractor/auto exempt) – please confirm.  \n\n## What you get  \n- ₹4,000 per month, paid at the doorstep on the 1st of every month. [3]  \n\n## Documents to keep ready  \n- Aadhaar card.  \n- Husband’s death certificate.  \n- Rice card / GSWS household database entry.  \n- Bank account details. [4]  \n\n## How to apply  \n1. Apply at your Village / Ward Secretariat with the husband’s death certificate.  \n2. The secretariat verifies through e‑KYC and the six‑step validation.  \n3. Track status on sspensions.ap.gov.in.  \n4. Official portal: https://sspensions.ap.gov.in. [5]  \n\nIf any of the above steps or documents are unclear, it is best to confirm at your local Village/Ward Secretariat.",
+    "contexts": [
+      "NTR Bharosa Pension – Widows (ఎన్టీఆర్ భరోసా పింఛను – వితంతు). Monthly pension for widows from poor households in Andhra Pradesh. Offered by Department of Rural Development (SERP), Govt. of Andhra Pradesh. Benefit: ₹4,000 per month. Widows aged 18 and above are eligible for the NTR Bharosa widow pension if the household clears the six-step validation (income, land, electricity, vehicle, government employment and income-tax checks). A death certificate of the husband is mandatory.\n Status note: Applications are taken in notified windows; spouse-category transfers are processed monthly.",
+      "NTR Bharosa Pension – Widows (ఎన్టీఆర్ భరోసా పింఛను – వితంతు) - who is eligible: Resident of Andhra Pradesh; Woman; Widow; Age 18 years or above; Household income within ₹10,000/month (rural) or ₹12,000/month (urban); Land below 3 acres wet / 10 acres dry; No government employee or pensioner in the family; Not an income-tax payer; No private four-wheeler (taxi/tractor/auto exempt). Widows aged 18 and above are eligible for the NTR Bharosa widow pension if the household clears the six-step validation (income, land, electricity, vehicle, government employment and income-tax checks). A death certificate of the husband is mandatory.",
+      "NTR Bharosa Pension – Widows (ఎన్టీఆర్ భరోసా పింఛను – వితంతు) - benefits: ₹4,000 per month, paid at the doorstep on the 1st of every month. When a pensioner husband dies, the wife can be shifted to the widow pension from the next month (spouse category).",
+      "NTR Bharosa Pension – Widows (ఎన్టీఆర్ భరోసా పింఛను – వితంతు) - documents required: Aadhaar card; Husband's death certificate; Rice card / GSWS household database entry; Bank account details.",
+      "NTR Bharosa Pension – Widows (ఎన్టీఆర్ భరోసా పింఛను – వితంతు) - how to apply: Step 1: Apply at your Village / Ward Secretariat with the husband's death certificate. Step 2: The secretariat verifies through e-KYC and the six-step validation. Step 3: Track status on sspensions.ap.gov.in. Official portal: https://sspensions.ap.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 64\n- Gender: female\n- State: Andhra Pradesh\n- District: Kurnool\n- Area: rural\n- Marital status: widowed\n- Land (acres): 0.0\n- Household income (₹/year): ₹60,000 per year (₹5,000 per month)\n- Rice card (white ration card): yes",
+    "faithfulness": 1.0,
+    "verdicts": [
+      {
+        "claim": "NTR Bharosa Pension – Widows is a pension scheme for widowed women in Andhra Pradesh.",
+        "supported": true,
+        "reason": "Supported by passages [1] and [2] which state the scheme is for widows in Andhra Pradesh."
+      },
+      {
+        "claim": "Eligibility requires the applicant to be a resident of Andhra Pradesh.",
+        "supported": true,
+        "reason": "Passage [2] lists 'Resident of Andhra Pradesh' as a requirement."
+      },
+      {
+        "claim": "The applicant must be female.",
+        "supported": true,
+        "reason": "Passage [2] specifies 'Woman' as a requirement."
+      },
+      {
+        "claim": "The applicant must be widowed.",
+        "supported": true,
+        "reason": "Passage [2] specifies 'Widow' as a requirement."
+      },
+      {
+        "claim": "The applicant must be 18 years or older.",
+        "supported": true,
+        "reason": "Passages [1] and [2] state 'Widows aged 18 and above'."
+      },
+      {
+        "claim": "The applicant’s household income must be within ₹10,000 per month for rural areas.",
+        "supported": true,
+        "reason": "Passage [2] states 'Household income within ₹10,000/month (rural)'."
+      },
+      {
+        "claim": "The applicant’s landholding must be below 3 acres wet or 10 acres dry.",
+        "supported": true,
+        "reason": "Passage [2] states 'Land below 3 acres wet / 10 acres dry'."
+      },
+      {
+        "claim": "The applicant must not be a government employee or pensioner in the family.",
+        "supported": true,
+        "reason": "Passage [2] states 'No government employee or pensioner in the family'."
+      },
+      {
+        "claim": "The applicant must not be an income‑tax payer.",
+        "supported": true,
+        "reason": "Passage [2] states 'Not an income-tax payer'."
+      },
+      {
+        "claim": "The applicant must not own a private four‑wheel vehicle such as a taxi, tractor, or auto exempt.",
+        "supported": true,
+        "reason": "Passage [2] states 'No private four-wheeler (taxi/tractor/auto exempt)'."
+      },
+      {
+        "claim": "The pension amount is ₹4,000 per month.",
+        "supported": true,
+        "reason": "Passage [1] states 'Benefit: ₹4,000 per month'."
+      },
+      {
+        "claim": "The pension is paid at the applicant’s doorstep on the 1st of every month.",
+        "supported": true,
+        "reason": "Passage [3] states 'paid at the doorstep on the 1st of every month'."
+      },
+      {
+        "claim": "Applicants must provide an Aadhaar card.",
+        "supported": true,
+        "reason": "Passage [4] lists 'Aadhaar card' as a required document."
+      },
+      {
+        "claim": "Applicants must provide the husband’s death certificate.",
+        "supported": true,
+        "reason": "Passage [4] lists 'Husband's death certificate' as a required document."
+      },
+      {
+        "claim": "Applicants must provide the Rice card or GSWS household database entry.",
+        "supported": true,
+        "reason": "Passage [4] lists 'Rice card / GSWS household database entry' as a required document."
+      },
+      {
+        "claim": "Applicants must provide bank account details.",
+        "supported": true,
+        "reason": "Passage [4] lists 'Bank account details' as a required document."
+      },
+      {
+        "claim": "Applications are submitted at the Village or Ward Secretariat with the husband’s death certificate.",
+        "supported": true,
+        "reason": "Passage [5] Step 1: Apply at your Village / Ward Secretariat with the husband's death certificate."
+      },
+      {
+        "claim": "The Secretariat verifies the application through e‑KYC and a six‑step validation process.",
+        "supported": true,
+        "reason": "Passage [5] Step 2: The secretariat verifies through e-KYC and the six-step validation."
+      },
+      {
+        "claim": "Applicants can track the status of their application on sspensions.ap.gov.in.",
+        "supported": true,
+        "reason": "Passage [5] Step 3: Track status on sspensions.ap.gov.in."
+      },
+      {
+        "claim": "The official portal for the scheme is https://sspensions.ap.gov.in.",
+        "supported": true,
+        "reason": "Passage [5] lists Official portal: https://sspensions.ap.gov.in."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p02:ntr_bharosa_old_age",
+    "question": "Explain NTR Bharosa Pension – Old Age to me and how to apply.",
+    "answer": "**Why you qualify**  \n- Resident of Andhra Pradesh – you told us you live in Kurnool.  \n- Age 60 years or above – you are 64.  \n- Household income within ₹10,000/month (rural) – you earn ₹5,000/month.  \n- Land below 3 acres wet / 10 acres dry – you have 0 acres.  \n\n**Please confirm**  \n- No government employee or pensioner in the family.  \n- Not an income‑tax payer.  \n- No private four‑wheeler (taxis, tractors, autos are exempt).  \n\n**What you get**  \n- ₹4,000 per month delivered to your doorstep on the 1st of every month. [3]  \n\n**Documents to keep ready**  \n- Aadhaar card.  \n- Rice card / household listed in the GSWS household database.  \n- Age proof (Aadhaar, birth certificate or school record).  \n- Bank account or Aadhaar‑linked payment details.  \n- Passport‑size photograph. [4]  \n\n**How to apply**  \n1. Visit your Village / Ward Secretariat when the application window is open. [5]  \n2. The Welfare & Education Assistant or Ward Welfare Secretary will register your application with e‑KYC. [5]  \n3. Your eligibility will be checked against the six‑step validation; if approved, the pension will be released in phases. [5]  \n4. Track the status on sspensions.ap.gov.in (official portal: https://sspensions.ap.gov.in). [5]  \n\nIf any of the above points are unclear, it is best to confirm at your local Village/Ward Secretariat.",
+    "contexts": [
+      "NTR Bharosa Pension – Old Age (ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య). Monthly social security pension for poor elderly citizens of Andhra Pradesh. Offered by Department of Rural Development (SERP), Govt. of Andhra Pradesh. Benefit: ₹4,000 per month. NTR Bharosa replaced YSR Pension Kanuka in June 2024. The old-age category covers men and women aged 60 and above from poor households. Households must clear the six-step validation: monthly household income up to ₹10,000 in rural areas and ₹12,000 in urban areas, land below 3 acres wet or 10 acres dry (or 10 acres combined), monthly electricity use below 300 units, no government employee or government pensioner in the family, no four-wheeler (taxis, tractors and autos are exempt), no income-tax payer, and urban property below 1,000 sq ft. Only one pension is allowed per person.\n Status note: Fresh applications are accepted only during notified windows (e.g. 7–16 Sept 2026).",
+      "NTR Bharosa Pension – Old Age (ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య) - who is eligible: Resident of Andhra Pradesh; Age 60 years or above; Household income within ₹10,000/month (rural) or ₹12,000/month (urban); Land below 3 acres wet / 10 acres dry; No government employee or pensioner in the family; Not an income-tax payer; No private four-wheeler (taxi/tractor/auto exempt). NTR Bharosa replaced YSR Pension Kanuka in June 2024. The old-age category covers men and women aged 60 and above from poor households. Households must clear the six-step validation: monthly household income up to ₹10,000 in rural areas and ₹12,000 in urban areas, land below 3 acres wet or 10 acres dry (or 10 acres combined), monthly electricity use below 300 units, no government employee or government pensioner in the family, no four-wheeler (taxis, tractors and autos are exempt), no income-tax payer, and urban property below 1,000 sq ft. Only one pension is allowed per person.",
+      "NTR Bharosa Pension – Old Age (ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య) - benefits: ₹4,000 per month, delivered to the doorstep by village/ward secretariat staff on the 1st of every month. Raised from ₹3,000 to ₹4,000 by G.O.Ms.No.43 (13 June 2024), effective 1 July 2024.",
+      "NTR Bharosa Pension – Old Age (ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య) - documents required: Aadhaar card; Rice card / household listed in the GSWS household database; Age proof (Aadhaar, birth certificate or school record); Bank account or Aadhaar-linked payment details; Passport-size photograph.",
+      "NTR Bharosa Pension – Old Age (ఎన్టీఆర్ భరోసా పింఛను – వృద్ధాప్య) - how to apply: Step 1: Visit your Village / Ward Secretariat (Swarna Gramam / Swarna Ward centre) when the application window is open. Step 2: The Welfare & Education Assistant or Ward Welfare Secretary registers the application with e-KYC. Step 3: Eligibility is checked against the six-step validation; sanctioned pensions are released in phases. Step 4: Track status on sspensions.ap.gov.in. Official portal: https://sspensions.ap.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 64\n- Gender: female\n- State: Andhra Pradesh\n- District: Kurnool\n- Area: rural\n- Marital status: widowed\n- Land (acres): 0.0\n- Household income (₹/year): ₹60,000 per year (₹5,000 per month)\n- Rice card (white ration card): yes",
+    "faithfulness": 1.0,
+    "verdicts": [
+      {
+        "claim": "NTR Bharosa Pension – Old Age is a pension scheme for residents of Andhra Pradesh aged 60 years or above.",
+        "supported": true,
+        "reason": "Official passages state the scheme is for residents of Andhra Pradesh and covers men and women aged 60 and above."
+      },
+      {
+        "claim": "Eligibility requires the applicant to be a resident of Andhra Pradesh, age 60 or older, and have a household income of ₹10,000 per month or less in rural areas.",
+        "supported": true,
+        "reason": "Passages specify residency, age 60+, and household income up to ₹10,000/month in rural areas."
+      },
+      {
+        "claim": "The applicant must own less than 3 acres of wet land or less than 10 acres of dry land.",
+        "supported": true,
+        "reason": "Passages mention land below 3 acres wet or 10 acres dry as a requirement."
+      },
+      {
+        "claim": "The applicant must not have a government employee or pensioner in the family.",
+        "supported": true,
+        "reason": "Passages state no government employee or government pensioner in the family."
+      },
+      {
+        "claim": "The applicant must not be an income‑tax payer.",
+        "supported": true,
+        "reason": "Passages state no income‑tax payer."
+      },
+      {
+        "claim": "The applicant must not own a private four‑wheel vehicle such as a taxi, tractor, or auto rickshaw.",
+        "supported": true,
+        "reason": "Passages state no four‑wheeler (taxis, tractors and autos are exempt)."
+      },
+      {
+        "claim": "Eligible beneficiaries receive ₹4,000 per month, delivered on the first of each month.",
+        "supported": true,
+        "reason": "Passages state benefit ₹4,000/month and delivery on the 1st of every month."
+      },
+      {
+        "claim": "To apply, the applicant must visit the Village or Ward Secretariat during the open application window.",
+        "supported": true,
+        "reason": "Passages describe Step 1: visit Village/Ward Secretariat when the application window is open."
+      },
+      {
+        "claim": "The Welfare & Education Assistant or Ward Welfare Secretary registers the application using e‑KYC.",
+        "supported": true,
+        "reason": "Passages describe registration with e‑KYC by Welfare & Education Assistant or Ward Welfare Secretary."
+      },
+      {
+        "claim": "The application is validated against a six‑step eligibility check before approval.",
+        "supported": true,
+        "reason": "Passages mention eligibility checked against six‑step validation before sanction."
+      },
+      {
+        "claim": "Once approved, the pension is released in phases.",
+        "supported": true,
+        "reason": "Passages state sanctioned pensions are released in phases."
+      },
+      {
+        "claim": "The applicant can track the application status on the official portal sspensions.ap.gov.in.",
+        "supported": true,
+        "reason": "Passages provide the portal URL for tracking status."
+      },
+      {
+        "claim": "Required documents include an Aadhaar card, a rice card or GSWS household database listing, age proof such as Aadhaar, birth certificate or school record, a bank account or Aadhaar‑linked payment details, and a passport‑size photograph.",
+        "supported": true,
+        "reason": "Passages list these documents as required for application."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p03:ap_fee_reimbursement",
+    "question": "Explain AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) to me and how to apply.",
+    "answer": "**Why you qualify**  \n- Resident of Andhra Pradesh – you told us you live in Vijayawada.  \n- Currently a student – you told us you are a student.  \n- Studying a post‑matric course – you told us you are pursuing a professional course.  \n- SC, ST, BC, EWS or minority community – you told us you belong to SC.  \n- Annual family income up to ₹2.5 lakh – you told us your household income is ₹180,000 per year.  \n- College is in Andhra Pradesh – you told us your college is in AP.  \n\n**What you get**  \n- Full tuition‑fee reimbursement and maintenance allowance for hostel/mess. [3]  \n\n**Documents to keep ready**  \n- Aadhaar card; caste certificate and income certificate (MeeSeva); previous class marks memo / study certificate; admission and fee details from the college; bank account details of student and mother. [4]  \n\n**How to apply**  \n1. Register on the Jnanabhumi portal (jnanabhumi.ap.gov.in) through your college.  \n2. Complete biometric / e‑KYC authentication at the college or secretariat.  \nOfficial portal: https://jnanabhumi.ap.gov.in. [5]  \n\nIf you need any clarification, it is best to confirm at your local Village/Ward Secretariat.",
+    "contexts": [
+      "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) (పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్). Fee reimbursement and maintenance scholarship for SC, ST, BC, EWS and minority students in post-matric courses. Offered by Social Welfare / BC Welfare / Tribal Welfare / Minority Welfare Depts., Govt. of AP. Benefit: Full tuition-fee reimbursement plus maintenance (hostel/mess) allowance. Students from SC, ST, BC, EWS (including Kapu) and minority communities studying in post-matric courses (Intermediate, ITI, polytechnic, degree, engineering, medical, PG) in recognised institutions are eligible if annual family income is up to ₹2.5 lakh. Seats must be convener quota, and minimum attendance applies. The Jnanabhumi guidelines have a separate section for AP students studying in Telangana and other states: students admitted through the entrance test (convener quota) are covered, students in private or deemed universities and correspondence/distance courses are not, premier institutes notified by the Government of India are reimbursed at their own fee, and other institutes are reimbursed at the AP fee for the equivalent course or the actual fee, whichever is lower.\n Status note: Income ceilings differ by category: ₹2.5 lakh for SC/ST/EWS/minority, about ₹2 lakh for BC in some notifications. AP students in Telangana/other-state colleges are covered only under separate conditions; confirm with the Jnanabhumi helpline (08645-274025).",
+      "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) (పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్) - who is eligible: Resident of Andhra Pradesh; Currently a student; Studying a post-matric course (Inter, ITI, polytechnic, degree, professional, PG); SC, ST, BC, EWS or minority community; Annual family income up to ₹2.5 lakh; College is in Andhra Pradesh; College outside AP: admitted through the entrance-test (convener) route, not a private/deemed university; fee capped at the AP rate for the course. Students from SC, ST, BC, EWS (including Kapu) and minority communities studying in post-matric courses (Intermediate, ITI, polytechnic, degree, engineering, medical, PG) in recognised institutions are eligible if annual family income is up to ₹2.5 lakh. Seats must be convener quota, and minimum attendance applies. The Jnanabhumi guidelines have a separate section for AP students studying in Telangana and other states: students admitted through the entrance test (convener quota) are covered, students in private or deemed universities and correspondence/distance courses are not, premier institutes notified by the Government of India are reimbursed at their own fee, and other institutes are reimbursed at the AP fee for the equivalent course or the actual fee, whichever is lower.",
+      "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) (పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్) - benefits: Reimbursement of tuition, special and exam fees for convener-quota seats in ITI, polytechnic, degree, engineering, medical and PG courses. Maintenance Fee (MTF) towards hostel and mess charges.",
+      "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) (పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్) - documents required: Aadhaar card; Caste certificate and income certificate (MeeSeva); Previous class marks memo / study certificate; Admission and fee details from the college; Bank account (student and mother).",
+      "AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) (పోస్ట్ మెట్రిక్ స్కాలర్‌షిప్ & ఫీజు రీయింబర్స్‌మెంట్) - how to apply: Step 1: Register on the Jnanabhumi portal (jnanabhumi.ap.gov.in) through your college. Step 2: Complete biometric / e-KYC authentication at the college or secretariat. Official portal: https://jnanabhumi.ap.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 20\n- Gender: male\n- State: Andhra Pradesh\n- District: Vijayawada\n- Area: urban\n- Social category: SC\n- Occupation: student\n- Household income (₹/year): ₹180,000 per year (₹15,000 per month)\n- Currently a student: yes\n- Education: professional",
+    "faithfulness": 1.0,
+    "verdicts": [
+      {
+        "claim": "The AP Post-Matric Scholarship & Fee Reimbursement (Jnanabhumi) is a scholarship program for students in Andhra Pradesh.",
+        "supported": true,
+        "reason": "Passage [1] states it is offered by Govt. of AP for students in AP."
+      },
+      {
+        "claim": "Eligibility requires the student to be a resident of Andhra Pradesh.",
+        "supported": true,
+        "reason": "Passage [2] lists 'Resident of Andhra Pradesh' as eligibility."
+      },
+      {
+        "claim": "Eligibility requires the student to be currently enrolled in a post‑matric course.",
+        "supported": true,
+        "reason": "Passage [2] states 'Currently a student; Studying a post-matric course'."
+      },
+      {
+        "claim": "Eligibility requires the student to belong to SC, ST, BC, EWS or a minority community.",
+        "supported": true,
+        "reason": "Passages [1] and [2] list these categories."
+      },
+      {
+        "claim": "Eligibility requires the annual family income to be up to ₹2.5 lakh.",
+        "supported": true,
+        "reason": "Passages [1] and [2] specify income up to ₹2.5 lakh."
+      },
+      {
+        "claim": "The scholarship provides full tuition‑fee reimbursement and a maintenance allowance for hostel or mess expenses.",
+        "supported": true,
+        "reason": "Passage [1] and [3] mention full tuition reimbursement and maintenance allowance."
+      },
+      {
+        "claim": "Applicants must submit an Aadhaar card, caste certificate, income certificate, previous class marks memo or study certificate, admission and fee details, and bank account details of the student and mother.",
+        "supported": true,
+        "reason": "Passage [4] lists these documents."
+      },
+      {
+        "claim": "Applications are submitted through the Jnanabhumi portal at jnanabhumi.ap.gov.in.",
+        "supported": true,
+        "reason": "Passage [5] states applications are via the portal."
+      },
+      {
+        "claim": "Applicants must register on the portal via their college and complete biometric or e‑KYC authentication at the college or secretariat.",
+        "supported": true,
+        "reason": "Passage [5] describes these steps."
+      },
+      {
+        "claim": "The official portal URL is https://jnanabhumi.ap.gov.in.",
+        "supported": true,
+        "reason": "Passage [5] gives the official portal URL."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p03:pm_internship",
+    "question": "Explain PM Internship Scheme to me and how to apply.",
+    "answer": "## Why you qualify  \n- Age 18 years or above – you are 20  \n- Age 25 years or below – you are 20  \n- Passed 10th or higher – you have professional education  \n- Family income below ₹8 lakh a year – your household income is ₹180,000  \n- Not in full‑time employment – you are a student  \n\n## What you get  \n- 12 months of real work experience in a top‑500 company – [3]  \n- Monthly stipend (₹5,000 under the pilot; check the portal for revised amounts) – [3]  \n- One‑time grant of ₹6,000 – [3]  \n- Insurance cover – [3]  \n\n## Documents to keep ready  \n- Aadhaar card – [4]  \n- Educational certificates (10th / 12th / ITI / diploma / degree) – [4]  \n- Bank account – [4]  \n\n## How to apply  \n1. Register on the portal pminternship.mca.gov.in, complete your profile – [5]  \n2. Apply to up to 5 internships per round – [5]  \n3. Use the official portal: https://pminternship.mca.gov.in – [5]  \n\nIf you need more details, it is best confirmed at your local Village/Ward Secretariat.",
+    "contexts": [
+      "PM Internship Scheme (పీఎం ఇంటర్న్‌షిప్ పథకం). Paid 12-month internships in India's top companies for youth aged 18–25. Offered by Ministry of Corporate Affairs, Govt. of India. Benefit: 12-month internship in a top company with a monthly stipend and one-time grant. Indian youth aged 18–25 who have passed 10th or higher (including ITI, diploma and degree), are not in full-time employment, and whose family income is below ₹8 lakh a year are eligible. Final-year students became eligible in April 2026. Graduates of premier institutes such as IITs and IIMs, CA/CMA holders, and those who completed NATS/NAPS apprenticeships are excluded.\n Status note: Eligibility was widened in April 2026 to final-year students aged 18–25.",
+      "PM Internship Scheme (పీఎం ఇంటర్న్‌షిప్ పథకం) - who is eligible: Age 18 years or above; Age 25 years or below; Passed 10th or higher; Family income below ₹8 lakh a year; Not in full-time employment. Indian youth aged 18–25 who have passed 10th or higher (including ITI, diploma and degree), are not in full-time employment, and whose family income is below ₹8 lakh a year are eligible. Final-year students became eligible in April 2026. Graduates of premier institutes such as IITs and IIMs, CA/CMA holders, and those who completed NATS/NAPS apprenticeships are excluded.",
+      "PM Internship Scheme (పీఎం ఇంటర్న్‌షిప్ పథకం) - benefits: 12 months of real work experience in a top-500 company. Monthly stipend (₹5,000 under the pilot; check the portal for revised amounts) plus a one-time grant of ₹6,000 and insurance cover.",
+      "PM Internship Scheme (పీఎం ఇంటర్న్‌షిప్ పథకం) - documents required: Aadhaar card; Educational certificates (10th / 12th / ITI / diploma / degree); Bank account.",
+      "PM Internship Scheme (పీఎం ఇంటర్న్‌షిప్ పథకం) - how to apply: Step 1: Register on pminternship.mca.gov.in, complete the profile and apply to up to 5 internships per round. Official portal: https://pminternship.mca.gov.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 20\n- Gender: male\n- State: Andhra Pradesh\n- District: Vijayawada\n- Area: urban\n- Social category: SC\n- Occupation: student\n- Household income (₹/year): ₹180,000 per year (₹15,000 per month)\n- Currently a student: yes\n- Education: professional",
+    "faithfulness": 0.7692307692307693,
+    "verdicts": [
+      {
+        "claim": "The PM Internship Scheme is a government program that offers 12 months of work experience in a top‑500 company.",
+        "supported": false,
+        "reason": "Official passage states \"Paid 12-month internships in India's top companies\" but does not specify top‑500."
+      },
+      {
+        "claim": "Applicants must be aged 18 to 25 years.",
+        "supported": true,
+        "reason": "Passage [1] explicitly states youth aged 18–25."
+      },
+      {
+        "claim": "Applicants must have passed 10th grade or higher and have professional education.",
+        "supported": false,
+        "reason": "Passage states passed 10th or higher (including ITI, diploma, degree) but does not mention a professional education requirement."
+      },
+      {
+        "claim": "Applicants must have a family income below ₹8 lakh per year.",
+        "supported": true,
+        "reason": "Passage explicitly states family income below ₹8 lakh a year."
+      },
+      {
+        "claim": "Applicants must not be in full‑time employment; students are eligible.",
+        "supported": false,
+        "reason": "Passage states not in full-time employment but does not explicitly state that students are eligible."
+      },
+      {
+        "claim": "The stipend for the pilot phase is ₹5,000 per month, but the amount may be revised on the portal.",
+        "supported": true,
+        "reason": "Passage [3] states monthly stipend ₹5,000 under pilot and to check portal for revised amounts."
+      },
+      {
+        "claim": "Participants receive a one‑time grant of ₹6,000.",
+        "supported": true,
+        "reason": "Passage [3] states one‑time grant of ₹6,000."
+      },
+      {
+        "claim": "Participants are covered by insurance.",
+        "supported": true,
+        "reason": "Passage [3] states insurance cover."
+      },
+      {
+        "claim": "Applicants must provide an Aadhaar card.",
+        "supported": true,
+        "reason": "Passage [4] lists Aadhaar card as required document."
+      },
+      {
+        "claim": "Applicants must provide educational certificates such as 10th, 12th, ITI, diploma, or degree certificates.",
+        "supported": true,
+        "reason": "Passage [4] lists those certificates."
+      },
+      {
+        "claim": "Applicants must provide a bank account for stipend disbursement.",
+        "supported": true,
+        "reason": "Passage [4] lists bank account."
+      },
+      {
+        "claim": "To apply, register on the portal pminternship.mca.gov.in and complete your profile.",
+        "supported": true,
+        "reason": "Passage [5] states register on portal and complete profile."
+      },
+      {
+        "claim": "Applicants can apply to up to five internships per round through the portal.",
+        "supported": true,
+        "reason": "Passage [5] states apply to up to 5 internships per round."
+      }
+    ]
+  },
+  {
+    "kind": "explain",
+    "id": "p04:pm_sym",
+    "question": "Explain PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) to me and how to apply.",
+    "answer": "**Why you qualify**  \n- Unorganised‑sector worker – you are a fisherman.  \n- Age 18 years or above – you are 34.  \n- Age 40 years or below – you are 34.  \n- Income up to ₹15,000 per month – your income is ₹8,000 per month.  \n\n**Please confirm**  \n- You are not an income‑tax payer.  \n\n**What you get**  \n- ₹3,000 per month pension after you turn 60.  \n- 50 % of that pension as a family pension to your spouse. [3]  \n\n**Documents to keep ready**  \n- Aadhaar card.  \n- Savings bank account or Jan Dhan account with IFSC. [4]  \n\n**How to apply**  \n1. Enrol at a Common Service Centre (CSC) or visit the portal maandhan.in.  \n2. Provide your Aadhaar and bank details.  \n3. Complete the online form.  \n4. The portal is https://maandhan.in. [5]  \n\nIf you need more help, visit your nearest Village/Ward Secretariat.",
+    "contexts": [
+      "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) (పీఎం శ్రమ యోగి మాన్‌ధన్). Retirement savings, not a welfare pension: an unorganised worker pays ₹55–₹200 a month (the Centre adds the same) and gets ₹3,000 a month after age 60. Offered by Ministry of Labour & Employment, Govt. of India. Benefit: ₹3,000 per month pension after age 60 (contribution ₹55–₹200/month, matched by Centre). Unorganised workers such as agricultural labourers, construction workers, street vendors, domestic workers, rickshaw and auto drivers, weavers, cobblers and artisans aged 18–40 with monthly income up to ₹15,000 are eligible. Members of EPF, ESIC or NPS and income-tax payers are excluded.",
+      "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) (పీఎం శ్రమ యోగి మాన్‌ధన్) - who is eligible: Unorganised-sector worker; Age 18 years or above; Age 40 years or below; Income up to ₹15,000 per month; Not an income-tax payer. Unorganised workers such as agricultural labourers, construction workers, street vendors, domestic workers, rickshaw and auto drivers, weavers, cobblers and artisans aged 18–40 with monthly income up to ₹15,000 are eligible. Members of EPF, ESIC or NPS and income-tax payers are excluded.",
+      "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) (పీఎం శ్రమ యోగి మాన్‌ధన్) - benefits: Assured pension of ₹3,000 per month from age 60; 50% family pension to spouse.",
+      "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) (పీఎం శ్రమ యోగి మాన్‌ధన్) - documents required: Aadhaar card; Savings bank account / Jan Dhan account with IFSC.",
+      "PM Shram Yogi Maan-Dhan (Unorganised Worker Pension) (పీఎం శ్రమ యోగి మాన్‌ధన్) - how to apply: Step 1: Enrol at a Common Service Centre (CSC) or on maandhan.in with Aadhaar and bank details. Official portal: https://maandhan.in."
+    ],
+    "method": "llm",
+    "citizen_facts": "- Age: 34\n- Gender: male\n- State: Andhra Pradesh\n- District: Kakinada\n- Area: rural\n- Occupation: fisherman\n- Household income (₹/year): ₹96,000 per year (₹8,000 per month)\n- Daughter under 10: yes",
+    "faithfulness": 1.0,
+    "verdicts": [
+      {
+        "claim": "Unorganised‑sector workers are eligible for the PM Shram Yogi Maan‑Dhan scheme.",
+        "supported": true,
+        "reason": "Official passage [1] states that unorganised workers are eligible."
+      },
+      {
+        "claim": "Eligibility requires the worker to be at least 18 years old.",
+        "supported": true,
+        "reason": "Passage [1] specifies age 18–40 for eligibility."
+      },
+      {
+        "claim": "Eligibility requires the worker to be 40 years old or younger.",
+        "supported": true,
+        "reason": "Passage [1] specifies age 18–40 for eligibility."
+      },
+      {
+        "claim": "Eligibility requires the worker’s monthly income to be ₹15,000 or less.",
+        "supported": true,
+        "reason": "Passage [1] states monthly income up to ₹15,000."
+      },
+      {
+        "claim": "The scheme provides a pension of ₹3,000 per month after the worker turns 60.",
+        "supported": true,
+        "reason": "Passage [1] mentions ₹3,000 per month after age 60."
+      },
+      {
+        "claim": "The spouse receives 50 % of the pension as a family pension.",
+        "supported": true,
+        "reason": "Passage [3] states 50% family pension to spouse."
+      },
+      {
+        "claim": "Applicants must have an Aadhaar card.",
+        "supported": true,
+        "reason": "Passage [4] lists Aadhaar card as required document."
+      },
+      {
+        "claim": "Applicants must have a savings bank account or Jan Dhan account with an IFSC code.",
+        "supported": true,
+        "reason": "Passage [4] lists savings bank account / Jan Dhan account with IFSC."
+      },
+      {
+        "claim": "Applications can be submitted at a Common Service Centre or online via the portal maandhan.in.",
+        "supported": true,
+        "reason": "Passage [5] says enrol at CSC or on maandhan.in."
+      },
+      {
+        "claim": "The online application requires the applicant’s Aadhaar and bank details.",
+        "supported": true,
+        "reason": "Passage [5] states enrol on maandhan.in with Aadhaar and bank details."
+      }
+    ]
+  }
+]
